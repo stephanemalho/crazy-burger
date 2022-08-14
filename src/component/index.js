@@ -11,12 +11,8 @@ const Index = () => {
 
     setState(state);
 
-    if (state === "") {
-      alert("Merci d'entrer une valeur dans le champ");
-      return;
-    } else {
-      alert(`Bonjour  ${state}`);
-    }
+    alert(`Bonjour  ${state}`);
+
     setState("");
   };
 
@@ -32,6 +28,7 @@ const Index = () => {
         type="text"
         placeholder="Entrez votre prénom"
         onChange={handleChange}
+        required
       />
       <button>Accéder à votre espace</button>
     </form>
