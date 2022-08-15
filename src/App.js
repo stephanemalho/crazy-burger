@@ -1,13 +1,9 @@
 import './App.css';
-import Form from './component';
-import Title from './component/title';
+import Form from './components/LoginPage';
 
 function App() {
   return (
-    <>
-    <Title />
     <Form />
-    </>
   );
 }
 
