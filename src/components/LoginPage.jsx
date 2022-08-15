@@ -12,7 +12,7 @@ const Form = () => {
 
     setInputValue(inputValue);
 
-    alert(`Bonjour  ${inputValue}`);
+    alert(`Bonjour ${inputValue}`);
 
     setInputValue("");
   };
@@ -24,18 +24,21 @@ const Form = () => {
   // render
   return (
     <form action="submit" onSubmit={handleSubmit}>
-        <FormTitle />
-        <label htmlFor="name"><b>Connectez vous</b><br/></label>
-        <input
-          value={inputValue}
-          type="text"
-          id="name"
-          placeholder="Entrez votre prénom"
-          onChange={handleChange}
-          required
-        />
-        <button>Accéder à votre espace</button>
-      </form>
+      <FormTitle />
+      <label htmlFor="name">
+        <b>Connectez vous</b>
+        <br />
+      </label>
+      <input
+        value={inputValue}
+        type="text"
+        id="name"
+        placeholder="Entrez votre prénom"
+        onChange={handleChange}
+        required
+      />
+      <button>Accéder à votre espace</button>
+    </form>
   );
 };
 
