@@ -1,6 +1,6 @@
 import React from "react";
 import { useState } from "react";
-import FormTitle from "./Title";
+import FormTitle from "./FormTitle";
 
 const Form = () => {
   // state
@@ -9,11 +9,7 @@ const Form = () => {
   // behavior
   const handleSubmit = (e) => {
     e.preventDefault();
-
-    setInputValue(inputValue);
-
     alert(`Bonjour ${inputValue}`);
-
     setInputValue("");
   };
 
