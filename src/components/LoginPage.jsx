@@ -1,6 +1,6 @@
 import React from "react";
 import { useState } from "react";
-import Title from "./Title";
+import FormTitle from "./Title";
 
 const Form = () => {
   // state
@@ -23,19 +23,19 @@ const Form = () => {
 
   // render
   return (
-    <>
-      <Title />
-      <form action="submit" onSubmit={handleSubmit}>
+    <form action="submit" onSubmit={handleSubmit}>
+        <FormTitle />
+        <label htmlFor="name"><b>Connectez vous</b><br/></label>
         <input
           value={inputValue}
           type="text"
+          id="name"
           placeholder="Entrez votre prénom"
           onChange={handleChange}
           required
         />
         <button>Accéder à votre espace</button>
       </form>
-    </>
   );
 };
 
