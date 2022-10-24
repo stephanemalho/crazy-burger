@@ -1,9 +1,10 @@
 import './App.css';
-import LoginPage from './components/pages/login/LoginPage';
+import Path from './routes/index';
+
 
 function App() {
   return (
-    <LoginPage />
+    <Path />
   );
 }
 

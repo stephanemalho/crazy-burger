@@ -7,9 +7,7 @@ const LoginPage = () => {
   // behavior
   
   // render
-  return (
-    <LoginForm />
-  );
+  return <LoginForm />
 };
 
 export default LoginPage;
