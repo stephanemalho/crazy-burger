@@ -2,7 +2,7 @@ import React from "react";
 import { useState } from "react";
 import FormTitle from "./FormTitle";
 
-const Form = () => {
+const LoginPage = () => {
   // state
   const [inputValue, setInputValue] = useState("");
 
@@ -38,4 +38,4 @@ const Form = () => {
   );
 };
 
-export default Form;
+export default LoginPage;
