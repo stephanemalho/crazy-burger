@@ -1,8 +1,6 @@
-import React from "react";
-import { useState } from "react";
-import FormTitle from "./FormTitle";
+import React, { useState } from 'react'
 
-const LoginPage = () => {
+export default function LoginForm() {
   // state
   const [inputValue, setInputValue] = useState("");
 
@@ -20,11 +18,11 @@ const LoginPage = () => {
   // render
   return (
     <form action="submit" onSubmit={handleSubmit}>
-      <FormTitle />
+      <h1>Bienvenue chez vous !</h1>
+      <br/>
       <label htmlFor="name">
         <b>Connectez vous</b>
         <br />
-      </label>
       <input
         value={inputValue}
         type="text"
@@ -32,10 +30,9 @@ const LoginPage = () => {
         placeholder="Entrez votre prénom"
         onChange={handleChange}
         required
-      />
+        />
+        </label>
       <button>Accéder à votre espace</button>
     </form>
-  );
-};
-
-export default LoginPage;
+  )
+}
