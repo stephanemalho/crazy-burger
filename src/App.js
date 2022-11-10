@@ -1,10 +1,10 @@
 import './App.css';
-import Path from './routes/index';
+import Paths from './routes/index';
 
 
 function App() {
   return (
-    <Path />
+    <Paths />
   );
 }
 

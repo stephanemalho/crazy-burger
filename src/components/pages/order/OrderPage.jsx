@@ -1,24 +1,18 @@
-import React from 'react'
-import { useNavigate, useLocation } from "react-router-dom"
+import React from "react";
+import { Link, useLocation } from "react-router-dom";
 
 function OrderPage() {
-  
-  const Navigate = useNavigate();
-  const { state } = useLocation();
-  console.log(state);
-
-  const handleLogin= (e) => {
-    e.preventDefault();
-    // redirect to Login page
-    Navigate("/");
-  }
+  const { userName } = useLocation();
 
   return (
     <>
-      <h1>Bonjour { state }</h1><br/>
-      <button onClick={handleLogin}>Déconnexion</button>  
+      <h1>Bonjour {userName}</h1>
+      <br />
+      <Link to="/">
+        <button>Déconnexion</button>
+      </Link>
     </>
-  )
+  );
 }
 
-export default OrderPage
+export default OrderPage;
