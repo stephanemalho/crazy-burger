@@ -1,16 +1,20 @@
 import React from "react";
-import { Link, useLocation } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
 function OrderPage() {
-  const { userName } = useLocation();
+  const navigate = useNavigate();
+  const { userName } = useParams();
+
+  const handleLogin = (e) => {
+    e.preventDefault();
+    navigate("/");
+  };
 
   return (
     <>
       <h1>Bonjour {userName}</h1>
       <br />
-      <Link to="/">
-        <button>Déconnexion</button>
-      </Link>
+      <button onClick={handleLogin}>Déconnexion</button>
     </>
   );
 }

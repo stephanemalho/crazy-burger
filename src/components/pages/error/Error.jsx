@@ -1,14 +1,21 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 export default function Error() {
+  const navigate = useNavigate();
+
+  const redirectToLoginPage = (e) => {
+    e.preventDefault();
+    navigate("/");
+  };
+
   return (
     <>
       <h1>Error Page </h1>
       <br />
-      <Link to="/">
-        <button>Retourner à la page d'accueil</button>
-      </Link>
+      <button onClick={redirectToLoginPage}>
+        Retourner à la page d'accueil
+      </button>
     </>
   );
 }

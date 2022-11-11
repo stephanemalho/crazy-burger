@@ -1,18 +1,20 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const LoginForm = () => {
   // state
-  const [inputValue, setInputValue] = useState("");
+  const [userName, setUserName] = useState("");
+  const navigate = useNavigate();
 
   // behavior
   const handleSubmit = (e) => {
     e.preventDefault();
-    setInputValue("");
+    setUserName("");
+    navigate(`order/${userName}`);
   };
 
   const handleChange = (e) => {
-    setInputValue(e.target.value);
+    setUserName(e.target.value);
   };
 
   // render
@@ -24,7 +26,7 @@ const LoginForm = () => {
         <b>Connectez vous</b>
         <br />
         <input
-          value={inputValue}
+          value={userName}
           type="text"
           id="name"
           placeholder="Entrez votre prénom"
@@ -32,10 +34,7 @@ const LoginForm = () => {
           required
         />
       </label>
-
-      <Link to="/order">
-        <button>Accéder à votre espace</button>
-      </Link>
+      <button>Accéder à votre espace</button>
     </form>
   );
 };
