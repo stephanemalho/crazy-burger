@@ -3,13 +3,11 @@ import LoginForm from "./LoginForm";
 
 const LoginPage = () => {
   // state
-  
+
   // behavior
-  
+
   // render
-  return (
-    <LoginForm />
-  );
+  return <LoginForm />;
 };
 
 export default LoginPage;
