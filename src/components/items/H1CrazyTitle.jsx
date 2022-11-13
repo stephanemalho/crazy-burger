@@ -6,7 +6,7 @@ import img from "../../assets/images/logo-orange.jpg";
 
 <img src={img} alt="dessin d'un burger" />;
 
-function CrazyTitle() {
+function H1CrazyTitle() {
   return (
     <StyledCrazyTitle>
       crazee <img src={img} alt="dessin d'un burger" /> Burger
@@ -27,4 +27,4 @@ const StyledCrazyTitle = styled.h1`
   }
 `;
 
-export default CrazyTitle;
+export default H1CrazyTitle;
