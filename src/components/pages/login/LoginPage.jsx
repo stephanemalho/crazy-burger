@@ -1,9 +1,7 @@
 import React from "react";
-import LoginForm from "./LoginForm";
+import LoginForm from "../../items/LoginForm";
 import styled from "styled-components";
 import img from "../../../assets/images/burger-background.jpg";
-
-//import {theme} from "../../../assets/theme/index"
 
 const LoginPage = () => {
   // state
@@ -15,11 +13,10 @@ const LoginPage = () => {
     <LoginPageStyled>
       <LoginForm />
     </LoginPageStyled>
-  ) 
-}
+  );
+};
 
 const LoginPageStyled = styled.div`
-
   display: flex;
   flex-direction: column;
   height: 100vh;
@@ -39,8 +36,6 @@ const LoginPageStyled = styled.div`
     background-position: center;
     background-blend-mode: darken;
   }
-`
-
-
+`;
 
 export default LoginPage;
