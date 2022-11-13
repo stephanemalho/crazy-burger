@@ -15,15 +15,12 @@ const LoginForm = () => {
   // behavior
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("userName", userName);
     setUserName("");
     navigate(`order/${userName}`);
   };
 
   const handleChange = (e) => {
     setUserName(e.target.value);
-
-    console.log(e.target.value);
   };
 
   // render
