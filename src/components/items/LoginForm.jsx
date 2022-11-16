@@ -36,6 +36,7 @@ const LoginForm = () => {
 };
 
 const LoginFormStyled = styled.form`
+  {
   height: 100vh;
   width: 100vw;
   display: flex;
@@ -48,12 +49,20 @@ const LoginFormStyled = styled.form`
     margin: 0 auto;
   }
   h2 {
-    font-size: ${theme.fonts.P4};
+    font-size: ${theme.fonts.P5};
     display: inline-block;
     width: 60vw;
   }
-  // label was here
 }
+
+@media screen and (max-width: 600px) {
+  h2 {
+    font-size: ${theme.fonts.P4};
+  }
+}
+  @media screen and (max-width: 339px) {
+    width: 90%;
+  }
 `;
 
 export default LoginForm;

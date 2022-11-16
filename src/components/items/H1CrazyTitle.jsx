@@ -15,9 +15,12 @@ function H1CrazyTitle() {
 }
 
 const StyledCrazyTitle = styled.h1`
+  {
   font-size: ${theme.fonts.P6};
   color: ${theme.colors.primary_burger};
   font-family: "Amatic SC", cursive;
+  text-transform: uppercase;
+  transform: scale(1.5);
 
   img {
     height: 90px;
@@ -25,6 +28,21 @@ const StyledCrazyTitle = styled.h1`
     position: relative;
     top: 25px;
   }
+
+};
+@media screen and (max-width: 600px) {
+  transform: scale(1);
+  img {
+    height: 60px;
+    width: 90px;
+    top: 7px;
+  }
+}
+@media screen and (max-width: 420px) {
+    img {
+      display: none;
+    }
+}
 `;
 
 export default H1CrazyTitle;

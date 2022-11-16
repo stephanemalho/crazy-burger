@@ -17,6 +17,7 @@ function AccesButton() {
 }
 
 const AccesButtonStyled = styled.div`
+ {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -49,7 +50,10 @@ const AccesButtonStyled = styled.div`
       span {
         color: ${theme.colors.primary_burger};
       }
-}
+    }
+    @media screen and (max-width: 339px) {
+      width: 90%;
+    }
 `;
 
 export default AccesButton;

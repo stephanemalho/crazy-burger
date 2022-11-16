@@ -25,7 +25,8 @@ function LabelForForm({ userName, handleChange }) {
 }
 
 const LabelForFormStyled = styled.label`
-  font-size: ${theme.fonts.P3};
+  {
+  font-size: ${theme.fonts.P4};
   font_family: "Open Sans", cursive;
   border-top: 3px solid ${theme.colors.primary};
   width: 340px;
@@ -54,7 +55,13 @@ const LabelForFormStyled = styled.label`
         border-radius: 5px;
       }
     }
-} 
+  }
+  @media screen and (max-width: 339px) {
+    width: 90%;
+    .inpuBox {
+      width: 90%;
+    }
+  }
 `
 
 export default LabelForForm
