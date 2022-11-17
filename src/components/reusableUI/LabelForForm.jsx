@@ -5,28 +5,21 @@ import styled from "styled-components";
 import { theme } from "../../assets/theme/index";
 
 function LabelForForm({
-  label,
-  value,
-  onChange,
-  placeholder,
-  id,
-  htmlFor,
+  size,
   color,
+  label,
+  htmlFor,
+  onChange,
+  value,
+  ...extraProps
 }) {
   return (
     <LabelForFormStyled htmlFor={htmlFor}>
       <b>{label}</b>
       <br />
       <div className="inputBox">
-        <BiUserCircle color={color} />
-        <input
-          value={value}
-          type="text"
-          id={id}
-          placeholder={placeholder}
-          onChange={onChange}
-          required
-        />
+        <BiUserCircle color={color} size={size} />
+        <input onChange={onChange} value={value} {...extraProps} />
       </div>
     </LabelForFormStyled>
   );

@@ -3,9 +3,9 @@ import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 /**********************************/
 import { theme } from "../../assets/theme/index";
-import H1CrazyTitle from "./H1CrazyTitle";
-import AccesButton from "./AccesButton";
-import LabelForForm from "./LabelForForm";
+import H1CrazyTitle from "../reusableUI/H1CrazyTitle";
+import AccesButton from "../reusableUI/AccesButton";
+import LabelForForm from "../reusableUI/LabelForForm";
 
 const LoginForm = () => {
   // state
@@ -30,14 +30,17 @@ const LoginForm = () => {
       <h2>Bienvenue chez vous !</h2>
       <br />
       <LabelForForm
+        size={25}
         label={"Connectez vous"}
         value={userName}
         setUserName={setUserName}
         onChange={handleChange}
         htmlFor={"name"}
+        type={"text"}
         id={"name"}
         placeholder={"Entrez votre prénom"}
         color={theme.colors.greyDark}
+        required
       />
       <AccesButton />
     </LoginFormStyled>
