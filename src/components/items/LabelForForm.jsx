@@ -1,27 +1,35 @@
-import React from 'react'
+import React from "react";
 import { BiUserCircle } from "react-icons/bi";
-import styled from 'styled-components';
+import styled from "styled-components";
 /***********************************/
 import { theme } from "../../assets/theme/index";
 
-function LabelForForm({ userName, handleChange }) {
+function LabelForForm({
+  label,
+  value,
+  onChange,
+  placeholder,
+  id,
+  htmlFor,
+  color,
+}) {
   return (
-    <LabelForFormStyled htmlFor="name">
-        <b>Connectez vous</b>
-        <br />
-        <div className="inputBox">
-          <BiUserCircle color={theme.colors.greyDark} />
-          <input
-            value={userName}
-            type="text"
-            id="name"
-            placeholder={"Entrez votre prénom"}
-            onChange={handleChange}
-            required
-          />
-        </div>
-      </LabelForFormStyled>
-  )
+    <LabelForFormStyled htmlFor={htmlFor}>
+      <b>{label}</b>
+      <br />
+      <div className="inputBox">
+        <BiUserCircle color={color} />
+        <input
+          value={value}
+          type="text"
+          id={id}
+          placeholder={placeholder}
+          onChange={onChange}
+          required
+        />
+      </div>
+    </LabelForFormStyled>
+  );
 }
 
 const LabelForFormStyled = styled.label`
@@ -62,6 +70,6 @@ const LabelForFormStyled = styled.label`
       width: 90%;
     }
   }
-`
+`;
 
-export default LabelForForm
+export default LabelForForm;
