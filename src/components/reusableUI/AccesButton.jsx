@@ -8,7 +8,7 @@ function AccesButton({ ButtonIcon, label }) {
       <button>
         { label }
         <span>
-          { ButtonIcon }
+          { ButtonIcon && ButtonIcon }
         </span>
       </button>
     </AccesButtonStyled>

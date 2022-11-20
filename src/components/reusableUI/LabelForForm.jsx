@@ -16,7 +16,7 @@ function LabelForForm({
       <b>{label}</b>
       <br />
       <div className="inputBox">
-        {Icon}
+        {Icon && Icon}
         <input onChange={onChange} value={value} {...extraProps} />
       </div>
     </LabelForFormStyled>
