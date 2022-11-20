@@ -2,11 +2,11 @@ import React from 'react'
 import styled from 'styled-components'
 import { theme } from '../../assets/theme/index'
 
-function Input({ Icon, onChange, value, ...extraProps }) {
+function TextInput({ Icon, onChange, value, ...extraProps }) {
   return (
     <InputStyled>
         {Icon && Icon}
-        <input onChange={onChange} value={value} {...extraProps} />
+        <input type="text" onChange={onChange} value={value} {...extraProps} />
     </InputStyled>
   )
 }
@@ -44,4 +44,4 @@ const InputStyled = styled.div`
   }
 `
 
-export default Input
+export default TextInput

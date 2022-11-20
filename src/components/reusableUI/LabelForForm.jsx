@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 /***********************************/
 import { theme } from "../../assets/theme/index";
-import Input from "./Input";
+import TextInput from "./TextInput";
 
 function LabelForForm({
   htmlFor,
@@ -17,7 +17,7 @@ function LabelForForm({
     <LabelForFormStyled htmlFor={htmlFor}>
       <b>{label}</b>
       <br />
-      <Input Icon={Icon} onChange={onChange} value={value} {...extraProps} />
+      <TextInput Icon={Icon} onChange={onChange} value={value} {...extraProps} />
     </LabelForFormStyled>
   );
 }
