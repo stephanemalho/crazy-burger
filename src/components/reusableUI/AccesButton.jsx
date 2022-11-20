@@ -1,15 +1,14 @@
 import React from "react";
-import { MdKeyboardArrowRight } from "react-icons/md";
 import styled from "styled-components";
 import { theme } from "../../assets/theme/index";
 
-function AccesButton() {
+function AccesButton({ ButtonIcon, label }) {
   return (
     <AccesButtonStyled>
       <button>
-        Accéder à votre espace{" "}
+        { label }
         <span>
-          <MdKeyboardArrowRight size={20} />
+          { ButtonIcon }
         </span>
       </button>
     </AccesButtonStyled>

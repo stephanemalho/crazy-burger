@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
+import { MdKeyboardArrowRight } from "react-icons/md";
+
 /**********************************/
 import { theme } from "../../assets/theme/index";
 import H1CrazyTitle from "../reusableUI/H1CrazyTitle";
@@ -42,7 +44,7 @@ const LoginForm = () => {
         color={theme.colors.greyDark}
         required
       />
-      <AccesButton />
+      <AccesButton label={"Accéder à votre espace"} ButtonIcon={<MdKeyboardArrowRight className="Btn-Icon" />} />
     </LoginFormStyled>
   );
 };
@@ -66,6 +68,10 @@ const LoginFormStyled = styled.form`
       display: inline-block;
       margin-bottom: 20px;
       width: 60vw;
+    }
+    .Btn-Icon {
+      font-size: ${theme.fonts.P2};
+      color: ${theme.colors.white};
     }
   }
 
