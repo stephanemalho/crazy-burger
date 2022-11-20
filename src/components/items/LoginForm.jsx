@@ -77,6 +77,9 @@ const LoginFormStyled = styled.form`
       padding-top: ${theme.spacing.lg};
       position: relative;
   }
+  .btnIcon {
+    font-size: ${theme.fonts.P3};
+  }
   @media screen and (max-width: 600px) {
     h2 {
       font-size: ${theme.fonts.P4};
