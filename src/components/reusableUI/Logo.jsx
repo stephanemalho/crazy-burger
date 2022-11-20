@@ -3,15 +3,15 @@ import styled from "styled-components";
 
 import { theme } from "../../assets/theme/index";
 
-function H1CrazyTitle({ leftTitle, img, rightTitle }) {
+function Logo({ props }) {
   return (
-    <StyledCrazyTitle>
-      {leftTitle} {img} {rightTitle}
-    </StyledCrazyTitle>
+    <StyledLogo>
+      Crazee { props } Burger
+    </StyledLogo>
   );
 }
 
-const StyledCrazyTitle = styled.h1`
+const StyledLogo = styled.h1`
   {
     font-size: ${theme.fonts.P6};
     color: ${theme.colors.primary_burger};
@@ -42,4 +42,4 @@ const StyledCrazyTitle = styled.h1`
   }
 `;
 
-export default H1CrazyTitle;
+export default Logo;

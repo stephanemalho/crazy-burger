@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+
 import { theme } from '../../assets/theme/index'
 
 function TextInput({ Icon, onChange, value, ...extraProps }) {
@@ -13,7 +14,7 @@ function TextInput({ Icon, onChange, value, ...extraProps }) {
 
 const InputStyled = styled.div`
   display: flex;
-  padding-left: 10px;
+  padding-left: 15px;
   align-items: center;
   justify-content: left;
   max-width: 340px;
@@ -22,25 +23,29 @@ const InputStyled = styled.div`
   margin: ${theme.spacing.md} auto;
   border: none;
   border-radius: 5px;
-  placeholder {
-    color: ${theme.colors.primary};
-  } 
   .Icon {
-    font-size: ${theme.fonts.P3};
+    font-size: ${theme.fonts.P2};
     color: ${theme.colors.greyMedium};
   }
   input {
     border: none;
     padding-left: 10px;
     width: 80%;
+    margin-left: 15px;
+    overflow: hidden;
+    text-overflow: ellipsis;
     :focus {
       outline: solid 1px ${theme.colors.primary};
       border-radius: 5px;
     }
   }
   @media screen and (max-width: 339px) {
-    .inpuBox {
       width: 90%;
+      input {
+        :focus {
+          width: 70%;
+        }
+      }
   }
 `
 

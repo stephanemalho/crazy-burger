@@ -1,6 +1,9 @@
 import React from "react";
-import LoginForm from "../../items/LoginForm";
 import styled from "styled-components";
+
+import LoginForm from "../../items/LoginForm";
+import Logo from "../../reusableUI/Logo";
+import LogoImg from "../../../assets/images/logo-orange.jpg";
 import img from "../../../assets/images/burger-background.jpg";
 
 const LoginPage = () => {
@@ -11,6 +14,7 @@ const LoginPage = () => {
   // render
   return (
     <LoginPageStyled>
+      <Logo img={<img src={LogoImg} alt="dessin d'un burger" />} />
       <LoginForm />
     </LoginPageStyled>
   );

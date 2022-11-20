@@ -2,20 +2,20 @@ import React from "react";
 import styled from "styled-components";
 import { theme } from "../../assets/theme/index";
 
-function AccesButton({ ButtonIcon, label }) {
+function PrimaryButton({ ButtonIcon, label, className }) {
   return (
-    <AccesButtonStyled>
+    <PrimaryButtonStyled>
       <button>
         { label }
-        <span>
+        <span className={className}>
           { ButtonIcon && ButtonIcon }
         </span>
       </button>
-    </AccesButtonStyled>
+    </PrimaryButtonStyled>
   );
 }
 
-const AccesButtonStyled = styled.div`
+const PrimaryButtonStyled = styled.div`
   {
   display: flex;
   justify-content: center;
@@ -44,7 +44,7 @@ const AccesButtonStyled = styled.div`
       color: ${theme.colors.primary_burger};
       background-color: ${theme.colors.white};
       cursor: pointer;
-      border: 3px solid ${theme.colors.primary_burger};
+      border: 1px solid ${theme.colors.primary_burger};
       transition: 0.1s ease-in-out;
       span {
         color: ${theme.colors.primary_burger};
@@ -55,4 +55,4 @@ const AccesButtonStyled = styled.div`
     }
 `;
 
-export default AccesButton;
+export default PrimaryButton;
