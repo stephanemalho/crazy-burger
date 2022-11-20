@@ -9,13 +9,14 @@ function LabelForForm({
   Icon,
   onChange,
   value,
+  className,
   ...extraProps
 }) {
   return (
     <LabelForFormStyled htmlFor={htmlFor}>
       <b>{label}</b>
       <br />
-      <div className="inputBox">
+      <div className={className}>
         {Icon && Icon}
         <input onChange={onChange} value={value} {...extraProps} />
       </div>

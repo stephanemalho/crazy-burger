@@ -33,6 +33,7 @@ const LoginForm = () => {
       <h2>Bienvenue chez vous !</h2>
       <br />
       <LabelForForm
+        className={"inputBox"}
         htmlFor={"name"}
         label={"Connectez vous"}
         Icon={<BiUserCircle className="Icon" />}
