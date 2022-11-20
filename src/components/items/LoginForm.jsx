@@ -9,6 +9,7 @@ import { theme } from "../../assets/theme/index";
 import H1CrazyTitle from "../reusableUI/H1CrazyTitle";
 import AccesButton from "../reusableUI/AccesButton";
 import LabelForForm from "../reusableUI/LabelForForm";
+import img from "../../assets/images/logo-orange.jpg";
 
 const LoginForm = () => {
   // state
@@ -29,7 +30,7 @@ const LoginForm = () => {
   // render
   return (
     <LoginFormStyled action="submit" onSubmit={handleSubmit}>
-      <H1CrazyTitle />
+      <H1CrazyTitle leftTitle={"Crazee"} img={<img src={img} alt="dessin d'un burger" />} rightTitle={"Title"} />
       <h2>Bienvenue chez vous !</h2>
       <br />
       <LabelForForm

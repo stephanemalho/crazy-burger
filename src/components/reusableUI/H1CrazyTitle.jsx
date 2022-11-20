@@ -2,14 +2,13 @@ import React from "react";
 import styled from "styled-components";
 
 import { theme } from "../../assets/theme/index";
-import img from "../../assets/images/logo-orange.jpg";
 
-<img src={img} alt="dessin d'un burger" />;
 
-function H1CrazyTitle() {
+
+function H1CrazyTitle({ leftTitle, img, rightTitle }) {
   return (
     <StyledCrazyTitle>
-      crazee <img src={img} alt="dessin d'un burger" /> Burger
+      {leftTitle} {img} {rightTitle}
     </StyledCrazyTitle>
   );
 }
