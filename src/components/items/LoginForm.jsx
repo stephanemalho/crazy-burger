@@ -31,7 +31,7 @@ const LoginForm = ({ Icon, onChange, value, ...extraProps }) => {
       <h2>Bienvenue chez vous !</h2>
       <br />
       <label htmlFor="name">
-        <b>Connectez - Vous</b>
+        <b>Connectez - vous</b>
         <br />
         <TextInput
           id="name"
