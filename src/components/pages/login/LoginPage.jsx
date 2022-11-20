@@ -14,7 +14,7 @@ const LoginPage = () => {
   // render
   return (
     <LoginPageStyled>
-      <Logo img={<img src={LogoImg} alt="dessin d'un burger" />} />
+      <Logo props={<img src={LogoImg} alt="dessin d'un burger" />} />
       <LoginForm />
     </LoginPageStyled>
   );
