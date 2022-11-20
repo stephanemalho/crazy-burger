@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import { MdKeyboardArrowRight } from "react-icons/md";
+import { BiUserCircle } from "react-icons/bi";
 
 /**********************************/
 import { theme } from "../../assets/theme/index";
@@ -32,16 +33,15 @@ const LoginForm = () => {
       <h2>Bienvenue chez vous !</h2>
       <br />
       <LabelForForm
-        size={25}
-        label={"Connectez vous"}
-        value={userName}
-        setUserName={setUserName}
-        onChange={handleChange}
         htmlFor={"name"}
+        label={"Connectez vous"}
+        Icon={<BiUserCircle className="Icon" />}
+        value={userName}
+        onChange={handleChange}
+        setUserName={setUserName}
         type={"text"}
         id={"name"}
         placeholder={"Entrez votre prénom"}
-        color={theme.colors.greyDark}
         required
       />
       <AccesButton label={"Accéder à votre espace"} ButtonIcon={<MdKeyboardArrowRight className="Btn-Icon" />} />

@@ -1,14 +1,12 @@
 import React from "react";
-import { BiUserCircle } from "react-icons/bi";
 import styled from "styled-components";
 /***********************************/
 import { theme } from "../../assets/theme/index";
 
 function LabelForForm({
-  size,
-  color,
-  label,
   htmlFor,
+  label,
+  Icon,
   onChange,
   value,
   ...extraProps
@@ -18,7 +16,7 @@ function LabelForForm({
       <b>{label}</b>
       <br />
       <div className="inputBox">
-        <BiUserCircle color={color} size={size} />
+        {Icon}
         <input onChange={onChange} value={value} {...extraProps} />
       </div>
     </LabelForFormStyled>
@@ -47,6 +45,10 @@ const LabelForFormStyled = styled.label`
     placeholder {
       color: ${theme.colors.primary};
     } 
+    .Icon {
+      font-size: ${theme.fonts.P3};
+      color: ${theme.colors.greyMedium};
+    }
     input {
       border: none;
       padding-left: 10px;
