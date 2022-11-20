@@ -3,8 +3,6 @@ import styled from "styled-components";
 
 import { theme } from "../../assets/theme/index";
 
-
-
 function H1CrazyTitle({ leftTitle, img, rightTitle }) {
   return (
     <StyledCrazyTitle>
@@ -20,7 +18,7 @@ const StyledCrazyTitle = styled.h1`
     font-family: "Amatic SC", cursive;
     text-transform: uppercase;
     transform: scale(1.5);
-
+    padding-bottom: ${theme.spacing.md};
     img {
       height: 90px;
       width: 140px;
@@ -30,6 +28,7 @@ const StyledCrazyTitle = styled.h1`
   }
   @media screen and (max-width: 600px) {
     transform: scale(1);
+    padding-bottom: ${theme.spacing.xxs};
     img {
       height: 60px;
       width: 90px;
