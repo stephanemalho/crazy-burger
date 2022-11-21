@@ -3,9 +3,9 @@ import styled from "styled-components";
 
 import { theme } from "../../assets/theme/index";
 
-function Logo({ props }) {
+function Logo({ props, className }) {
   return (
-    <StyledLogo>
+    <StyledLogo className={className}>
       Crazee { props } Burger
     </StyledLogo>
   );
