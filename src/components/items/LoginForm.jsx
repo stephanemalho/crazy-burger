@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import { MdKeyboardArrowRight } from "react-icons/md";
-import { BiUserCircle } from "react-icons/bi";
+import { BsPersonCircle } from "react-icons/bs";
 
 /**********************************/
 import { theme } from "../../assets/theme/index";
@@ -36,7 +36,7 @@ const LoginForm = ({ Icon, onChange, value, ...extraProps }) => {
         <TextInput
           id="name"
           type="text"
-          Icon={<BiUserCircle className="Icon" />}
+          Icon={<BsPersonCircle className="Icon" />}
           onChange={handleChange}
           value={userName}
           placeholder={"Entrez votre prénom"}
