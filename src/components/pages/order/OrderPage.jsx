@@ -16,12 +16,17 @@ function OrderPage() {
     navigate("/");
   };
 
+
+  const handleReload = () => {
+    window.location.reload()
+  }
+
   return (
     <OrderPageStyled>
       <main>
         {/** If we need navbar into another page, I will create a self component */}
         <nav>
-          <Link to="/">
+          <Link onClick={handleReload}>
             <Logo
               props={<img src={LogoImg} alt="dessin d'un burger" />}
               className={"orderLogo"}
