@@ -2,6 +2,7 @@ import React from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import styled from "styled-components";
 
+
 import NavBar from "../../reusableUI/NavBar";
 
 function OrderPage() {
@@ -43,9 +44,9 @@ const OrderPageStyled = styled.div`
     box-shadow: 0px 0px 16px 0px grey inset;
   }
 
-    @media screen and (min-width: 1000px) {
+    @media screen and (min-width: 2000px) {
         main {
-          max-width: 1000px;
+          max-width: 2000px;
           display: flex;
           flex-direction: column;
           align-content: center;

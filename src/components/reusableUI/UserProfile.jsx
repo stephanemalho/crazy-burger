@@ -44,7 +44,6 @@ const UserProfileStyled = styled.div`
       cursor: pointer;
     }
   }
-}
 `
 
 export default UserProfile;
