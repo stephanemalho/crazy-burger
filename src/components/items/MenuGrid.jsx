@@ -91,7 +91,7 @@ const MenuGridStyled = styled.section`
       .btnCart {
         width: 80px;
         position: absolute;
-        top: -50px;
+        top: -55px;
         right: -10px;
       }
     }
