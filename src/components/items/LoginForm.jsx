@@ -46,7 +46,7 @@ const LoginForm = ({ Icon, onChange, value, ...extraProps }) => {
       <PrimaryButton
         className={"btnIcon"}
         label={"Accéder à mon espace"}
-        ButtonIcon={<MdKeyboardArrowRight />}
+        ButtonIcon={<MdKeyboardArrowRight size={30} />}
       />
     </LoginFormStyled>
   );
@@ -77,7 +77,7 @@ const LoginFormStyled = styled.form`
       position: relative;
   }
   .btnIcon {
-    font-size: ${theme.fonts.size.P3};
+    font-size: ${theme.fonts.size.P1};
   }
   @media screen and (max-width: 600px) {
     h2 {
