@@ -12,8 +12,7 @@ function Logo({ props, className, onClick }) {
 }
 
 const StyledLogo = styled.h1`
-  {
-    font-size: ${theme.fonts.P6};
+    font-size: ${theme.fonts.size.P6};
     color: ${theme.colors.primary_burger};
     font-family: "Amatic SC", cursive;
     text-transform: uppercase;
@@ -29,7 +28,7 @@ const StyledLogo = styled.h1`
       height: 90px;
       width: 140px;
     }
-  }
+  
   @media screen and (max-width: 600px) {
     transform: scale(1);
     padding-bottom: ${theme.spacing.xxs};

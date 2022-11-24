@@ -24,7 +24,7 @@ const InputStyled = styled.div`
   border: none;
   border-radius: 5px;
   .Icon {
-    font-size: ${theme.fonts.P2};
+    font-size: ${theme.fonts.size.P2};
     color: ${theme.colors.greyMedium};
   }
   input {

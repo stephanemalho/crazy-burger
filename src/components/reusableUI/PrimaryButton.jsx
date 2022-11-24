@@ -6,17 +6,14 @@ function PrimaryButton({ ButtonIcon, label, className }) {
   return (
     <PrimaryButtonStyled>
       <button>
-        { label }
-        <span className={className}>
-          { ButtonIcon && ButtonIcon }
-        </span>
+        {label}
+        <span className={className}>{ButtonIcon && ButtonIcon}</span>
       </button>
     </PrimaryButtonStyled>
   );
 }
 
 const PrimaryButtonStyled = styled.div`
-  {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -50,6 +47,7 @@ const PrimaryButtonStyled = styled.div`
         color: ${theme.colors.primary_burger};
       }
     }
+  }
     @media screen and (max-width: 339px) {
       width: 90%;
     }

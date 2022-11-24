@@ -45,7 +45,7 @@ const NavBarStyled = styled.nav`
     }
   }
   .icon {
-    font-size: ${theme.fonts.P2};
+    font-size: ${theme.fonts.size.P2};
     color: ${theme.colors.greyMedium};
     height: 35px;
     width: 35px;
