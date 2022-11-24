@@ -40,7 +40,6 @@ const UserProfileStyled = styled.div`
     color: ${theme.colors.greyDark};
     :hover {
       color: ${theme.colors.primary_burger};
-      border-bottom: 1px solid ${theme.colors.primary_burger};
       cursor: pointer;
     }
   }

@@ -32,9 +32,9 @@ const NavBarStyled = styled.nav`
   box-shadow: 0 10px 35px -10px grey;
   .orderLogo {
     transform: scale(0.5);
-    top: -50px;
+    top: -60px;
     position: absolute;
-    left: -50px; 
+    left: -60px; 
   }
   .userBox {
     display: flex;
