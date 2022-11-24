@@ -17,6 +17,7 @@ const StyledLogo = styled.h1`
     font-family: "Amatic SC", cursive;
     text-transform: uppercase;
     transform: scale(1.5);
+    cursor: pointer;
 
     display: flex;
     flex-direction: row;

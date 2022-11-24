@@ -11,7 +11,8 @@ function NavBar({ userName , handleLogin }) {
   return (
     <NavBarStyled>
     <Logo
-      props={<img onClick={() => {window.location.reload()}} src={LogoImg} alt="dessin d'un burger" />}
+      props={<img src={LogoImg} alt="dessin d'un burger" />}
+      onClick={() => {window.location.reload()}}
       className={"orderLogo"}
     />
     <UserProfile userName={userName} onClick={handleLogin} className={"userBox"} Icon={<BsPersonCircle className="icon" />}/>
