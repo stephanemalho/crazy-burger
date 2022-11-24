@@ -61,7 +61,7 @@ const MenuGridStyled = styled.section`
       align-items: center;
       margin: auto;
       img {
-        height: 100%;
+        height: 65%;
         width: 100%;
         object-fit: contain;
       }
