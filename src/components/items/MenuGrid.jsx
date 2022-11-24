@@ -8,9 +8,9 @@ function MenuGrid() {
   console.log(fakeMenu2);
 
   const PriceToDecimal = (price) => {
-    let decimal = Math.floor(price * 10) / 10
-    return decimal.toFixed(2)
-  }
+    let decimal = Math.floor(price * 10) / 10;
+    return decimal.toFixed(2);
+  };
 
   return (
     <MenuGridStyled>
@@ -25,14 +25,13 @@ function MenuGrid() {
             />
           </figcaption>
           <div>
-          <h1>{name.title}</h1>
-          {/* arrondir le prix */}
-          <p>{PriceToDecimal(name.price) + "€"}</p>
-          <PrimaryButton label={"Ajouter"} className="btnCart" />
+            <h1>{name.title}</h1>
+            {/* arrondir le prix */}
+            <p>{PriceToDecimal(name.price) + "€"}</p>
+            <PrimaryButton label={"Ajouter"} className="btnCart" />
           </div>
         </figure>
       ))}
-      
     </MenuGridStyled>
   );
 }
@@ -85,7 +84,6 @@ const MenuGridStyled = styled.section`
         margin: 0;
       }
       p {
-
         font-size: ${theme.fonts.size.P1};
         font-family: "Open sans", cursive;
         color: ${theme.colors.primary};
@@ -96,7 +94,6 @@ const MenuGridStyled = styled.section`
         top: -50px;
         right: -10px;
       }
-
     }
   }
 `;

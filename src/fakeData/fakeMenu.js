@@ -32,7 +32,7 @@ export const fakeMenu2 = [
   },
   {
     id: 2,
-    imageSource: "../../../assets/images/burger-vegan.png",
+    imageSource: "../../../images/burger-vegan.png",
     title: "Vegan Burger",
     price: 5.4985,
     quantity: 0,
@@ -41,7 +41,7 @@ export const fakeMenu2 = [
   },
   {
     id: 3,
-    imageSource: "../../../assets/images/burger3.png",
+    imageSource: "../../../images/burger3.png",
     title: "Burger poulet",
     price: 5.367,
     quantity: 0,
@@ -50,7 +50,7 @@ export const fakeMenu2 = [
   },
   {
     id: 4,
-    imageSource: "../../../assets/images/drink1.png",
+    imageSource: "../../../images/drink1.png",
     title: "Coke 25cl",
     price: 3.568,
     quantity: 0,
@@ -59,7 +59,7 @@ export const fakeMenu2 = [
   },
   {
     id: 5,
-    imageSource: "../../../assets/images/drink2.png",
+    imageSource: "../../../images/drink2.png",
     title: "Pepsi 25cl",
     price: 3.487,
     quantity: 0,
@@ -68,7 +68,7 @@ export const fakeMenu2 = [
   },
   {
     id: 6,
-    imageSource: "../../../assets/images/drink3.png",
+    imageSource: "../../../images/drink3.png",
     title: "Iced Tea 25cl",
     price: 3.356,
     quantity: 0,
