@@ -26,7 +26,7 @@ const LoginPageStyled = styled.div`
   height: 100vh;
   justify-content: center;
   align-items: center;
-
+  
   ::before {
     content: "";
     position: absolute;

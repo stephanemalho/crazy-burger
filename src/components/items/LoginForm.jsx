@@ -53,7 +53,6 @@ const LoginForm = ({ Icon, onChange, value, ...extraProps }) => {
 };
 
 const LoginFormStyled = styled.form`
-  {
     width: 100vw;
     display: flex;
     flex-direction: column;
@@ -65,24 +64,24 @@ const LoginFormStyled = styled.form`
       margin: 0 auto;
     } 
     h2 {
-      font-size: ${theme.fonts.P5};
+      font-size: ${theme.fonts.size.P5};
       display: inline-block;
       margin-bottom: 20px;
       width: 60vw;
     }
     label {
-      font-size: ${theme.fonts.P4};
+      font-size: ${theme.fonts.size.P4};
       border-top: 3px solid ${theme.colors.primary};
       width: 340px;
       padding-top: ${theme.spacing.lg};
       position: relative;
   }
   .btnIcon {
-    font-size: ${theme.fonts.P3};
+    font-size: ${theme.fonts.size.P3};
   }
   @media screen and (max-width: 600px) {
     h2 {
-      font-size: ${theme.fonts.P4};
+      font-size: ${theme.fonts.size.P4};
     }
   }
   @media screen and (max-width: 339px) {
