@@ -15,7 +15,7 @@ function NavBar({ userName , handleLogin }) {
       onClick={() => {window.location.reload()}}
       className={"orderLogo"}
     />
-    <UserProfile userName={userName} onClick={handleLogin} className={"userBox"} Icon={<BsPersonCircle className="icon" />}/>
+    <UserProfile sayHi={"Hey,"} label={"se deconnecter"} userName={userName} onClick={handleLogin} className={"userBox"} Icon={<BsPersonCircle className="icon" />}/>
     </NavBarStyled>
   )
 }

@@ -3,14 +3,14 @@ import styled from "styled-components";
 
 import { theme } from "../../assets/theme";
 
-function UserProfile({ userName, onClick, className, Icon }) {
+function UserProfile({ userName, onClick, className, Icon, label, sayHi }) {
   return (
     <UserProfileStyled className={className}>
       <div>
         <h2>
-          <span>Hey,</span> {userName}
+          <span>{sayHi}</span> {userName}
         </h2>
-        <button onClick={onClick}>Se déconnecter</button>
+        <button onClick={onClick}>{label}</button>
       </div>
         {Icon}
     </UserProfileStyled>
