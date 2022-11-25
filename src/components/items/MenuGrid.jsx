@@ -62,19 +62,22 @@ const MenuGridStyled = styled.section`
       margin: auto;
       img {
         height: 65%;
-        width: 100%;
+        width: 80%;
         object-fit: contain;
+        margin: auto;
+        /* border: 2px solid red; */
       }
     }
     div {
       position: relative;
-      width: 80%;
+      width: 90%;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
       margin: auto;
+      /* border: 2px solid red; */
       h1 {
-        width: 90%;
+        width: 95%;
         font-size: ${theme.fonts.size.P4};
         font-weight: ${theme.fonts.weights.heavy};
         font-family: "Amatic SC", cursive;
@@ -89,10 +92,11 @@ const MenuGridStyled = styled.section`
         color: ${theme.colors.primary};
       }
       .btnCart {
-        width: 80px;
+        width: 100px;
+        height: 45px;
         position: absolute;
         top: -55px;
-        right: -10px;
+        right: -5px;
       }
     }
   }

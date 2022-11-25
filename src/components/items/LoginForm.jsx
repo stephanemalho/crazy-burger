@@ -9,7 +9,7 @@ import { theme } from "../../assets/theme/index";
 import PrimaryButton from "../reusableUI/PrimaryButton";
 import TextInput from "../reusableUI/TextInput";
 
-const LoginForm = ({ Icon, onChange, value, ...extraProps }) => {
+const LoginForm = () => {
   // state
   const [userName, setUserName] = useState("");
   const navigate = useNavigate();
