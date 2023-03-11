@@ -1,6 +1,7 @@
 import React from 'react'
 import { BsPersonCircle } from 'react-icons/bs'
 import styled from 'styled-components';
+import { ToastContainer } from 'react-toastify';
 
 import LogoImg from "../../assets/images/logo-orange.jpg";
 import { theme } from '../../assets/theme';
@@ -18,6 +19,7 @@ function NavBar({ userName , handleLogin }) {
     />
     <ToggleButton labelIfUnchecked='ACTIVER LE MODE ADMIN' labelIfChecked='DESECTIVER LE MODE ADMIN' className={"toggleButton"}/>
     <UserProfile sayHi={"Hey,"} label={"se deconnecter"} userName={userName} onClick={handleLogin} className={"userBox"} Icon={<BsPersonCircle className="icon" />}/>
+    <ToastContainer />
     </NavBarStyled>
   )
 }
