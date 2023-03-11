@@ -5,11 +5,11 @@ import styled from "styled-components";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-import LogoImg from "../../assets/images/logo-orange.jpg";
-import { theme } from "../../assets/theme";
-import Logo from "./Logo";
-import ToggleButton from "./ToggleButton";
-import UserProfile from "./UserProfile";
+import LogoImg from "../../../assets/images/logo-orange.jpg";
+import { theme } from "../../../assets/theme";
+import Logo from "../../reusableUI/Logo";
+import ToggleButton from "../../reusableUI/ToggleButton";
+import UserProfile from "../../reusableUI/UserProfile";
 
 function NavBar({ userName, handleLogin }) {
   const [isModeAdmin, setIsModeAdmin] = useState(false);

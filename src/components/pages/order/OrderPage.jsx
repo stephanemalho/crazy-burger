@@ -3,7 +3,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import styled from "styled-components";
 
 
-import NavBar from "../../reusableUI/NavBar";
+import NavBar from "../../../components/items/navbar/NavBar";
 import MenuGrid from "../../items/MenuGrid";
 import { theme } from "../../../assets/theme";
 

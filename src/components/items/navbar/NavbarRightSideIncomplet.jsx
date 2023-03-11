@@ -1,6 +1,6 @@
 import React from "react"
 import "react-toastify/dist/ReactToastify.css"
-import { theme } from "../../assets/theme/index"
+import { theme } from "../../../assets/theme/index"
 import { ToastContainer } from "react-toastify"
 import styled from "styled-components"
 
