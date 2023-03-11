@@ -1,27 +1,62 @@
-import React from 'react'
-import { BsPersonCircle } from 'react-icons/bs'
-import styled from 'styled-components';
-import { ToastContainer } from 'react-toastify';
+import React, { useState } from "react";
+import { BsPersonCircle } from "react-icons/bs";
+//import { FaUserSecret } from "react-icons/fa";
+import styled from "styled-components";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 import LogoImg from "../../assets/images/logo-orange.jpg";
-import { theme } from '../../assets/theme';
-import Logo from './Logo'
-import ToggleButton from './ToggleButton';
-import UserProfile from './UserProfile'
+import { theme } from "../../assets/theme";
+import Logo from "./Logo";
+import ToggleButton from "./ToggleButton";
+import UserProfile from "./UserProfile";
 
-function NavBar({ userName , handleLogin }) {
+function NavBar({ userName, handleLogin }) {
+  const [isModeAdmin, setIsModeAdmin] = useState(false);
+
+  const displayNotification = () => {
+    if (!isModeAdmin) {
+      toast.info("Mode admin activé", {
+        //icon: <FaUserSecret size={30} />,
+        theme: "dark",
+        position: "bottom-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
+    }
+    setIsModeAdmin(!isModeAdmin);
+  };
+
   return (
     <NavBarStyled>
-    <Logo
-      props={<img src={LogoImg} alt="dessin d'un burger" />}
-      onClick={() => {window.location.reload()}}
-      className={"orderLogo"}
-    />
-    <ToggleButton labelIfUnchecked='ACTIVER LE MODE ADMIN' labelIfChecked='DESECTIVER LE MODE ADMIN' className={"toggleButton"}/>
-    <UserProfile sayHi={"Hey,"} label={"se deconnecter"} userName={userName} onClick={handleLogin} className={"userBox"} Icon={<BsPersonCircle className="icon" />}/>
-    <ToastContainer />
+      <Logo
+        props={<img src={LogoImg} alt="dessin d'un burger" />}
+        onClick={() => {
+          window.location.reload();
+        }}
+        className={"orderLogo"}
+      />
+      <ToggleButton
+        labelIfUnchecked="ACTIVER LE MODE ADMIN"
+        labelIfChecked="DESECTIVER LE MODE ADMIN"
+        className={"toggleButton"}
+        onToggle={displayNotification}
+      />
+      <UserProfile
+        sayHi={"Hey,"}
+        label={"se deconnecter"}
+        userName={userName}
+        onClick={handleLogin}
+        className={"userBox"}
+        Icon={<BsPersonCircle className="icon" />}
+      />
+      <ToastContainer className="toaster" bodyClassName="body-toast" />
     </NavBarStyled>
-  )
+  );
 }
 
 const NavBarStyled = styled.nav`
@@ -39,7 +74,7 @@ const NavBarStyled = styled.nav`
     transform: scale(0.5);
     top: -60px;
     position: absolute;
-    left: -60px; 
+    left: -60px;
   }
   .toggleButton {
     margin-left: auto;
@@ -60,9 +95,22 @@ const NavBarStyled = styled.nav`
     width: 35px;
     margin-right: 10px;
   }
+  .toaster {
+    max-width: 300px;
+  }
 
-`
-export default NavBar
+  .Toastify__toast.Toastify__toast-theme--dark.Toastify__toast--info {
+    background: ${theme.colors.background_dark};
+  }
 
-
-
+  .body-toast {
+    .Toastify__toast-icon.Toastify--animate-icon.Toastify__zoom-enter {
+      margin-right: 20px;
+      margin-left: 5px;
+    }
+    div {
+      line-height: 1.3em;
+    }
+  }
+`;
+export default NavBar;
