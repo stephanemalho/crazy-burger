@@ -5,6 +5,7 @@ import styled from "styled-components";
 
 import NavBar from "../../reusableUI/NavBar";
 import MenuGrid from "../../items/MenuGrid";
+import { theme } from "../../../assets/theme";
 
 function OrderPage() {
   const navigate = useNavigate();
@@ -26,7 +27,7 @@ function OrderPage() {
 }
 
 const OrderPageStyled = styled.div`
-  background-color: #ff9f1a;
+  background-color: ${theme.colors.primary_burger};
   height: 100vh;
   width: 100vw;
   display: flex;

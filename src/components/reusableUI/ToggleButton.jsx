@@ -1,15 +1,16 @@
 import React from "react"
 import styled from "styled-components/macro"
-import { theme } from "../../theme"
+import { theme } from "../../assets/theme/index"
 
 export default function ToggleButton({
   isChecked,
   onToggle,
   labelIfChecked = "Fermer",
   labelIfUnchecked = "Ouvrir",
+  className,
 }) {
   return (
-    <ToggleButtonStyled>
+    <ToggleButtonStyled className={className}>
       <input
         type="checkbox"
         className="toggle"
@@ -99,20 +100,20 @@ const ToggleButtonStyled = styled.div`
       right: 8px;
       left: auto;
       opacity: 1;
-      color: ${theme.colors.primary};
+      color: ${theme.colors.primary_burger};
       font-weight: ${theme.fonts.weights.bold};
     }
 
     // small circle when not checked
     &.toggle:not(:checked) + label:before {
       left: 3px;
-      background-color: ${theme.colors.primary};
+      background-color: ${theme.colors.primary_burger};
     }
 
     // box container when checked
     &.toggle:checked + label {
       text-align: left;
-      border-color: ${theme.colors.primary};
+      border-color: ${theme.colors.primary_burger};
     }
 
     // label text when checked
@@ -128,7 +129,7 @@ const ToggleButtonStyled = styled.div`
     // small circle when checked
     &.toggle:checked + label:before {
       left: 162px;
-      background-color: ${theme.colors.primary};
+      background-color: ${theme.colors.primary_burger};
     }
   }
 `

@@ -5,6 +5,7 @@ import styled from 'styled-components';
 import LogoImg from "../../assets/images/logo-orange.jpg";
 import { theme } from '../../assets/theme';
 import Logo from './Logo'
+import ToggleButton from './ToggleButton';
 import UserProfile from './UserProfile'
 
 function NavBar({ userName , handleLogin }) {
@@ -15,12 +16,14 @@ function NavBar({ userName , handleLogin }) {
       onClick={() => {window.location.reload()}}
       className={"orderLogo"}
     />
+    <ToggleButton labelIfUnchecked='ACTIVER LE MODE ADMIN' labelIfChecked='DESECTIVER LE MODE ADMIN' className={"toggleButton"}/>
     <UserProfile sayHi={"Hey,"} label={"se deconnecter"} userName={userName} onClick={handleLogin} className={"userBox"} Icon={<BsPersonCircle className="icon" />}/>
     </NavBarStyled>
   )
 }
 
 const NavBarStyled = styled.nav`
+  font-family: "Open Sans", sans-serif;
   position: relative;
   background-color: white;
   display: flex;
@@ -36,10 +39,13 @@ const NavBarStyled = styled.nav`
     position: absolute;
     left: -60px; 
   }
+  .toggleButton {
+    margin-left: auto;
+    align-items: center;
+  }
   .userBox {
     display: flex;
     flex-direction: row;
-    margin-left: auto;
     width: auto;
     div {
       padding-right: 5px;
