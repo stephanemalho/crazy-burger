@@ -3,8 +3,9 @@ import { useNavigate, useParams } from "react-router-dom";
 import styled from "styled-components";
 
 
-import NavBar from "../../reusableUI/NavBar";
+import NavBar from "../../../components/items/navbar/NavBar";
 import MenuGrid from "../../items/MenuGrid";
+import { theme } from "../../../assets/theme";
 
 function OrderPage() {
   const navigate = useNavigate();
@@ -26,7 +27,7 @@ function OrderPage() {
 }
 
 const OrderPageStyled = styled.div`
-  background-color: #ff9f1a;
+  background-color: ${theme.colors.primary_burger};
   height: 100vh;
   width: 100vw;
   display: flex;
