@@ -4,6 +4,7 @@ import styled from "styled-components";
 
 
 import NavBar from "../../reusableUI/NavBar";
+import MenuGrid from "../../items/MenuGrid";
 
 function OrderPage() {
   const navigate = useNavigate();
@@ -18,6 +19,7 @@ function OrderPage() {
     <OrderPageStyled>
       <main>
         <NavBar userName={userName} handleLogin={handleLogin} />
+        <MenuGrid />
       </main>
     </OrderPageStyled>
   );
@@ -31,6 +33,7 @@ const OrderPageStyled = styled.div`
   flex-direction: column;
   justify-content: center;
   margin: auto;
+  z-index: 1;
   main {
     position: relative;
     background-color: #fff;
@@ -42,6 +45,8 @@ const OrderPageStyled = styled.div`
     width: 96%;
     border-radius: 10px;
     box-shadow: 0px 0px 16px 0px grey inset;
+    z-index: 1;
+    overflow: hidden; 
   }
 
     @media screen and (min-width: 2000px) {

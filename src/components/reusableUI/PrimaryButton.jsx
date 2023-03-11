@@ -5,9 +5,9 @@ import { theme } from "../../assets/theme/index";
 function PrimaryButton({ ButtonIcon, label, className }) {
   return (
     <PrimaryButtonStyled>
-      <button>
+      <button className={className}>
         {label}
-        <span className={className}>{ButtonIcon && ButtonIcon}</span>
+        <span >{ButtonIcon && ButtonIcon}</span>
       </button>
     </PrimaryButtonStyled>
   );
@@ -17,6 +17,7 @@ const PrimaryButtonStyled = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  font-size: ${theme.fonts.size.P1};
     button {
       display: flex;
       justify-content: center;
@@ -50,6 +51,7 @@ const PrimaryButtonStyled = styled.div`
   }
     @media screen and (max-width: 339px) {
       width: 90%;
+      margin: 0 auto;
     }
 `;
 
