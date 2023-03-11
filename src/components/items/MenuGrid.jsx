@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+
 import { theme } from "../../assets/theme";
 import { fakeMenu2 } from "../../fakeData/fakeMenu";
 import PrimaryButton from "../reusableUI/PrimaryButton";
@@ -19,7 +20,7 @@ function MenuGrid() {
           <figcaption>
             <img
               src={name.imageSource}
-              height="100px"
+              height={"100px"}
               width={"80px"}
               alt={name.title}
             />
@@ -37,22 +38,25 @@ function MenuGrid() {
 }
 
 const MenuGridStyled = styled.section`
-  width: 90%;
+  width: 100%;
+  overflow-x: hidden;
+  background: #F5F5F7;
+  box-shadow: 0px 8px 20px 8px rgba(0, 0, 0, 0.2) inset;
   height: auto;
   overflow-y: scroll;
-  min-height: 100%;
   margin: auto;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  grid-gap: 0px 20px;
+  grid-row-gap: 60px;
+  grid-column-gap: 20px;
   z-index: -1;
-
   figure {
     background-color: white;
     height: 330px;
-    width: 240px;
+    width: auto;
+    min-width: 170px;
     border-radius: 10px;
-    box-shadow: 0 10px 35px -10px grey;
+    box-shadow: -8px 8px 20px 0px rgb(0 0 0 / 20%);
     figcaption {
       height: 200px;
       width: 90%;

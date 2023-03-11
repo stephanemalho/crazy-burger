@@ -51,6 +51,7 @@ const PrimaryButtonStyled = styled.div`
   }
     @media screen and (max-width: 339px) {
       width: 90%;
+      margin: 0 auto;
     }
 `;
 
