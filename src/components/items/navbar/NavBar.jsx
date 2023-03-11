@@ -1,23 +1,23 @@
 import React, { useState } from "react";
 import { BsPersonCircle } from "react-icons/bs";
-//import { FaUserSecret } from "react-icons/fa";
 import styled from "styled-components";
-import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
+import  {toast}  from "react-toastify";
 
 import LogoImg from "../../../assets/images/logo-orange.jpg";
 import { theme } from "../../../assets/theme";
 import Logo from "../../reusableUI/Logo";
 import ToggleButton from "../../reusableUI/ToggleButton";
 import UserProfile from "../../reusableUI/UserProfile";
+import ToastAdmin from "./ToastAdmin";
 
 function NavBar({ userName, handleLogin }) {
   const [isModeAdmin, setIsModeAdmin] = useState(false);
+  const activer = "ACTIVER LE MODE ADMIN";
+  const desactiver = "DESECTIVER LE MODE ADMIN";
 
   const displayNotification = () => {
     if (!isModeAdmin) {
       toast.info("Mode admin activé", {
-        //icon: <FaUserSecret size={30} />,
         theme: "dark",
         position: "bottom-right",
         autoClose: 5000,
@@ -41,8 +41,8 @@ function NavBar({ userName, handleLogin }) {
         className={"orderLogo"}
       />
       <ToggleButton
-        labelIfUnchecked="ACTIVER LE MODE ADMIN"
-        labelIfChecked="DESECTIVER LE MODE ADMIN"
+        labelIfUnchecked={activer}
+        labelIfChecked={desactiver}
         className={"toggleButton"}
         onToggle={displayNotification}
       />
@@ -54,7 +54,7 @@ function NavBar({ userName, handleLogin }) {
         className={"userBox"}
         Icon={<BsPersonCircle className="icon" />}
       />
-      <ToastContainer className="toaster" bodyClassName="body-toast" />
+      <ToastAdmin />
     </NavBarStyled>
   );
 }
@@ -94,23 +94,6 @@ const NavBarStyled = styled.nav`
     height: 35px;
     width: 35px;
     margin-right: 10px;
-  }
-  .toaster {
-    max-width: 300px;
-  }
-
-  .Toastify__toast.Toastify__toast-theme--dark.Toastify__toast--info {
-    background: ${theme.colors.background_dark};
-  }
-
-  .body-toast {
-    .Toastify__toast-icon.Toastify--animate-icon.Toastify__zoom-enter {
-      margin-right: 20px;
-      margin-left: 5px;
-    }
-    div {
-      line-height: 1.3em;
-    }
   }
 `;
 export default NavBar;
