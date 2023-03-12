@@ -50,41 +50,35 @@ const AdminFormStyled = styled.div`
     }
   }
   .toggleForm {
-    position: absolute;
-    top: 0px;
-    left: 40px;
-    width: 60px;
     border: 1px solid ${theme.colors.greySemiDark};
     background-color: white;
+    position: absolute;
+    width: 60px;
+    left: 40px;
+    top: 0px;
+  }
+  .addToForm, .editForm {
+    border: 1px solid ${theme.colors.greySemiDark};
+    color: ${theme.colors.greySemiDark};
+    justify-content: space-evenly;
+    flex-direction: row-reverse;
+    background-color: white;
+    position: absolute;
+    width: 200px;
+    top: 0px;
   }
   .addToForm {
-    position: absolute;
-    top: 0px;
     left: 100px;
-    width: 200px;
-    color: ${theme.colors.greySemiDark};
-    border: 1px solid ${theme.colors.greySemiDark};
-    background-color: white;
-    flex-direction: row-reverse;
-    justify-content: space-evenly;
   }
   .editForm {
-    position: absolute;
-    top: 0px;
     left: 300px;
-    width: 200px;
-    color: ${theme.colors.greySemiDark};
-    border: 1px solid ${theme.colors.greySemiDark};
-    background-color: white;
-    flex-direction: row-reverse;
-    justify-content: space-evenly;
   }
   .editForm:hover,
   .addToForm:hover,
   .toggleForm:hover {
-    color: white;
     background-color: black;
     border: 1px solid black;
+    color: white;
     .iconStyle {
       color: white;
     }
