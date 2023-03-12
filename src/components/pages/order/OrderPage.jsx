@@ -6,6 +6,7 @@ import styled from "styled-components";
 import NavBar from "../../../components/items/navbar/NavBar";
 import MenuGrid from "../../items/MenuGrid";
 import { theme } from "../../../assets/theme";
+import AdminPanel from "../../items/adminPanel/AdminPanel";
 
 function OrderPage() {
   const navigate = useNavigate();
@@ -21,6 +22,7 @@ function OrderPage() {
       <main>
         <NavBar userName={userName} handleLogin={handleLogin} />
         <MenuGrid />
+        <AdminPanel />
       </main>
     </OrderPageStyled>
   );
