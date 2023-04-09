@@ -19,15 +19,17 @@ export default function AdminTabs() {
     setIsOnEditTab,
   } = useContext(OrderContext);
 
-  const handleAddClick = () => {
+  const selectTab = (tabSelected) => {
     setIsCollapsed(false);
-    setIsOnAddTab(true);
-    setIsOnEditTab(false);
-  };
-  const handleEditClick = () => {
-    setIsCollapsed(false);
-    setIsOnEditTab(true);
-    setIsOnAddTab(false);
+
+    if (tabSelected === "add") {
+      setIsOnAddTab(true);
+      setIsOnEditTab(false);
+    }
+    if (tabSelected === "edit") {
+      setIsOnEditTab(true);
+      setIsOnAddTab(false);
+    }
   };
 
   return (
@@ -41,13 +43,13 @@ export default function AdminTabs() {
       <Tab
         label="Ajouter un produit"
         Icon={<AiOutlinePlus />}
-        onClick={handleAddClick}
+        onClick={() =>selectTab("add")}
         className={isOnAddTab ? "is-active" : ""}
       />
       <Tab
         label="Modifier un produit"
         Icon={<MdModeEditOutline />}
-        onClick={handleEditClick}
+        onClick={() =>selectTab("edit")}
         className={isOnEditTab ? "is-active" : ""}
       />
     </AdminTabsStyled>
