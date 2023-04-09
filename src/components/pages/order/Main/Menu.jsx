@@ -7,7 +7,7 @@ import { fakeMenu2 } from "../../../../fakeData/fakeMenu";
 import Card from "../../../reusableUI/Card";
 
 function Menu() {
-  console.log(fakeMenu2);
+  //console.log(fakeMenu2);
 
   return (
     <MenuGridStyled>

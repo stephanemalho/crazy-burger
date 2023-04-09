@@ -13,6 +13,10 @@ function OrderPage() {
   const { userName } = useParams();
   const [isModeAdmin, setIsModeAdmin] = useState(false);
 
+  const [isCollapsed, setIsCollapsed] = useState(false);
+  const [isOnEditTab, setIsOnEditTab] = useState(false);
+  const [isOnAddTab, setIsOnAddTab] = useState(true);
+
   // comportements
   const handleLogin = (e) => {
     e.preventDefault();
@@ -24,6 +28,12 @@ function OrderPage() {
   const orderContextValue = {
     isModeAdmin,
     setIsModeAdmin,
+    isCollapsed,
+    setIsCollapsed,
+    isOnEditTab,
+    setIsOnEditTab,
+    isOnAddTab,
+    setIsOnAddTab
   };
 
   // affichage
