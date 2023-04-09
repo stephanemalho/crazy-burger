@@ -26,7 +26,6 @@ function Menu() {
 }
 
 const MenuGridStyled = styled.section`
-    border: 2px solid blue;
     position: relative;
     overflow-y: scroll;
     display: grid;
