@@ -21,17 +21,18 @@ export default function AdminTabs() {
     setCurrentTabSelected(tabSelected); // on met à jour l'onglet sélectionné
   };
 
-  const tabs = getTabConfig(currentTabSelected, selectTab);
+  const tabs = getTabConfig(currentTabSelected, selectTab)
 
   return (
     <AdminTabsStyled>
-      <Tab
-        Icon={isCollapsed ? <FiChevronUp /> : <FiChevronDown />}
-        onClick={() => setIsCollapsed(!isCollapsed)}
-        className={isCollapsed ? "is-active" : ""}
+      <Tab 
+        Icon={ isCollapsed ? <FiChevronUp /> : <FiChevronDown />}
+        onClick={ () => setIsCollapsed(!isCollapsed)}
+        className={ isCollapsed ? "is-active" : ""}
       />
       {tabs.map((tab) => (
-        <Tab {...tab} key={tab.index} />
+          <Tab {...tab} key={tab.index} 
+        />
       ))}
     </AdminTabsStyled>
   );

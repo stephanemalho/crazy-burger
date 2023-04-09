@@ -1,6 +1,7 @@
 import { AiOutlinePlus } from "react-icons/ai";
 import { MdModeEditOutline } from "react-icons/md";
 
+
 export const getTabConfig = (currentTabSelected, selectTab) => [
   {
     index: "add",
@@ -15,5 +16,5 @@ export const getTabConfig = (currentTabSelected, selectTab) => [
     Icon: <MdModeEditOutline />,
     onClick: () => selectTab("edit"),
     className: currentTabSelected === "edit" ? "is-active" : "",
-  },
+  }
 ];
