@@ -4,7 +4,9 @@ import { theme } from '../../../../../assets/theme'
 
 export default function AdminPanel() {
   return (
-    <AdminTabsStyled>AdminPanel</AdminTabsStyled>
+    <AdminTabsStyled>
+      
+    </AdminTabsStyled>
   )
 }
 
