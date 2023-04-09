@@ -25,7 +25,7 @@ const CardStyled = styled.figure`
   width: auto;
   min-width: 170px;
   border-radius: 10px;
-  box-shadow: -8px 8px 20px 0px rgb(0 0 0 / 20%);
+  box-shadow: ${theme.shadows.medium};
   figcaption {
     height: 200px;
     width: 90%;
@@ -62,7 +62,7 @@ const CardStyled = styled.figure`
     p {
       font-size: ${theme.fonts.size.P1};
       font-family: "Open sans", cursive;
-      color: ${theme.colors.primary};
+      color: ${theme.colors.loginLine};
     }
     .btnCart {
       width: 100px;

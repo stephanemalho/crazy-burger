@@ -69,7 +69,7 @@ const NavBarStyled = styled.nav`
   flex-wrap: nowrap;
   height: 80px;
   border-radius: 10px 10px 0 0;
-  box-shadow: 0 10px 35px -10px grey;
+  box-shadow: ${theme.shadows.subtle};
   .orderLogo {
     transform: scale(0.5);
     top: -60px;

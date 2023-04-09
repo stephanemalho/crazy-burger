@@ -2,7 +2,6 @@ import React from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import styled from "styled-components";
 
-
 import NavBar from "../../../components/items/navbar/NavBar";
 import MenuGrid from "../../items/MenuGrid";
 import { theme } from "../../../assets/theme";
@@ -29,7 +28,7 @@ function OrderPage() {
 }
 
 const OrderPageStyled = styled.div`
-  background-color: ${theme.colors.primary_burger};
+  background-color: ${theme.colors.primary};
   height: 100vh;
   width: 100vw;
   display: flex;
@@ -47,19 +46,19 @@ const OrderPageStyled = styled.div`
     height: 96%;
     width: 96%;
     border-radius: 10px;
-    box-shadow: 0px 0px 16px 0px grey inset;
+    box-shadow: ${theme.shadows.strong};
     z-index: 1;
-    overflow: hidden; 
+    overflow: hidden;
   }
 
-    @media screen and (min-width: 2000px) {
-        main {
-          max-width: 2000px;
-          display: flex;
-          flex-direction: column;
-          align-content: center;
-        }
+  @media screen and (min-width: 2000px) {
+    main {
+      max-width: 2000px;
+      display: flex;
+      flex-direction: column;
+      align-content: center;
     }
+  }
 `;
 
 export default OrderPage;

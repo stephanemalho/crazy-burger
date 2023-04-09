@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
+import { theme } from "../../assets/theme/index";
 import {formatPrice} from "../../utils/maths";
 import { fakeMenu2 } from "../../fakeData/fakeMenu";
 import Card from "../reusableUI/Card";
@@ -26,7 +27,7 @@ const MenuGridStyled = styled.section`
   width: 100%;
   overflow-x: hidden;
   background: #f5f5f7;
-  box-shadow: 0px 8px 20px 8px rgba(0, 0, 0, 0.2) inset;
+  box-shadow: ${theme.shadows.strong};
   height: auto;
   overflow-y: scroll;
   margin: auto;

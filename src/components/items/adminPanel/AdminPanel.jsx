@@ -10,9 +10,12 @@ export default function AdminPanel() {
     <AdminFormStyled>
       <PrimaryButton
         className="toggleForm"
-        ButtonIcon={<AiOutlineDown 
-        className="iconStyle" aria-label="fermer le formulaire"
-        />}
+        ButtonIcon={
+          <AiOutlineDown
+            className="iconStyle"
+            aria-label="fermer le formulaire"
+          />
+        }
       />
       <PrimaryButton
         label={"Ajouter un produit"}
@@ -57,7 +60,8 @@ const AdminFormStyled = styled.div`
     left: 40px;
     top: 0px;
   }
-  .addToForm, .editForm {
+  .addToForm,
+  .editForm {
     border: 1px solid ${theme.colors.greySemiDark};
     color: ${theme.colors.greySemiDark};
     justify-content: space-evenly;

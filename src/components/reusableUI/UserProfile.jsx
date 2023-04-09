@@ -12,7 +12,7 @@ function UserProfile({ userName, onClick, className, Icon, label, sayHi }) {
         </h2>
         <button onClick={onClick}>{label}</button>
       </div>
-        {Icon}
+      {Icon}
     </UserProfileStyled>
   );
 }
@@ -29,7 +29,7 @@ const UserProfileStyled = styled.div`
     font-family: "Open Sans", sans-serif;
     font-size: 1rem;
     padding-left: 5px;
-    color: ${theme.colors.primary_burger};
+    color: ${theme.colors.primary};
     span {
       color: ${theme.colors.greyDark};
     }
@@ -39,10 +39,10 @@ const UserProfileStyled = styled.div`
     background-color: transparent;
     color: ${theme.colors.greyDark};
     :hover {
-      color: ${theme.colors.primary_burger};
+      color: ${theme.colors.primary};
       cursor: pointer;
     }
   }
-`
+`;
 
 export default UserProfile;
