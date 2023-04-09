@@ -2,9 +2,9 @@ import React from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import styled from "styled-components";
 
-import NavBar from "../../../components/items/navbar/NavBar";
-import MenuGrid from "../../items/order/MenuGrid";
+import NavBar from "./navbar/NavBar";
 import { theme } from "../../../assets/theme";
+import Main from "./Main/Main";
 
 function OrderPage() {
   const navigate = useNavigate();
@@ -17,10 +17,10 @@ function OrderPage() {
 
   return (
     <OrderPageStyled>
-      <main>
+      <div className="gbl-container">
         <NavBar userName={userName} handleLogin={handleLogin} />
-        <MenuGrid />
-      </main>
+        <Main />
+      </div>
     </OrderPageStyled>
   );
 }
@@ -34,7 +34,7 @@ const OrderPageStyled = styled.div`
   justify-content: center;
   margin: auto;
   z-index: 1;
-  main {
+  .gbl-container {
     position: relative;
     background-color: #fff;
     display: flex;
@@ -49,14 +49,6 @@ const OrderPageStyled = styled.div`
     overflow: hidden;
   }
 
-  @media screen and (min-width: 2000px) {
-    main {
-      max-width: 2000px;
-      display: flex;
-      flex-direction: column;
-      align-content: center;
-    }
-  }
 `;
 
 export default OrderPage;

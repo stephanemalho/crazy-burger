@@ -1,13 +1,13 @@
 import React, { useState } from "react";
 import { BsPersonCircle } from "react-icons/bs";
 import styled from "styled-components";
-import  {toast}  from "react-toastify";
+import { toast } from "react-toastify";
 
-import LogoImg from "../../../assets/images/logo-orange.jpg";
-import { theme } from "../../../assets/theme";
-import Logo from "../../reusableUI/Logo";
-import ToggleButton from "../../reusableUI/ToggleButton";
-import UserProfile from "../../reusableUI/UserProfile";
+import LogoImg from "../../../../assets/images/logo-orange.jpg";
+import { theme } from "../../../../assets/theme";
+import Logo from "../../../reusableUI/Logo";
+import ToggleButton from "../../../reusableUI/ToggleButton";
+import UserProfile from "../../../reusableUI/UserProfile";
 import ToastAdmin from "./ToastAdmin";
 
 function NavBar({ userName, handleLogin }) {
@@ -67,7 +67,7 @@ const NavBarStyled = styled.nav`
   flex-direction: row;
   justify-content: space-between;
   flex-wrap: nowrap;
-  height: 80px;
+  height: 10vh;
   border-radius: 10px 10px 0 0;
   box-shadow: ${theme.shadows.subtle};
   .orderLogo {

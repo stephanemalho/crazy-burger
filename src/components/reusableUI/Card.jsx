@@ -23,7 +23,7 @@ const CardStyled = styled.figure`
   background-color: white;
   height: 330px;
   width: auto;
-  min-width: 170px;
+  min-width: 200px;
   border-radius: 10px;
   box-shadow: ${theme.shadows.medium};
   figcaption {

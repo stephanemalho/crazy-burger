@@ -5,9 +5,9 @@ import { MdKeyboardArrowRight } from "react-icons/md";
 import { BsPersonCircle } from "react-icons/bs";
 
 /**********************************/
-import { theme } from "../../assets/theme/index";
-import PrimaryButton from "../reusableUI/PrimaryButton";
-import TextInput from "../reusableUI/TextInput";
+import { theme } from "../../../assets/theme/index";
+import PrimaryButton from "../../reusableUI/PrimaryButton";
+import TextInput from "../../reusableUI/TextInput";
 
 const LoginForm = () => {
   // state

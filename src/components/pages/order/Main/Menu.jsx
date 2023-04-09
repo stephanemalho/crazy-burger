@@ -1,16 +1,17 @@
 import React from "react";
 import styled from "styled-components";
 
-import { theme } from "../../../assets/theme/index";
-import { formatPrice } from "../../../utils/maths";
-import { fakeMenu2 } from "../../../fakeData/fakeMenu";
-import Card from "../../reusableUI/Card";
+import { theme } from "../../../../assets/theme/index";
+import { formatPrice } from "../../../../utils/maths";
+import { fakeMenu2 } from "../../../../fakeData/fakeMenu";
+import Card from "../../../reusableUI/Card";
 
-function MenuGrid() {
+function Menu() {
   console.log(fakeMenu2);
 
   return (
     <MenuGridStyled>
+      <div className="cards-container"> 
       {fakeMenu2.map((name) => (
         <Card
           key={name.title}
@@ -19,11 +20,19 @@ function MenuGrid() {
           leftDescription={formatPrice(name.price)}
         />
       ))}
+      </div>
     </MenuGridStyled>
   );
 }
 
 const MenuGridStyled = styled.section`
+    border: 2px solid blue;
+    position: relative;
+    overflow-y: scroll;
+    display: grid;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+  .cards-container {
   width: 100%;
   background: #f5f5f7;
   box-shadow: ${theme.shadows.strong};
@@ -35,6 +44,7 @@ const MenuGridStyled = styled.section`
   grid-row-gap: 60px;
   grid-column-gap: 20px;
   z-index: -1;
+  }
 `;
 
-export default MenuGrid;
+export default Menu;
