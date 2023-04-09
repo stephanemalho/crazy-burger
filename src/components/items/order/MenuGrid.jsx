@@ -1,10 +1,10 @@
 import React from "react";
 import styled from "styled-components";
 
-import { theme } from "../../assets/theme/index";
-import {formatPrice} from "../../utils/maths";
-import { fakeMenu2 } from "../../fakeData/fakeMenu";
-import Card from "../reusableUI/Card";
+import { theme } from "../../../assets/theme/index";
+import { formatPrice } from "../../../utils/maths";
+import { fakeMenu2 } from "../../../fakeData/fakeMenu";
+import Card from "../../reusableUI/Card";
 
 function MenuGrid() {
   console.log(fakeMenu2);
@@ -25,7 +25,6 @@ function MenuGrid() {
 
 const MenuGridStyled = styled.section`
   width: 100%;
-  overflow-x: hidden;
   background: #f5f5f7;
   box-shadow: ${theme.shadows.strong};
   height: auto;
