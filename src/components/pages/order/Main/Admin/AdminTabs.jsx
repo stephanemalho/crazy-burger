@@ -2,62 +2,36 @@ import React from "react";
 import { useContext } from "react";
 import styled from "styled-components";
 import { FiChevronDown, FiChevronUp } from "react-icons/fi";
-import { AiOutlinePlus } from "react-icons/ai";
-import { MdModeEditOutline } from "react-icons/md";
 
 import Tab from "../../../../reusableUI/Tab";
 import { theme } from "../../../../../assets/theme";
 import OrderContext from "../../../../context/OrderContext";
+import { getTabConfig } from "./getTabsConfig";
 
 export default function AdminTabs() {
   const {
     isCollapsed,
     setIsCollapsed,
-    isOnAddTab,
-    setIsOnAddTab,
-    isOnEditTab,
-    setIsOnEditTab,
+    currentTabSelected,
+    setCurrentTabSelected,
   } = useContext(OrderContext);
 
   const selectTab = (tabSelected) => {
-    setIsCollapsed(false);
-
-    if (tabSelected === "add") {
-      setIsOnAddTab(true);
-      setIsOnEditTab(false);
-    }
-    if (tabSelected === "edit") {
-      setIsOnEditTab(true);
-      setIsOnAddTab(false);
-    }
+    setIsCollapsed(false); // on ouvre le panneau
+    setCurrentTabSelected(tabSelected); // on met à jour l'onglet sélectionné
   };
 
-  const tabConfig = [
-    {
-      label: "",
-      Icon: isCollapsed ? <FiChevronUp /> : <FiChevronDown />,
-      onClick: () => setIsCollapsed(!isCollapsed),
-      className: isCollapsed ? "is-active" : "",
-    },
-    {
-      label: "Ajouter un produit",
-      Icon: <AiOutlinePlus />,
-      onClick: () => selectTab("add"),
-      className: isOnAddTab ? "is-active" : "",
-    },
-    {
-      label: "Modifier un produit",
-      Icon: <MdModeEditOutline />,
-      onClick: () => selectTab("edit"),
-      className: isOnEditTab ? "is-active" : "",
-    },
-  ];
+  const tabs = getTabConfig(currentTabSelected, selectTab);
 
   return (
     <AdminTabsStyled>
-      {tabConfig.map((tab) => (
-         <Tab {...tab}
-        />
+      <Tab
+        Icon={isCollapsed ? <FiChevronUp /> : <FiChevronDown />}
+        onClick={() => setIsCollapsed(!isCollapsed)}
+        className={isCollapsed ? "is-active" : ""}
+      />
+      {tabs.map((tab) => (
+        <Tab {...tab} key={tab.index} />
       ))}
     </AdminTabsStyled>
   );

@@ -11,5 +11,8 @@ export default createContext({
   setIsOnEditTab: () => {},
 
   isOnAddTab: false,
-  setIsOnAddTab: () => {}
+  setIsOnAddTab: () => {},
+
+  currentTabSelected: false,
+  setCurrentTabSelected: () => {}
 })

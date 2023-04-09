@@ -12,10 +12,10 @@ function OrderPage() {
   const navigate = useNavigate();
   const { userName } = useParams();
   const [isModeAdmin, setIsModeAdmin] = useState(false);
-
   const [isCollapsed, setIsCollapsed] = useState(false);
   const [isOnEditTab, setIsOnEditTab] = useState(false);
   const [isOnAddTab, setIsOnAddTab] = useState(true);
+  const [currentTabSelected, setCurrentTabSelected] = useState("add")
 
   // comportements
   const handleLogin = (e) => {
@@ -33,7 +33,9 @@ function OrderPage() {
     isOnEditTab,
     setIsOnEditTab,
     isOnAddTab,
-    setIsOnAddTab
+    setIsOnAddTab,
+    currentTabSelected,
+    setCurrentTabSelected
   };
 
   // affichage
