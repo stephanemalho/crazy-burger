@@ -31,6 +31,7 @@ const MenuGridStyled = styled.section`
     display: grid;
     border-bottom-left-radius: 15px;
     border-bottom-right-radius: 15px;
+    z-index: 1;
   .cards-container {
   width: 100%;
   background: #f5f5f7;

@@ -10,9 +10,7 @@ import OrderContext from "../../../context/OrderContext";
 
 export default function Main() {
    
-  const { isModeAdmin, setIsModeAdmin } = useContext(OrderContext);
-
-
+  const { isModeAdmin } = useContext(OrderContext);
 
   return (
     <MainStyled>
@@ -32,6 +30,7 @@ const MainStyled = styled.div`
   height: calc(95vh - 10vh);
   flex:1;
   width:96vw;
+  
 
   .menu-and-admin {
    position: relative;
