@@ -1,9 +1,9 @@
 import React from "react";
 import styled from "styled-components";
 
-import { theme } from "../../assets/theme";
+import { theme } from "../../../../assets/theme";
 
-function UserProfile({ userName, onClick, className, Icon, label, sayHi }) {
+function Profile({ userName, onClick, className, Icon, label, sayHi }) {
   return (
     <UserProfileStyled className={className}>
       <div>
@@ -45,4 +45,4 @@ const UserProfileStyled = styled.div`
   }
 `;
 
-export default UserProfile;
+export default Profile;

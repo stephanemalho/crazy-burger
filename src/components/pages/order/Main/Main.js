@@ -1,6 +1,8 @@
 import styled from "styled-components";
 import Menu from "./Menu";
-import Admin from "./Admin/Admin";
+import Admin from "./admin/Admin";
+
+
 //import Basket from "./Basket";
 //import { theme } from "../../../../assets/theme";
 

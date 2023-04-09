@@ -1,27 +1,42 @@
-import React from "react";
+import React, { useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import styled from "styled-components";
 
 import NavBar from "./navbar/NavBar";
 import { theme } from "../../../assets/theme";
-import Main from "./Main/Main";
+import Main from "./main/Main";
+import OrderContext from "../../context/OrderContext";
 
 function OrderPage() {
+  // state
   const navigate = useNavigate();
   const { userName } = useParams();
+  const [isModeAdmin, setIsModeAdmin] = useState(false);
 
+  // comportements
   const handleLogin = (e) => {
     e.preventDefault();
     navigate("/");
   };
 
+  // context
+  // context
+  const orderContextValue = {
+    isModeAdmin,
+    setIsModeAdmin,
+  };
+
+  // affichage
+
   return (
-    <OrderPageStyled>
-      <div className="gbl-container">
-        <NavBar userName={userName} handleLogin={handleLogin} />
-        <Main />
-      </div>
-    </OrderPageStyled>
+    <OrderContext.Provider value={orderContextValue}>
+      <OrderPageStyled>
+        <div className="gbl-container">
+          <NavBar userName={userName} handleLogin={handleLogin} />
+          <Main />
+        </div>
+      </OrderPageStyled>
+    </OrderContext.Provider>
   );
 }
 
@@ -48,7 +63,6 @@ const OrderPageStyled = styled.div`
     z-index: 1;
     overflow: hidden;
   }
-
 `;
 
 export default OrderPage;

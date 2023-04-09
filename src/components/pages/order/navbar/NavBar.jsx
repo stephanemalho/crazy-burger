@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useContext } from "react";
 import { BsPersonCircle } from "react-icons/bs";
 import styled from "styled-components";
 import { toast } from "react-toastify";
@@ -7,11 +7,13 @@ import LogoImg from "../../../../assets/images/logo-orange.jpg";
 import { theme } from "../../../../assets/theme";
 import Logo from "../../../reusableUI/Logo";
 import ToggleButton from "../../../reusableUI/ToggleButton";
-import UserProfile from "../../../reusableUI/UserProfile";
+import UserProfile from "./Profile";
 import ToastAdmin from "./ToastAdmin";
+import OrderContext from "../../../context/OrderContext";
 
 function NavBar({ userName, handleLogin }) {
-  const [isModeAdmin, setIsModeAdmin] = useState(false);
+  const { isModeAdmin, setIsModeAdmin } = useContext(OrderContext);
+
   const activer = "ACTIVER LE MODE ADMIN";
   const desactiver = "DESECTIVER LE MODE ADMIN";
 
@@ -41,6 +43,7 @@ function NavBar({ userName, handleLogin }) {
         className={"orderLogo"}
       />
       <ToggleButton
+        isChecked={isModeAdmin}
         labelIfUnchecked={activer}
         labelIfChecked={desactiver}
         className={"toggleButton"}
