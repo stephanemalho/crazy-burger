@@ -75,9 +75,7 @@ const NavBarStyled = styled.nav`
   box-shadow: ${theme.shadows.subtle};
   .orderLogo {
     transform: scale(0.5);
-    top: -60px;
-    position: absolute;
-    left: -60px;
+    margin: 0;
   }
   .toggleButton {
     margin-left: auto;

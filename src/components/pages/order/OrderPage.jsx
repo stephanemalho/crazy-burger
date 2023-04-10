@@ -24,7 +24,6 @@ function OrderPage() {
   };
 
   // context
-  // context
   const orderContextValue = {
     isModeAdmin,
     setIsModeAdmin,
@@ -39,7 +38,6 @@ function OrderPage() {
   };
 
   // affichage
-
   return (
     <OrderContext.Provider value={orderContextValue}>
       <OrderPageStyled>
