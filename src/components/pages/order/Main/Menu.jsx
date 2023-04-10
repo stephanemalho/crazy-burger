@@ -36,7 +36,7 @@ const MenuGridStyled = styled.section`
   width: 100%;
   background: #f5f5f7;
   box-shadow: ${theme.shadows.strong};
-  height: auto;
+  height: 100%;
   overflow-y: scroll;
   margin: auto;
   display: grid;
@@ -45,6 +45,13 @@ const MenuGridStyled = styled.section`
   grid-column-gap: 20px;
   z-index: -1;
   }
+  @media screen and (min-width: 2000px) {
+        .cards-container {
+          max-width: 2000px;
+          height: 100%;
+          width: 100%;
+        }
+    }
 `;
 
 export default Menu;

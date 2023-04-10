@@ -70,6 +70,7 @@ const OrderPageStyled = styled.div`
     margin: 0 auto;
     height: 96%;
     width: 96%;
+    max-width: 1200px;
     border-radius: 10px;
     box-shadow: ${theme.shadows.strong};
     z-index: 1;
