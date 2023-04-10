@@ -41,7 +41,7 @@ const MenuGridStyled = styled.section`
   margin: auto;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  grid-row-gap: 60px;
+  grid-row-gap: 30px;
   grid-column-gap: 20px;
   z-index: -1;
   }

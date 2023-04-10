@@ -4,7 +4,7 @@ import styled from "styled-components";
 
 import NavBar from "./navbar/NavBar";
 import { theme } from "../../../assets/theme";
-import Main from "./main/Main";
+import Main from "./Main/Main";
 import OrderContext from "../../context/OrderContext";
 
 function OrderPage() {

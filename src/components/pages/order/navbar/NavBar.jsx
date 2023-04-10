@@ -72,10 +72,11 @@ const NavBarStyled = styled.nav`
   flex-wrap: nowrap;
   height: 10vh;
   border-radius: 10px 10px 0 0;
+  border-bottom: 1px solid ${theme.colors.greyLight};
   box-shadow: ${theme.shadows.subtle};
   .orderLogo {
     transform: scale(0.5);
-    margin: 0;
+    margin: 0 -50px;
   }
   .toggleButton {
     margin-left: auto;
@@ -84,7 +85,7 @@ const NavBarStyled = styled.nav`
   .userBox {
     display: flex;
     flex-direction: row;
-    width: auto;
+    padding-right: 20px;
     div {
       padding-right: 5px;
     }
