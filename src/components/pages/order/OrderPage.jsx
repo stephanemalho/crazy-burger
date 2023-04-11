@@ -3,8 +3,8 @@ import { useNavigate, useParams } from "react-router-dom";
 import styled from "styled-components";
 
 import NavBar from "./navbar/NavBar";
+import Main from "./main-content/Main";
 import { theme } from "../../../assets/theme";
-import Main from "./Main/Main";
 import OrderContext from "../../context/OrderContext";
 
 function OrderPage() {

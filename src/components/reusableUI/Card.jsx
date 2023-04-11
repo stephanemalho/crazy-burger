@@ -20,12 +20,16 @@ export default function Card({ imageSource, leftDescription, title }) {
 }
 
 const CardStyled = styled.figure`
+  display: flex;
+  flex-direction: column;
+  margin: 20px auto;
   background-color: white;
   height: 330px;
-  width: auto;
+  width: 200px;
   min-width: 200px;
   border-radius: 10px;
   box-shadow: ${theme.shadows.medium};
+  padding:20px;   
   figcaption {
     height: 200px;
     width: 90%;
