@@ -6,6 +6,7 @@ import NavBar from "./navbar/NavBar";
 import Main from "./main-content/Main";
 import { theme } from "../../../assets/theme";
 import OrderContext from "../../context/OrderContext";
+import { fakeMenu2 } from "../../../fakeData/fakeMenu";
 
 function OrderPage() {
   // state
@@ -16,12 +17,29 @@ function OrderPage() {
   const [isOnEditTab, setIsOnEditTab] = useState(false);
   const [isOnAddTab, setIsOnAddTab] = useState(true);
   const [currentTabSelected, setCurrentTabSelected] = useState("add")
+  const [menu, setMenu] = useState(fakeMenu2);
 
   // comportements
+
   const handleLogin = (e) => {
     e.preventDefault();
     navigate("/");
   };
+
+  const NewCard = {
+    key: Date.now(),
+    id: Date.now(),
+    title: "New Card",
+    imageSource: "https://picsum.photos/200/300",
+    price: 0,
+  }
+
+  const handleAddCard = () => {
+    console.log("handleAddProduct");
+    const menuCopy = [...menu];
+    const menuUpdated = [NewCard , ...menuCopy];
+    setMenu(menuUpdated);
+  }
 
   // context
   const orderContextValue = {
@@ -34,8 +52,12 @@ function OrderPage() {
     isOnAddTab,
     setIsOnAddTab,
     currentTabSelected,
-    setCurrentTabSelected
+    setCurrentTabSelected,
+    menu,
+    setMenu,
+    handleAddCard
   };
+
 
   // affichage
   return (

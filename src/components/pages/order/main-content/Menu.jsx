@@ -1,18 +1,21 @@
-import React from "react";
+import React, { useContext } from "react";
 import styled from "styled-components";
 
 import { theme } from "../../../../assets/theme/index";
 import { formatPrice } from "../../../../utils/maths";
-import { fakeMenu2 } from "../../../../fakeData/fakeMenu";
+//import { fakeMenu2 } from "../../../../fakeData/fakeMenu";
 import Card from "../../../reusableUI/Card";
+import OrderContext from "../../../context/OrderContext";
 
 function Menu() {
   //console.log(fakeMenu2);
 
+  const {menu} = useContext(OrderContext)
+
   return (
     <MenuGridStyled>
       <div className="cards-container"> 
-      {fakeMenu2.map((name) => (
+      {menu.map((name) => (
         <Card
           key={name.title}
           title={name.title}
