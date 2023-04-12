@@ -11,7 +11,7 @@ import TextInput from "../../reusableUI/TextInput";
 
 const LoginForm = () => {
   // state
-  const [userName, setUserName] = useState("");
+  const [userName, setUserName] = useState("Steph");
   const navigate = useNavigate();
 
   // behavior
