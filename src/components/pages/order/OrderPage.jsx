@@ -26,18 +26,10 @@ function OrderPage() {
     navigate("/");
   };
 
-  const NewCard = {
-    key: Date.now(),
-    id: Date.now(),
-    title: "New Card",
-    imageSource: "https://picsum.photos/200/300",
-    price: 0,
-  }
-
-  const handleAddCard = () => {
+  const handleAddCard = (newCard) => {
     console.log("handleAddProduct");
     const menuCopy = [...menu];
-    const menuUpdated = [NewCard , ...menuCopy];
+    const menuUpdated = [newCard , ...menuCopy];
     setMenu(menuUpdated);
   }
 
@@ -54,7 +46,6 @@ function OrderPage() {
     currentTabSelected,
     setCurrentTabSelected,
     menu,
-    setMenu,
     handleAddCard
   };
 
