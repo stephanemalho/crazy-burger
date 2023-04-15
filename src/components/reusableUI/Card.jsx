@@ -2,10 +2,14 @@ import React from "react";
 import styled from "styled-components";
 import { theme } from "../../assets/theme";
 import PrimaryButton from "./PrimaryButton";
+import { TiDelete } from "react-icons/ti";
 
 export default function Card({ imageSource, leftDescription, title }) {
   return (
     <CardStyled>
+      <button className="delete_button">
+        <TiDelete className="icon" />
+      </button>
       <figcaption>
         <img src={imageSource} height={"100px"} width={"80px"} alt={title} />
       </figcaption>
@@ -21,15 +25,42 @@ export default function Card({ imageSource, leftDescription, title }) {
 
 const CardStyled = styled.figure`
   display: flex;
+  position: relative;
   flex-direction: column;
   margin: 20px auto;
   background-color: white;
-  height: 330px;
+  height: 300px;
   width: 200px;
   min-width: 200px;
   border-radius: 10px;
   box-shadow: ${theme.shadows.medium};
   padding:20px;   
+  .delete_button {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    top: 10px;
+    right: 10px;
+    border-radius: 50%;
+    border: none;
+    color: #ffa01b;
+    background: none;
+    padding: 0;
+    z-index: 2;
+    cursor: pointer;
+    .icon {
+      height: 100%;
+      width: 100%;
+    }
+
+    &:hover {
+      color: ${theme.colors.red};
+    }
+
+    &:active {
+      color: ${theme.colors.redSecondary};
+    }
+  }
   figcaption {
     height: 200px;
     width: 90%;
@@ -39,7 +70,7 @@ const CardStyled = styled.figure`
     margin: auto;
     img {
       height: 65%;
-      width: 80%;
+      width: 100%;
       object-fit: contain;
       margin: auto;
       /* border: 2px solid red; */
