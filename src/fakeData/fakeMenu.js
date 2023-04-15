@@ -2,7 +2,7 @@
 export const fakeMenu1 = [
   {
     id: 1,
-    imageSource: "../../../assets/images/Burger1.png",
+    imageSource: "../../../images/burger-bacon-egg.png",
     title: "Burger 1",
     price: 5.297,
     quantity: 0,
@@ -11,7 +11,7 @@ export const fakeMenu1 = [
   },
   {
     id: 2,
-    imageSource: "../../../assets/images/burger2.png",
+    imageSource: "../../../images/burger-vegan.png",
     title: "Burger 2",
     price: 7.556,
     quantity: 0,

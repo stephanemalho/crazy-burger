@@ -6,7 +6,7 @@ import NavBar from "./navbar/NavBar";
 import Main from "./main-content/Main";
 import { theme } from "../../../assets/theme";
 import OrderContext from "../../context/OrderContext";
-import { fakeMenu2 } from "../../../fakeData/fakeMenu";
+import { fakeMenu1 } from "../../../fakeData/fakeMenu";
 
 function OrderPage() {
   // state
@@ -17,7 +17,7 @@ function OrderPage() {
   const [isOnEditTab, setIsOnEditTab] = useState(false);
   const [isOnAddTab, setIsOnAddTab] = useState(true);
   const [currentTabSelected, setCurrentTabSelected] = useState("add")
-  const [menu, setMenu] = useState(fakeMenu2);
+  const [menu, setMenu] = useState(fakeMenu1);
 
   // comportements
   const handleLogin = (e) => {
@@ -37,6 +37,10 @@ function OrderPage() {
     setMenu(newMenu);
   };
 
+  const resetMenu = () => {
+    setMenu(fakeMenu1);
+  }
+
   // context
   const orderContextValue = {
     isModeAdmin,
@@ -51,7 +55,8 @@ function OrderPage() {
     setCurrentTabSelected,
     menu,
     handleAddCard,
-    handleDeleteCard
+    handleDeleteCard,
+    resetMenu,
   };
 
   // affichage
