@@ -22,7 +22,7 @@ function Menu() {
           <Card
             key={id}
             title={title}
-            imageSource={imageSource}
+            imageSource={imageSource === "" ? "/images/coming-soon.png" : imageSource}
             leftDescription={formatPrice(price)}
             hasDeleteButton={isModeAdmin}
             onDelete={() => handleDeleteCard(id)}

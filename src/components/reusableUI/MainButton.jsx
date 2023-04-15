@@ -65,13 +65,9 @@ const extraStylePrimary = css`
 `;
 
 const extraStyleSucess = css`
-  display: grid;
-  grid-area: 4/-2/-1/-1;
-  justify-content: left;
-  align-items: start;
   .submit-button {
     color: ${theme.colors.white};
-    width: 250px;
+    width: 100%;
     height: 35px;
     background-color: ${theme.colors.success};
     border-radius: ${theme.borderRadius.round};

@@ -1,5 +1,6 @@
 import React, { useContext } from "react";
 import styled from "styled-components";
+
 import AdminTabs from "./AdminTabs";
 import AdminPanel from "./AdminPanel";
 import OrderContext from "../../../../context/OrderContext";
@@ -10,7 +11,6 @@ export default function Admin() {
     isCollapsed,
   } = useContext(OrderContext);
   
-
   return (
     <AdminStyled className="admin">
       <AdminTabs

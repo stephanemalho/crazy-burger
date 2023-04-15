@@ -8,6 +8,7 @@ import OrderContext from "../../../../../context/OrderContext";
 import { theme } from "../../../../../../assets/theme";
 import TextInput from "../../../../../reusableUI/TextInput";
 import SucessButton from "../../../../../reusableUI/MainButton";
+import { FiCheck } from "react-icons/fi";
 
 const EMPTY_CARD = {
   key: "",
@@ -21,6 +22,7 @@ export default function AddForm() {
   const { handleAddCard } = useContext(OrderContext);
 
   const [newCard, setNewCard] = useState(EMPTY_CARD);
+  const [isSubmited, setIsSubmited] = useState(false)
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -32,12 +34,18 @@ export default function AddForm() {
 
     const NewCard = {
       ...newCard,
-      id: Date.now(),
+      id: crypto.randomUUID(),
       key: Date.now(),
     };
 
     handleAddCard(NewCard);
     setNewCard(EMPTY_CARD);
+
+    setIsSubmited(true)
+    setTimeout(() => {
+      setIsSubmited(false)
+    }
+    , 2000)
   };
 
   return (
@@ -72,11 +80,16 @@ export default function AddForm() {
           version="admin"
         />
       </div>
+      <div className="submit-box">
       <SucessButton
-        className="submit-button"
+        className={"submit-button"}
         label={"Ajouter un nouveau produit au menu"}
         version={"success"}
       />
+      <div className="sucess-message">
+      { isSubmited && <small className="message"><FiCheck className="icon" /> Ajouté avec succès</small>}
+      </div>
+      </div>
     </AddFormStyled>
   );
 }
@@ -108,5 +121,37 @@ const AddFormStyled = styled.form`
     grid-template-rows: 1fr 1fr 1fr;
     grid-row-gap: 10px;
     width: 80%;
+  }   
+  .submit-box {
+    display: grid;
+    grid-area: 4/-2/-1/-1;
+    justify-content: left;
+    align-items: start; 
+    grid-template-columns: 1fr 1fr;
+    align-items: start;
+    justify-items: start;
+    width: 60%;
+  .sucess-message {
+    margin-left: 5px;
+    font-family: "open sans", sans-serif;
+    align-items: center;
+    display: flex;
+    height: 60%;
+  .icon {
+    color: ${theme.colors.success};
+    margin-left: 10px;
+    width: 1em;
+    height: 1em;
+    border: 1px solid ${theme.colors.success};
+    border-radius: 50%;
+    vertical-align: middle;
   }
+  .message {
+    margin-left: 5px;
+    font-size: ${theme.fonts.size.XS};
+    color: ${theme.colors.success};
+  }
+}
+}
+  
 `;
