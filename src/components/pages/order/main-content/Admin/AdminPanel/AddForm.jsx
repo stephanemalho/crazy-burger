@@ -50,7 +50,11 @@ export default function AddForm() {
 
   return (
     <AddFormStyled onSubmit={handleSubmit}>
-      <div className="image-previous">Aucune image</div>
+      <div className="image-previous">
+      { newCard.imageSource ?
+       <img   src={newCard.imageSource} alt={newCard.title} /> 
+       : <div>Aucune image</div>}
+      </div>
       <div className="inputs-field">
         <TextInput
           type="text"
@@ -112,6 +116,10 @@ const AddFormStyled = styled.form`
     height: 140px;
     width: 70%;
     border: 1px solid ${theme.colors.greyLight};
+    img {
+      width: 100%;
+      height: 100%;
+    }
   }
   .inputs-field {
     grid-area: 1/2/4/3;
