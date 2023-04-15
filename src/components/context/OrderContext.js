@@ -17,5 +17,6 @@ export default createContext({
   setCurrentTabSelected: () => {},
 
   menu: [],
-  handleAddCard: () => {}
+  handleAddCard: () => {},
+  handleDeleteCard: () => {},
 })

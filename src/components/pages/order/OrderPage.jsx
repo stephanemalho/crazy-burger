@@ -20,18 +20,22 @@ function OrderPage() {
   const [menu, setMenu] = useState(fakeMenu2);
 
   // comportements
-
   const handleLogin = (e) => {
     e.preventDefault();
     navigate("/");
   };
 
   const handleAddCard = (newCard) => {
-    console.log("handleAddProduct");
     const menuCopy = [...menu];
     const menuUpdated = [newCard , ...menuCopy];
     setMenu(menuUpdated);
   }
+
+  const handleDeleteCard = (currentCard) => {
+    const menuCopy = [...menu];
+    const newMenu = menuCopy.filter((card) => card.id !== currentCard);
+    setMenu(newMenu);
+  };
 
   // context
   const orderContextValue = {
@@ -46,9 +50,9 @@ function OrderPage() {
     currentTabSelected,
     setCurrentTabSelected,
     menu,
-    handleAddCard
+    handleAddCard,
+    handleDeleteCard
   };
-
 
   // affichage
   return (

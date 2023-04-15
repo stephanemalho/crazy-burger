@@ -3,25 +3,27 @@ import styled from "styled-components";
 
 import { theme } from "../../../../assets/theme/index";
 import { formatPrice } from "../../../../utils/maths";
-//import { fakeMenu2 } from "../../../../fakeData/fakeMenu";
 import Card from "../../../reusableUI/Card";
 import OrderContext from "../../../context/OrderContext";
 
 function Menu() {
-  //console.log(fakeMenu2);
-
-  const {menu} = useContext(OrderContext)
-
+  
+  const {menu, isModeAdmin, handleDeleteCard} = useContext(OrderContext);
+  
   return (
     <MenuGridStyled>
       <div className="cards-container"> 
-      {menu.map((name) => (
+      {menu.map(({title, id, imageSource,price}) => (
         <Card
-          key={name.title}
-          title={name.title}
-          imageSource={name.imageSource}
-          leftDescription={formatPrice(name.price)}
+          key={id}
+          title={title}
+          imageSource={imageSource}
+          leftDescription={formatPrice(price)}
+          hasDeleteButton={isModeAdmin}
+          onDelete={() => handleDeleteCard(id)}
+
         />
+        
       ))}
       </div>
     </MenuGridStyled>
