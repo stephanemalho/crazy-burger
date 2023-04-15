@@ -1,7 +1,12 @@
 import React, { useContext, useState } from "react";
 import styled from "styled-components";
+import {FaHamburger} from "react-icons/fa";
+import {BsFillCameraFill} from "react-icons/bs";
+import {MdOutlineEuro} from "react-icons/md";
+
 import OrderContext from "../../../../../context/OrderContext";
 import { theme } from "../../../../../../assets/theme";
+import TextInput from "../../../../../reusableUI/TextInput";
 
 const EMPTY_CARD = {
   key: "",
@@ -38,29 +43,35 @@ export default function AddForm() {
     <AddFormStyled onSubmit={handleSubmit}>
       <div className="image-previous">Aucune image</div>
       <div className="inputs-field">
-        <input
+        <TextInput
           type="text"
           onChange={handleChange}
           name="title"
           value={newCard.title}
           placeholder="Nom du produit"
+          Icon={<FaHamburger className="Icon" />}
+          version="admin"
         />
-        <input
+        <TextInput
           type="text"
           onChange={handleChange}
           name="imageSource"
           value={newCard.imageSource}
           placeholder="Url "
+          Icon={<BsFillCameraFill className="Icon" />}
+          version="admin"
         />
-        <input
+        <TextInput
           type="text"
           onChange={handleChange}
           name="price"
           value={newCard.price ? newCard.price : ""}
           placeholder="Prix"
+          Icon={<MdOutlineEuro className="Icon" />}
+          version="admin"
         />
       </div>
-      <button className="submit-button">Ajouter un produit au menu</button>
+      <button className="submit-button">Ajouter un nouveau produit au menu</button>
     </AddFormStyled>
   );
 }
@@ -69,9 +80,8 @@ const AddFormStyled = styled.form`
   display: grid;
   grid-template-columns: 1fr 3fr;
   grid-template-rows: repeat(4, 1fr);
-  height: 100%;
-  width: 70%;
-
+  width: 100%;
+  
   .image-previous {
     font-family: "open sans", sans-serif;
     color: ${theme.colors.greyMedium};
@@ -80,8 +90,9 @@ const AddFormStyled = styled.form`
     justify-content: center;
     align-items: center;
     border-radius: ${theme.borderRadius.round};
-    margin: 20px;
+    margin: auto;
     height: 140px;
+    width: 70%;
     border: 1px solid ${theme.colors.greyLight};
   }
   .inputs-field {
@@ -91,28 +102,14 @@ const AddFormStyled = styled.form`
     padding: 20px 0;
     grid-template-rows: 1fr 1fr 1fr;
     grid-row-gap: 10px;
-    input {
-    border: none;
-    font-size: ${theme.fonts.size.SM};
-    width: 100%;
-    background-color: ${theme.colors.background_white};
-    border-radius: ${theme.borderRadius.round};
+    width: 80%;
     
-    &::placeholder {
-      color: ${theme.colors.greyMedium};
-    }
-    .icon {
-    font-size: ${theme.fonts.size.SM};
-    margin: 0 13px 0 8px;
-    display: flex; // to center icon vertically
-  }
-  }
   }
   .submit-button {
     color: ${theme.colors.white};
     grid-area: 4/-2/-1/-1;
-    width: 40%;
-    height: 40px;
+    width: 300px;
+    height: 35px;
     background-color: ${theme.colors.success};
     border-radius: ${theme.borderRadius.round};
     border: none;

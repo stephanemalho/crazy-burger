@@ -41,6 +41,7 @@ const LoginForm = () => {
           value={userName}
           placeholder={"Entrez votre prénom"}
           required
+          version="login"
         />
       </label>
       <PrimaryButton
