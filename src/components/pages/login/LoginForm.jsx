@@ -6,7 +6,7 @@ import { BsPersonCircle } from "react-icons/bs";
 
 /**********************************/
 import { theme } from "../../../assets/theme/index";
-import PrimaryButton from "../../reusableUI/PrimaryButton";
+import MainButton from "../../reusableUI/MainButton";
 import TextInput from "../../reusableUI/TextInput";
 
 const LoginForm = () => {
@@ -44,7 +44,7 @@ const LoginForm = () => {
           version="login"
         />
       </label>
-      <PrimaryButton
+      <MainButton
         className={"btnIcon"}
         label={"Accéder à mon espace"}
         ButtonIcon={<MdKeyboardArrowRight size={30} />}

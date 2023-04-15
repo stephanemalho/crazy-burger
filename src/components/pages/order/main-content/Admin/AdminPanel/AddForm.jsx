@@ -1,12 +1,13 @@
 import React, { useContext, useState } from "react";
 import styled from "styled-components";
-import {FaHamburger} from "react-icons/fa";
-import {BsFillCameraFill} from "react-icons/bs";
-import {MdOutlineEuro} from "react-icons/md";
+import { FaHamburger } from "react-icons/fa";
+import { BsFillCameraFill } from "react-icons/bs";
+import { MdOutlineEuro } from "react-icons/md";
 
 import OrderContext from "../../../../../context/OrderContext";
 import { theme } from "../../../../../../assets/theme";
 import TextInput from "../../../../../reusableUI/TextInput";
+import SucessButton from "../../../../../reusableUI/MainButton";
 
 const EMPTY_CARD = {
   key: "",
@@ -31,7 +32,7 @@ export default function AddForm() {
 
     const NewCard = {
       ...newCard,
-      id:  Date.now(),
+      id: Date.now(),
       key: Date.now(),
     };
 
@@ -71,7 +72,11 @@ export default function AddForm() {
           version="admin"
         />
       </div>
-      <button className="submit-button">Ajouter un nouveau produit au menu</button>
+      <SucessButton
+        className="submit-button"
+        label={"Ajouter un nouveau produit au menu"}
+        version={"success"}
+      />
     </AddFormStyled>
   );
 }
@@ -81,7 +86,7 @@ const AddFormStyled = styled.form`
   grid-template-columns: 1fr 3fr;
   grid-template-rows: repeat(4, 1fr);
   width: 100%;
-  
+  padding-top: 5px;
   .image-previous {
     font-family: "open sans", sans-serif;
     color: ${theme.colors.greyMedium};
@@ -90,7 +95,7 @@ const AddFormStyled = styled.form`
     justify-content: center;
     align-items: center;
     border-radius: ${theme.borderRadius.round};
-    margin: auto;
+    margin: 20px auto;
     height: 140px;
     width: 70%;
     border: 1px solid ${theme.colors.greyLight};
@@ -99,39 +104,9 @@ const AddFormStyled = styled.form`
     grid-area: 1/2/4/3;
     border-radius: ${theme.borderRadius.round};
     display: grid;
-    padding: 20px 0;
+    padding: 20px 0 10px 0;
     grid-template-rows: 1fr 1fr 1fr;
     grid-row-gap: 10px;
     width: 80%;
-    
-  }
-  .submit-button {
-    color: ${theme.colors.white};
-    grid-area: 4/-2/-1/-1;
-    width: 300px;
-    height: 35px;
-    background-color: ${theme.colors.success};
-    border-radius: ${theme.borderRadius.round};
-    border: none;
-    font-weight: ${theme.fonts.weights.bold};
-
-    &:hover {
-      background-color: ${theme.colors.white};
-      color: ${theme.colors.success};
-      border: 1px solid ${theme.colors.success};
-
-    &:active {
-      background-color: ${theme.colors.success};
-      color: ${theme.colors.white};
-      border: none;
-  }
-
-}
   }
 `;
-
-
-
- 
-
-  

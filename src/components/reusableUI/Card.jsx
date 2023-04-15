@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { theme } from "../../assets/theme";
-import PrimaryButton from "./PrimaryButton";
+import MainButton from "./MainButton";
 import { TiDelete } from "react-icons/ti";
 
 export default function Card({
@@ -25,7 +25,11 @@ export default function Card({
         <h1>{title}</h1>
         {/* arrondir le prix */}
         <p>{leftDescription}</p>
-        <PrimaryButton label={"Ajouter"} className="btnCart" />
+        <MainButton
+          label={"Ajouter"}
+          className="btnCart"
+          version="primary"
+        />
       </div>
     </CardStyled>
   );
@@ -42,7 +46,7 @@ const CardStyled = styled.figure`
   min-width: 200px;
   border-radius: 10px;
   box-shadow: ${theme.shadows.medium};
-  padding:20px;   
+  padding: 20px;
   .delete_button {
     position: absolute;
     width: 30px;
