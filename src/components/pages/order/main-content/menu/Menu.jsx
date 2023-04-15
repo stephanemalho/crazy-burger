@@ -11,6 +11,8 @@ import EmptyMenuClient from "./EmptyMenuClient";
 function Menu() {
   const { menu, isModeAdmin, handleDeleteCard } = useContext(OrderContext);
 
+  console.log("menu", menu);
+
   if (menu.length === 0) return isModeAdmin ? <EmptyMenuAdmin /> : <EmptyMenuClient />;
 
   return (

@@ -1,6 +1,7 @@
 import React, { useContext, useState } from "react";
 import styled from "styled-components";
 import OrderContext from "../../../../../context/OrderContext";
+import { theme } from "../../../../../../assets/theme";
 
 const EMPTY_CARD = {
   key: "",
@@ -24,9 +25,9 @@ export default function AddForm() {
     e.preventDefault();
 
     const NewCard = {
+      ...newCard,
+      id:  Date.now(),
       key: Date.now(),
-      id: Date.now(),
-      ...newCard
     };
 
     handleAddCard(NewCard);
@@ -59,13 +60,12 @@ export default function AddForm() {
           placeholder="Prix"
         />
       </div>
-      <button className="submit-button">button</button>
+      <button className="submit-button">Ajouter un produit au menu</button>
     </AddFormStyled>
   );
 }
 
 const AddFormStyled = styled.form`
-  border: 1px solid black;
   display: grid;
   grid-template-columns: 1fr 3fr;
   grid-template-rows: repeat(4, 1fr);
@@ -73,17 +73,68 @@ const AddFormStyled = styled.form`
   width: 70%;
 
   .image-previous {
-    background: red;
+    font-family: "open sans", sans-serif;
+    color: ${theme.colors.greyMedium};
     grid-area: 1/1/4/2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: ${theme.borderRadius.round};
+    margin: 20px;
+    height: 140px;
+    border: 1px solid ${theme.colors.greyLight};
   }
   .inputs-field {
-    background: blue;
     grid-area: 1/2/4/3;
-
+    border-radius: ${theme.borderRadius.round};
     display: grid;
+    padding: 20px 0;
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-row-gap: 10px;
+    input {
+    border: none;
+    font-size: ${theme.fonts.size.SM};
+    width: 100%;
+    background-color: ${theme.colors.background_white};
+    border-radius: ${theme.borderRadius.round};
+    
+    &::placeholder {
+      color: ${theme.colors.greyMedium};
+    }
+    .icon {
+    font-size: ${theme.fonts.size.SM};
+    margin: 0 13px 0 8px;
+    display: flex; // to center icon vertically
+  }
+  }
   }
   .submit-button {
-    background: green;
+    color: ${theme.colors.white};
     grid-area: 4/-2/-1/-1;
+    width: 40%;
+    height: 40px;
+    background-color: ${theme.colors.success};
+    border-radius: ${theme.borderRadius.round};
+    border: none;
+    font-weight: ${theme.fonts.weights.bold};
+
+    &:hover {
+      background-color: ${theme.colors.white};
+      color: ${theme.colors.success};
+      border: 1px solid ${theme.colors.success};
+
+    &:active {
+      background-color: ${theme.colors.success};
+      color: ${theme.colors.white};
+      border: none;
+  }
+
+}
   }
 `;
+
+
+
+ 
+
+  
