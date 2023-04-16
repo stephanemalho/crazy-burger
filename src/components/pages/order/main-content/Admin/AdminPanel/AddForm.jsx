@@ -7,14 +7,9 @@ import TextInput from "../../../../../reusableUI/TextInput";
 import ImagePreviou from "./ImagePreview";
 import SuccessBox from "./SuccessBox";
 import { getInputTextConfig } from "./getInputTextConfig";
+import { EMPTY_CARD } from "../../../../../../enums/card";
 
-export const EMPTY_CARD = {
-  key: "",
-  id: "",
-  title: "",
-  imageSource: "",
-  price: "",
-};
+
 
 export default function AddForm() {
   const { handleAddCard, newCard, setNewCard } = useContext(OrderContext);

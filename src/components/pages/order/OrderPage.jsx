@@ -6,20 +6,21 @@ import NavBar from "./navbar/NavBar";
 import Main from "./main-content/Main";
 import { theme } from "../../../assets/theme";
 import OrderContext from "../../context/OrderContext";
-import { fakeMenu2 } from "../../../fakeData/fakeMenu";
-import { EMPTY_CARD } from "./main-content/Admin/AdminPanel/AddForm";
+import { fakeMenu1 } from "../../../fakeData/fakeMenu";
+import { EMPTY_CARD } from "../../../enums/card";
 
 function OrderPage() {
   // state
   const navigate = useNavigate();
   const { userName } = useParams();
-  const [isModeAdmin, setIsModeAdmin] = useState(false);
+  const [isModeAdmin, setIsModeAdmin] = useState(true); // à changer en false
   const [isCollapsed, setIsCollapsed] = useState(false);
-  const [isOnEditTab, setIsOnEditTab] = useState(false);
+  const [isOnEditTab, setIsOnEditTab] = useState(false); 
   const [isOnAddTab, setIsOnAddTab] = useState(true);
-  const [currentTabSelected, setCurrentTabSelected] = useState("add")
-  const [menu, setMenu] = useState(fakeMenu2);
+  const [currentTabSelected, setCurrentTabSelected] = useState("edit") // à changer en "add"
+  const [menu, setMenu] = useState(fakeMenu1);
   const [newCard, setNewCard] = useState(EMPTY_CARD);
+  const [cardSelected, setCardSelected] = useState(EMPTY_CARD)
 
 
   // comportements
@@ -41,7 +42,7 @@ function OrderPage() {
   };
 
   const resetMenu = () => {
-    setMenu(fakeMenu2);
+    setMenu(fakeMenu1);
   }
 
   // context
@@ -62,6 +63,8 @@ function OrderPage() {
     resetMenu,
     newCard,
     setNewCard,
+    cardSelected,
+    setCardSelected
   };
 
   // affichage

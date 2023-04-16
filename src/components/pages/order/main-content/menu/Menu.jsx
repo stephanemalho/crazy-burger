@@ -11,9 +11,14 @@ import { theme } from "../../../../../assets/theme";
 
 
 function Menu() {
-  const { menu, isModeAdmin, handleDeleteCard, resetMenu } = useContext(OrderContext);
+  const { menu, isModeAdmin, handleDeleteCard, resetMenu , setCardSelected } = useContext(OrderContext);
 
   const defaultImage = "/images/coming-soon.png";
+
+  const handleClickCard = (cardSelectedId) => {
+    const cardSelected = menu.find((card) => card.id === cardSelectedId);
+    setCardSelected(cardSelected);
+  };
 
   if (menu.length === 0) return isModeAdmin ? <EmptyMenuAdmin onReset={resetMenu} /> : <EmptyMenuClient />;
 
@@ -28,6 +33,7 @@ function Menu() {
             leftDescription={formatPrice(price)}
             hasDeleteButton={isModeAdmin}
             onDelete={() => handleDeleteCard(id)}
+            onClick={() => handleClickCard(id)}
           />
         ))}
       </div>

@@ -21,7 +21,10 @@ export default createContext({
   handleAddCard: () => {},
   handleDeleteCard: () => {},
 
-  newCard: [],
+  newCard: {},
   setNewCard: () => {},
+
+  cardSelected:{},
+  setCardSelected :() => {},
 
 })
