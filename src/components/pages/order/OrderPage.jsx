@@ -10,20 +10,18 @@ import { fakeMenu1 } from "../../../fakeData/fakeMenu";
 import { EMPTY_CARD } from "../../../enums/card";
 import { deepClone } from "../../../utils/arrays";
 
-
 function OrderPage() {
   // state
   const navigate = useNavigate();
   const { userName } = useParams();
   const [isModeAdmin, setIsModeAdmin] = useState(true); // à changer en false
   const [isCollapsed, setIsCollapsed] = useState(false);
-  const [isOnEditTab, setIsOnEditTab] = useState(false); 
+  const [isOnEditTab, setIsOnEditTab] = useState(false);
   const [isOnAddTab, setIsOnAddTab] = useState(true);
-  const [currentTabSelected, setCurrentTabSelected] = useState("edit") // à changer en "add"
+  const [currentTabSelected, setCurrentTabSelected] = useState("edit"); // à changer en "add"
   const [menu, setMenu] = useState(fakeMenu1);
   const [newCard, setNewCard] = useState(EMPTY_CARD);
-  const [cardSelected, setCardSelected] = useState(EMPTY_CARD)
-
+  const [cardSelected, setCardSelected] = useState(EMPTY_CARD);
 
   // comportements
   const handleLogin = (e) => {
@@ -33,9 +31,9 @@ function OrderPage() {
 
   const handleAddCard = (newCard) => {
     const menuCopy = deepClone(menu);
-    const menuUpdated = [newCard , ...menuCopy];
+    const menuUpdated = [newCard, ...menuCopy];
     setMenu(menuUpdated);
-  }
+  };
 
   const handleDeleteCard = (currentCard) => {
     const menuCopy = deepClone(menu);
@@ -45,14 +43,16 @@ function OrderPage() {
 
   const handleEditCard = (currentCard) => {
     const menuCopy = deepClone(menu);
-    const indexOfCardToEdit = menuCopy.findIndex((card) => card.id === currentCard.id);
+    const indexOfCardToEdit = menuCopy.findIndex(
+      (card) => card.id === currentCard.id
+    );
     menuCopy[indexOfCardToEdit] = currentCard;
     setMenu(menuCopy);
   };
 
   const resetMenu = () => {
     setMenu(fakeMenu1);
-  }
+  };
 
   // context
   const orderContextValue = {
@@ -74,7 +74,7 @@ function OrderPage() {
     setNewCard,
     cardSelected,
     setCardSelected,
-    handleEditCard
+    handleEditCard,
   };
 
   // affichage

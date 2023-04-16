@@ -34,6 +34,7 @@ function Menu() {
             hasDeleteButton={isModeAdmin}
             onDelete={() => handleDeleteCard(id)}
             onClick={() => handleClickCard(id)}
+            isHoverable={isModeAdmin}
           />
         ))}
       </div>

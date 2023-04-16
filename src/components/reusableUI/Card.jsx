@@ -1,5 +1,5 @@
 import React from "react";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import { theme } from "../../assets/theme";
 import MainButton from "./MainButton";
 import { TiDelete } from "react-icons/ti";
@@ -10,111 +10,129 @@ export default function Card({
   title,
   hasDeleteButton,
   onDelete,
-  onClick
+  onClick,
+  isHoverable,
 }) {
   return (
-    <CardStyled onClick={onClick}>
-      {hasDeleteButton && (
-        <button className="delete_button" onClick={onDelete}>
-          <TiDelete className="icon" />
-        </button>
-      )}
-      <figcaption>
-        <img src={imageSource} height={"100px"} width={"80px"} alt={title} />
-      </figcaption>
-      <div>
-        <h1>{title}</h1>
-        {/* arrondir le prix */}
-        <p>{leftDescription}</p>
-        <MainButton label={"Ajouter"} className="btnCard" version="primary" />
+    <CardStyled onClick={onClick} isHoverable={isHoverable}>
+      <div className="card">
+        {hasDeleteButton && (
+          <button className="delete_button" onClick={onDelete}>
+            <TiDelete className="icon" />
+          </button>
+        )}
+        <figcaption>
+          <img src={imageSource} height={"100px"} width={"80px"} alt={title} />
+        </figcaption>
+        <div>
+          <h1>{title}</h1>
+          {/* arrondir le prix */}
+          <p>{leftDescription}</p>
+          <MainButton label={"Ajouter"} className="btnCart" version="primary" />
+        </div>
       </div>
     </CardStyled>
   );
 }
 
 const CardStyled = styled.figure`
-  display: flex;
-  position: relative;
-  flex-direction: column;
-  margin: ${theme.spacing.md} auto;
-  background-color: ${theme.colors.white};
-  height: 330px;
   width: 240px;
-  min-width: 200px;
+  height: 330px;
+  ${(props) => props.isHoverable && hoverableStyle}
   border-radius: ${theme.borderRadius.extraRound};
-  box-shadow: ${theme.shadows.medium};
-  box-sizing: border-box;
-  .delete_button {
-    position: absolute;
-    width: 30px;
-    height: 30px;
-    top: 10px;
-    right: 10px;
-    border-radius: 50%;
-    border: none;
-    color: #ffa01b;
-    background: none;
-    padding: 0;
-    z-index: 2;
-    cursor: pointer;
-    .icon {
-      height: 100%;
-      width: 100%;
-    }
-
-    &:hover {
-      color: ${theme.colors.red};
-    }
-
-    &:active {
-      color: ${theme.colors.redSecondary};
-    }
-  }
-  figcaption {
-    height: 145px;
-    width: 200px;
-    object-fit: cover;
+  margin: 50px auto;
+  .card {
+    box-sizing: border-box;
     display: flex;
-    align-items: center;
-    margin: auto;
-    padding-top: 50px;
-    img {
-      height: 100%;
+    position: relative;
+    flex-direction: column;
+    background-color: white;
+    height: 330px;
+    width: 240px;
+    min-width: 200px;
+    border-radius: ${theme.borderRadius.extraRound};
+    box-shadow: ${theme.shadows.medium};
+    padding: 20px;
+    .delete_button {
+      position: absolute;
+      width: 30px;
+      height: 30px;
+      top: 10px;
+      right: 10px;
+      border-radius: 50%;
+      border: none;
+      color: #ffa01b;
+      background: none;
+      padding: 0;
+      z-index: 2;
+      cursor: pointer;
+      .icon {
+        height: 100%;
+        width: 100%;
+      }
+
+      &:hover {
+        color: ${theme.colors.red};
+      }
+
+      &:active {
+        color: ${theme.colors.redSecondary};
+      }
+    }
+    figcaption {
+      height: 200px;
       width: 100%;
-      object-fit: contain;
+      object-fit: cover;
+      display: flex;
+      align-items: center;
+      margin: auto;
+      img {
+        height: 65%;
+        width: 100%;
+        object-fit: contain;
+        margin: auto;
+        /* border: 2px solid red; */
+      }
+    }
+    div {
+      position: relative;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
       margin: auto;
       /* border: 2px solid red; */
-    }
-  }
-  div {
-    position: relative;
-    width: 85%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    margin: auto;
-    /* border: 2px solid red; */
-    h1 {
-      width: 95%;
-      font-size: ${theme.fonts.size.P4};
-      font-weight: ${theme.fonts.weights.bold};
-      font-family: "Amatic SC", cursive;
-      text-overflow: ellipsis;
-      overflow: hidden;
-      white-space: nowrap;
-      margin: 0;
-    }
-    p {
-      font-size: ${theme.fonts.size.P1};
-      font-family: "Open sans", cursive;
-      color: ${theme.colors.loginLine};
-    }
-    .btnCard {
-      width: 95px;
-      height: 38px;
-      position: absolute;
-      top: -50px;
-      right: -15px;
+      h1 {
+        width: 95%;
+        font-size: ${theme.fonts.size.P4};
+        font-weight: ${theme.fonts.weights.heavy};
+        font-family: "Amatic SC", cursive;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        white-space: nowrap;
+        margin: 0;
+      }
+      p {
+        font-size: ${theme.fonts.size.P1};
+        font-family: "Open sans", cursive;
+        color: ${theme.colors.loginLine};
+      }
+      .btnCart {
+        width: 100px;
+        height: 45px;
+        position: absolute;
+        top: -55px;
+        right: -5px;
+      }
     }
   }
 `;
+
+const hoverableStyle = css`
+  :hover {
+    transform: scale(1.05);
+    transition: all 0.3s ease-in-out;
+    box-shadow: ${theme.shadows.orangeHighlight};
+    cursor: pointer;
+  }
+`
