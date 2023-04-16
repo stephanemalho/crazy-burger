@@ -8,8 +8,7 @@ import OrderContext from "../../../../../context/OrderContext";
 import { theme } from "../../../../../../assets/theme";
 import TextInput from "../../../../../reusableUI/TextInput";
 import ImagePreviou from "./ImagePreviou";
-import SuccessMessage from "./SuccessMessage";
-import { FiCheck } from "react-icons/fi";
+import SuccessBox from "./SuccessBox";
 
 export const EMPTY_CARD = {
   key: "",
@@ -80,7 +79,7 @@ export default function AddForm() {
           version="admin"
         />
       </div>
-      <SuccessMessage Icon={<FiCheck className="icon" />} label={"Ajouté avec succès"} isSubmited={isSubmited} />
+      <SuccessBox isSubmited={isSubmited} /> {/** Button & message success*/}
     </AddFormStyled>
   );
 }

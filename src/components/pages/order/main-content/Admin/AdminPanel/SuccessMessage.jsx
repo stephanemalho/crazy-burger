@@ -1,37 +1,20 @@
 import React from 'react'
-import SucessButton from "../../../../../reusableUI/MainButton";
 import styled from 'styled-components';
 import { theme } from '../../../../../../assets/theme';
 
 export default function SuccessMessage({ label, Icon , isSubmited}) {
   return (
-    <SucessMessageStyled className="submit-box">
-        <SucessButton
-          className={"submit-button"}
-          label={"Ajouter un nouveau produit au menu"}
-          version={"success"}
-        />
-        <div className="sucess-message">
+    <SucessMessageStyled>
           {isSubmited && (
             <small className="message">
               {Icon}{" "}{label}
             </small>
           )}
-        </div>
-      </SucessMessageStyled>
+    </SucessMessageStyled>
   )
 }
 
 const SucessMessageStyled = styled.div`
-    display: grid;
-    grid-area: 4/-2/-1/-1;
-    justify-content: left;
-    align-items: start;
-    grid-template-columns: 1fr 1fr;
-    align-items: start;
-    justify-items: start;
-    width: 60%;
-    .sucess-message {
       margin-left: 5px;
       font-family: "open sans", sans-serif;
       align-items: center;
@@ -48,8 +31,7 @@ const SucessMessageStyled = styled.div`
       }
       .message {
         margin-left: 5px;
-        font-size: ${theme.fonts.size.XS};
         color: ${theme.colors.success};
       }
-    }
+
 `;
