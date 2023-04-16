@@ -1,7 +1,7 @@
-import React, { useContext } from 'react'
-import OrderContext from '../../../../../context/OrderContext';
-import styled from 'styled-components';
-import { theme } from '../../../../../../assets/theme';
+import React, { useContext } from "react";
+import styled from "styled-components";
+import { theme } from "../../../../../../assets/theme";
+import { OrderContext } from "../../../../../../contexts/OrderContext";
 
 export default function ImagePreview({ title, imageSource}) {
 
@@ -25,7 +25,7 @@ const ImagePreviewStyled = styled.div`
     color: ${theme.colors.greyMedium};
     grid-area: 1/1/4/2;
     display: flex;
-    justify-content: center;
+    height: 100%;
     align-items: center;
     margin-left: auto;
     padding: 20px 20px 0 50px;
@@ -44,11 +44,5 @@ const ImagePreviewStyled = styled.div`
       width: 100px;
       display: flex;
       height: 100%;
-      align-items: center;
-      justify-content: center;
-      img {
-        width: 100%;
-        height: 100%;
-      }
     }
     `;
