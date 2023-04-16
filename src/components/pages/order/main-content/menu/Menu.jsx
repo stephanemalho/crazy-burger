@@ -7,11 +7,12 @@ import EmptyMenuClient from "./EmptyMenuClient";
 import Card from "../../../../reusableUI/Card";
 import { formatPrice } from "../../../../../utils/maths";
 import { theme } from "../../../../../assets/theme";
+import { checkIsCardSelected } from "./helper";
 
 
 
 function Menu() {
-  const { menu, isModeAdmin, handleDeleteCard, resetMenu , setCardSelected } = useContext(OrderContext);
+  const { menu, isModeAdmin, handleDeleteCard, resetMenu , setCardSelected, cardSelected } = useContext(OrderContext);
 
   const defaultImage = "/images/coming-soon.png";
 
@@ -20,6 +21,7 @@ function Menu() {
     setCardSelected(cardSelected);
   };
 
+  // Affichage 
   if (menu.length === 0) return isModeAdmin ? <EmptyMenuAdmin onReset={resetMenu} /> : <EmptyMenuClient />;
 
   return (
@@ -35,6 +37,7 @@ function Menu() {
             onDelete={() => handleDeleteCard(id)}
             onClick={() => handleClickCard(id)}
             isHoverable={isModeAdmin}
+            isSelected={checkIsCardSelected(id, cardSelected.id)}
           />
         ))}
       </div>
