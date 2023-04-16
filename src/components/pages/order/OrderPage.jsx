@@ -8,6 +8,8 @@ import { theme } from "../../../assets/theme";
 import OrderContext from "../../context/OrderContext";
 import { fakeMenu1 } from "../../../fakeData/fakeMenu";
 import { EMPTY_CARD } from "../../../enums/card";
+import { deepClone } from "../../../utils/arrays";
+
 
 function OrderPage() {
   // state
@@ -30,19 +32,19 @@ function OrderPage() {
   };
 
   const handleAddCard = (newCard) => {
-    const menuCopy = [...menu];
+    const menuCopy = deepClone(menu);
     const menuUpdated = [newCard , ...menuCopy];
     setMenu(menuUpdated);
   }
 
   const handleDeleteCard = (currentCard) => {
-    const menuCopy = [...menu];
+    const menuCopy = deepClone(menu);
     const newMenu = menuCopy.filter((card) => card.id !== currentCard);
     setMenu(newMenu);
   };
 
   const handleEditCard = (currentCard) => {
-    const menuCopy = JSON.parse(JSON.stringify(menu));
+    const menuCopy = deepClone(menu);
     const indexOfCardToEdit = menuCopy.findIndex((card) => card.id === currentCard.id);
     menuCopy[indexOfCardToEdit] = currentCard;
     setMenu(menuCopy);
