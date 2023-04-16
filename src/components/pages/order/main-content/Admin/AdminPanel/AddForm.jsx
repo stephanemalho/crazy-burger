@@ -43,8 +43,11 @@ export default function AddForm() {
       setIsSubmited(false);
     }, 2000);
   };
-
-  const inputTexts = getInputTextConfig(newCard);
+  // test link to add a card 
+  /*
+  https://media.auchan.fr/P02000000001KLRPRIMARY_2048x2048/B2CD/
+  */
+  const inputTexts = getInputTextConfig(newCard); 
 
   return (
     <AddFormStyled onSubmit={handleSubmit}>

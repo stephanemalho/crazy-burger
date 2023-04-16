@@ -6,13 +6,13 @@ import { FiCheck } from 'react-icons/fi';
 
 export default function SuccessBox({ isSubmited }) {
   return (
-    <SucessBoxStyled className="submit-box">
+      <SucessBoxStyled className="submit-box">
         <SucessButton
           className={"submit-button"}
           label={"Ajouter un nouveau produit au menu"}
           version={"success"}
         />
-        <SuccessMessage label={"Ajouté avec succès"} Icon={<FiCheck className="icon" />} isSubmited={isSubmited} />
+        <SuccessMessage label={"Ajouté avec succès"} Icon={<FiCheck className="icon" />} isSubmited={isSubmited} className="message" />
       </SucessBoxStyled>
   )
 }

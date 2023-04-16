@@ -2,11 +2,11 @@ import React from 'react'
 import styled from 'styled-components';
 import { theme } from '../../../../../../assets/theme';
 
-export default function SuccessMessage({ label, Icon , isSubmited}) {
+export default function SuccessMessage({ label, Icon , isSubmited, className}) {
   return (
     <SucessMessageStyled>
           {isSubmited && (
-            <small className="message">
+            <small className={className}>
               {Icon}{" "}{label}
             </small>
           )}
