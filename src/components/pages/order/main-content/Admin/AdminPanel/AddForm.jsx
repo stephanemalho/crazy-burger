@@ -51,9 +51,13 @@ export default function AddForm() {
   return (
     <AddFormStyled onSubmit={handleSubmit}>
       <div className="image-previous">
-      { newCard.imageSource ?
-       <img   src={newCard.imageSource} alt={newCard.title} /> 
-       : <div>Aucune image</div>}
+        {newCard.imageSource ? (
+          <div className="previous-box">
+            <img src={newCard.imageSource} alt={newCard.title} />
+          </div>
+        ) : (
+          <div className="previous-box">Aucune image</div>
+        )}
       </div>
       <div className="inputs-field">
         <TextInput
@@ -85,14 +89,18 @@ export default function AddForm() {
         />
       </div>
       <div className="submit-box">
-      <SucessButton
-        className={"submit-button"}
-        label={"Ajouter un nouveau produit au menu"}
-        version={"success"}
-      />
-      <div className="sucess-message">
-      { isSubmited && <small className="message"><FiCheck className="icon" /> Ajouté avec succès</small>}
-      </div>
+        <SucessButton
+          className={"submit-button"}
+          label={"Ajouter un nouveau produit au menu"}
+          version={"success"}
+        />
+        <div className="sucess-message">
+          {isSubmited && (
+            <small className="message">
+              <FiCheck className="icon" /> Ajouté avec succès
+            </small>
+          )}
+        </div>
       </div>
     </AddFormStyled>
   );
@@ -116,9 +124,16 @@ const AddFormStyled = styled.form`
     height: 140px;
     width: 70%;
     border: 1px solid ${theme.colors.greyLight};
-    img {
-      width: 100%;
+    .previous-box {
+      width: 150px;
+      display: flex;
       height: 100%;
+      align-items: center;
+      justify-content: center;
+      img {
+        width: 100%;
+        height: 100%;
+      }
     }
   }
   .inputs-field {
@@ -129,37 +144,36 @@ const AddFormStyled = styled.form`
     grid-template-rows: 1fr 1fr 1fr;
     grid-row-gap: 10px;
     width: 80%;
-  }   
+  }
   .submit-box {
     display: grid;
     grid-area: 4/-2/-1/-1;
     justify-content: left;
-    align-items: start; 
+    align-items: start;
     grid-template-columns: 1fr 1fr;
     align-items: start;
     justify-items: start;
     width: 60%;
-  .sucess-message {
-    margin-left: 5px;
-    font-family: "open sans", sans-serif;
-    align-items: center;
-    display: flex;
-    height: 60%;
-  .icon {
-    color: ${theme.colors.success};
-    margin-left: 10px;
-    width: 1em;
-    height: 1em;
-    border: 1px solid ${theme.colors.success};
-    border-radius: 50%;
-    vertical-align: middle;
+    .sucess-message {
+      margin-left: 5px;
+      font-family: "open sans", sans-serif;
+      align-items: center;
+      display: flex;
+      height: 60%;
+      .icon {
+        color: ${theme.colors.success};
+        margin-left: 10px;
+        width: 1em;
+        height: 1em;
+        border: 1px solid ${theme.colors.success};
+        border-radius: 50%;
+        vertical-align: middle;
+      }
+      .message {
+        margin-left: 5px;
+        font-size: ${theme.fonts.size.XS};
+        color: ${theme.colors.success};
+      }
+    }
   }
-  .message {
-    margin-left: 5px;
-    font-size: ${theme.fonts.size.XS};
-    color: ${theme.colors.success};
-  }
-}
-}
-  
 `;
