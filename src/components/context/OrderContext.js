@@ -19,6 +19,7 @@ export default createContext({
   menu: [],
   resetMenu: () => {},
   handleAddCard: () => {},
+  handleEditCard: () => {},
   handleDeleteCard: () => {},
 
   newCard: {},

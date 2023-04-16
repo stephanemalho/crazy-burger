@@ -41,6 +41,13 @@ function OrderPage() {
     setMenu(newMenu);
   };
 
+  const handleEditCard = (currentCard) => {
+    const menuCopy = JSON.parse(JSON.stringify(menu));
+    const indexOfCardToEdit = menuCopy.findIndex((card) => card.id === currentCard.id);
+    menuCopy[indexOfCardToEdit] = currentCard;
+    setMenu(menuCopy);
+  };
+
   const resetMenu = () => {
     setMenu(fakeMenu1);
   }
@@ -64,7 +71,8 @@ function OrderPage() {
     newCard,
     setNewCard,
     cardSelected,
-    setCardSelected
+    setCardSelected,
+    handleEditCard
   };
 
   // affichage

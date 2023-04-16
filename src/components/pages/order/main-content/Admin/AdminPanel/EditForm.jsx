@@ -1,23 +1,26 @@
-import React, { useContext, useState } from 'react'
-//import HintMessage from './HintMessage'
+import React, { useContext } from 'react'
 import OrderContext from '../../../../../context/OrderContext'
 import styled from 'styled-components'
 import { theme } from '../../../../../../assets/theme'
 import ImagePreviou from './ImagePreviou'
 import TextInput from '../../../../../reusableUI/TextInput'
 import { getInputTextConfig } from './getInputTextConfig'
-import { EMPTY_CARD } from '../../../../../../enums/card'
 
 export default function EditForm() {
  
-  const { cardSelected } = useContext(OrderContext)
-  const [cardToEdit, setCardToEdit] = useState(EMPTY_CARD)
+  const { cardSelected, setCardSelected, handleEditCard } = useContext(OrderContext)
 
   const inputTexts = getInputTextConfig(cardSelected); 
 
   const handleChange = (e) => {
     const { name, value } = e.target
-    setCardToEdit({ ...cardToEdit, [name]: value })
+    const productUptaded = { ...cardSelected, [name]: value }
+
+    setCardSelected(productUptaded)
+
+    handleEditCard(productUptaded)
+
+    
 
     console.log();
   }
