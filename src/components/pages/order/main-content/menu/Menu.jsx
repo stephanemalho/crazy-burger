@@ -1,19 +1,21 @@
 import React, { useContext } from "react";
 import styled from "styled-components";
 
-import { theme } from "../../../../../assets/theme/index";
-import { formatPrice } from "../../../../../utils/maths";
-import Card from "../../../../reusableUI/Card";
 import OrderContext from "../../../../context/OrderContext";
 import EmptyMenuAdmin from "./EmptyMenuAdmin";
 import EmptyMenuClient from "./EmptyMenuClient";
+import Card from "../../../../reusableUI/Card";
+import { formatPrice } from "../../../../../utils/maths";
+import { theme } from "../../../../../assets/theme";
+
+
 
 function Menu() {
-  const { menu, isModeAdmin, handleDeleteCard } = useContext(OrderContext);
+  const { menu, isModeAdmin, handleDeleteCard, resetMenu } = useContext(OrderContext);
 
   console.log("menu", menu);
 
-  if (menu.length === 0) return isModeAdmin ? <EmptyMenuAdmin /> : <EmptyMenuClient />;
+  if (menu.length === 0) return isModeAdmin ? <EmptyMenuAdmin onReset={resetMenu} /> : <EmptyMenuClient />;
 
   return (
     <MenuGridStyled>

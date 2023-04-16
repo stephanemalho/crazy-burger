@@ -2,10 +2,10 @@ import React from "react";
 import styled, { css } from "styled-components";
 import { theme } from "../../assets/theme/index";
 
-function MainButton({ ButtonIcon, label, className, version = "primary" }) {
+function MainButton({ ButtonIcon, label, className, onClick, version = "primary" }) {
   return (
     <MainButtonStyled version={version}>
-      <button className={className}>
+      <button className={className} onClick={onClick}>
         {label}
         <span>{ButtonIcon && ButtonIcon}</span>
       </button>
