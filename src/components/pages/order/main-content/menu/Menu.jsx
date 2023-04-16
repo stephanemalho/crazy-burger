@@ -9,10 +9,15 @@ import { formatPrice } from "../../../../../utils/maths";
 import { theme } from "../../../../../assets/theme";
 import { checkIsCardSelected } from "./helper";
 
-
-
 function Menu() {
-  const { menu, isModeAdmin, handleDeleteCard, resetMenu , setCardSelected, cardSelected } = useContext(OrderContext);
+  const {
+    menu,
+    isModeAdmin,
+    handleDeleteCard,
+    resetMenu,
+    setCardSelected,
+    cardSelected,
+  } = useContext(OrderContext);
 
   const defaultImage = "/images/coming-soon.png";
 
@@ -21,8 +26,17 @@ function Menu() {
     setCardSelected(cardSelected);
   };
 
-  // Affichage 
-  if (menu.length === 0) return isModeAdmin ? <EmptyMenuAdmin onReset={resetMenu} /> : <EmptyMenuClient />;
+  const handleCardDelete = (event, cardToDeleteId) => {
+    event.stopPropagation();
+    handleDeleteCard(cardToDeleteId);
+  };
+  // Affichage
+  if (menu.length === 0)
+    return isModeAdmin ? (
+      <EmptyMenuAdmin onReset={resetMenu} />
+    ) : (
+      <EmptyMenuClient />
+    );
 
   return (
     <MenuGridStyled>
@@ -34,7 +48,7 @@ function Menu() {
             imageSource={imageSource === "" ? defaultImage : imageSource}
             leftDescription={formatPrice(price)}
             hasDeleteButton={isModeAdmin}
-            onDelete={() => handleDeleteCard(id)}
+            onDelete={(event) => handleCardDelete(event, id)}
             onClick={() => handleClickCard(id)}
             isHoverable={isModeAdmin}
             isSelected={checkIsCardSelected(id, cardSelected.id)}

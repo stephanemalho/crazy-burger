@@ -33,7 +33,7 @@ export default function Card({
           <h1>{title}</h1>
           {/* arrondir le prix */}
           <p className="description">{leftDescription}</p>
-          <MainButton label={"Ajouter"} className="btnCart" version="primary" />
+          <MainButton label={"Ajouter"} className="btnCart" version="primary" onClick={(event) => event.stopPropagation()} />
         </div>
       </div>
     </CardStyled>
