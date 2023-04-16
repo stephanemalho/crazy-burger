@@ -7,10 +7,11 @@ import { MdOutlineEuro } from "react-icons/md";
 import OrderContext from "../../../../../context/OrderContext";
 import { theme } from "../../../../../../assets/theme";
 import TextInput from "../../../../../reusableUI/TextInput";
-import SucessButton from "../../../../../reusableUI/MainButton";
+import ImagePreviou from "./ImagePreviou";
+import SuccessMessage from "./SuccessMessage";
 import { FiCheck } from "react-icons/fi";
 
-const EMPTY_CARD = {
+export const EMPTY_CARD = {
   key: "",
   id: "",
   title: "",
@@ -19,9 +20,8 @@ const EMPTY_CARD = {
 };
 
 export default function AddForm() {
-  const { handleAddCard } = useContext(OrderContext);
 
-  const [newCard, setNewCard] = useState(EMPTY_CARD);
+  const { handleAddCard, newCard, setNewCard } = useContext(OrderContext);
   const [isSubmited, setIsSubmited] = useState(false)
 
   const handleChange = (event) => {
@@ -50,15 +50,7 @@ export default function AddForm() {
 
   return (
     <AddFormStyled onSubmit={handleSubmit}>
-      <div className="image-previous">
-        {newCard.imageSource ? (
-          <div className="previous-box">
-            <img src={newCard.imageSource} alt={newCard.title} />
-          </div>
-        ) : (
-          <div className="previous-box">Aucune image</div>
-        )}
-      </div>
+      <ImagePreviou title={newCard.title} imageSource={newCard.imageSource} />
       <div className="inputs-field">
         <TextInput
           type="text"
@@ -88,20 +80,7 @@ export default function AddForm() {
           version="admin"
         />
       </div>
-      <div className="submit-box">
-        <SucessButton
-          className={"submit-button"}
-          label={"Ajouter un nouveau produit au menu"}
-          version={"success"}
-        />
-        <div className="sucess-message">
-          {isSubmited && (
-            <small className="message">
-              <FiCheck className="icon" /> Ajouté avec succès
-            </small>
-          )}
-        </div>
-      </div>
+      <SuccessMessage Icon={<FiCheck className="icon" />} label={"Ajouté avec succès"} isSubmited={isSubmited} />
     </AddFormStyled>
   );
 }
@@ -112,30 +91,7 @@ const AddFormStyled = styled.form`
   grid-template-rows: repeat(4, 1fr);
   width: 100%;
   padding-top: 5px;
-  .image-previous {
-    font-family: "open sans", sans-serif;
-    color: ${theme.colors.greyMedium};
-    grid-area: 1/1/4/2;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: ${theme.borderRadius.round};
-    margin: 20px auto;
-    height: 140px;
-    width: 70%;
-    border: 1px solid ${theme.colors.greyLight};
-    .previous-box {
-      width: 150px;
-      display: flex;
-      height: 100%;
-      align-items: center;
-      justify-content: center;
-      img {
-        width: 100%;
-        height: 100%;
-      }
-    }
-  }
+  
   .inputs-field {
     grid-area: 1/2/4/3;
     border-radius: ${theme.borderRadius.round};
@@ -145,35 +101,5 @@ const AddFormStyled = styled.form`
     grid-row-gap: 10px;
     width: 80%;
   }
-  .submit-box {
-    display: grid;
-    grid-area: 4/-2/-1/-1;
-    justify-content: left;
-    align-items: start;
-    grid-template-columns: 1fr 1fr;
-    align-items: start;
-    justify-items: start;
-    width: 60%;
-    .sucess-message {
-      margin-left: 5px;
-      font-family: "open sans", sans-serif;
-      align-items: center;
-      display: flex;
-      height: 60%;
-      .icon {
-        color: ${theme.colors.success};
-        margin-left: 10px;
-        width: 1em;
-        height: 1em;
-        border: 1px solid ${theme.colors.success};
-        border-radius: 50%;
-        vertical-align: middle;
-      }
-      .message {
-        margin-left: 5px;
-        font-size: ${theme.fonts.size.XS};
-        color: ${theme.colors.success};
-      }
-    }
-  }
+  
 `;

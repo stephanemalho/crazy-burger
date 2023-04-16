@@ -1,10 +1,10 @@
 import React, { useContext } from "react";
 import styled from "styled-components";
 
-import { theme } from "../../../../../assets/theme";
-import OrderContext from "../../../../context/OrderContext";
-import AddForm from "./AdminPanel/AddForm";
-import EditForm from "./AdminPanel/EditForm";
+import { theme } from "../../../../../../assets/theme";
+import OrderContext from "../../../../../context/OrderContext";
+import AddForm from "./AddForm";
+import EditForm from "./EditForm";
 
 export default function AdminPanel() {
   const { currentTabSelected } = useContext(OrderContext);

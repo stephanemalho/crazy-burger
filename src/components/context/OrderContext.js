@@ -21,4 +21,7 @@ export default createContext({
   handleAddCard: () => {},
   handleDeleteCard: () => {},
 
+  newCard: [],
+  setNewCard: () => {},
+
 })

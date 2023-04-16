@@ -7,6 +7,7 @@ import Main from "./main-content/Main";
 import { theme } from "../../../assets/theme";
 import OrderContext from "../../context/OrderContext";
 import { fakeMenu1 } from "../../../fakeData/fakeMenu";
+import { EMPTY_CARD } from "./main-content/Admin/AdminPanel/AddForm";
 
 function OrderPage() {
   // state
@@ -18,6 +19,8 @@ function OrderPage() {
   const [isOnAddTab, setIsOnAddTab] = useState(true);
   const [currentTabSelected, setCurrentTabSelected] = useState("add")
   const [menu, setMenu] = useState(fakeMenu1);
+  const [newCard, setNewCard] = useState(EMPTY_CARD);
+
 
   // comportements
   const handleLogin = (e) => {
@@ -57,6 +60,8 @@ function OrderPage() {
     handleAddCard,
     handleDeleteCard,
     resetMenu,
+    newCard,
+    setNewCard,
   };
 
   // affichage
