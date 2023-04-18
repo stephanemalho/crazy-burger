@@ -1,15 +1,15 @@
-import React from 'react'
-import styled from 'styled-components'
+import React from "react";
+import styled from "styled-components";
 
-import { theme } from '../../assets/theme/index'
+import { theme } from "../../assets/theme/index";
 
 function TextInput({ Icon, onChange, value, ...extraProps }) {
   return (
     <InputStyled>
-        {Icon && Icon}
-        <input type="text" onChange={onChange} value={value} {...extraProps} />
+      {Icon && Icon}
+      <input type="text" onChange={onChange} value={value} {...extraProps} />
     </InputStyled>
-  )
+  );
 }
 
 const InputStyled = styled.div`
@@ -35,18 +35,18 @@ const InputStyled = styled.div`
     overflow: hidden;
     text-overflow: ellipsis;
     :focus {
-      outline: solid 1px ${theme.colors.primary};
+      outline: solid 1px ${theme.colors.loginLine};
       border-radius: 5px;
     }
   }
   @media screen and (max-width: 339px) {
-      width: 90%;
-      input {
-        :focus {
-          width: 70%;
-        }
+    width: 90%;
+    input {
+      :focus {
+        width: 70%;
       }
+    }
   }
-`
+`;
 
-export default TextInput
+export default TextInput;

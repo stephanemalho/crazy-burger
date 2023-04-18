@@ -20,12 +20,16 @@ export default function Card({ imageSource, leftDescription, title }) {
 }
 
 const CardStyled = styled.figure`
+  display: flex;
+  flex-direction: column;
+  margin: 20px auto;
   background-color: white;
   height: 330px;
-  width: auto;
-  min-width: 170px;
+  width: 200px;
+  min-width: 200px;
   border-radius: 10px;
-  box-shadow: -8px 8px 20px 0px rgb(0 0 0 / 20%);
+  box-shadow: ${theme.shadows.medium};
+  padding:20px;   
   figcaption {
     height: 200px;
     width: 90%;
@@ -62,7 +66,7 @@ const CardStyled = styled.figure`
     p {
       font-size: ${theme.fonts.size.P1};
       font-family: "Open sans", cursive;
-      color: ${theme.colors.primary};
+      color: ${theme.colors.loginLine};
     }
     .btnCart {
       width: 100px;

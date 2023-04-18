@@ -1,33 +1,57 @@
-import React from "react";
+import React, { useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import styled from "styled-components";
 
-
-import NavBar from "../../../components/items/navbar/NavBar";
-import MenuGrid from "../../items/MenuGrid";
+import NavBar from "./navbar/NavBar";
+import Main from "./main-content/Main";
 import { theme } from "../../../assets/theme";
+import OrderContext from "../../context/OrderContext";
 
 function OrderPage() {
+  // state
   const navigate = useNavigate();
   const { userName } = useParams();
+  const [isModeAdmin, setIsModeAdmin] = useState(false);
+  const [isCollapsed, setIsCollapsed] = useState(false);
+  const [isOnEditTab, setIsOnEditTab] = useState(false);
+  const [isOnAddTab, setIsOnAddTab] = useState(true);
+  const [currentTabSelected, setCurrentTabSelected] = useState("add")
 
+  // comportements
   const handleLogin = (e) => {
     e.preventDefault();
     navigate("/");
   };
 
+  // context
+  const orderContextValue = {
+    isModeAdmin,
+    setIsModeAdmin,
+    isCollapsed,
+    setIsCollapsed,
+    isOnEditTab,
+    setIsOnEditTab,
+    isOnAddTab,
+    setIsOnAddTab,
+    currentTabSelected,
+    setCurrentTabSelected
+  };
+
+  // affichage
   return (
-    <OrderPageStyled>
-      <main>
-        <NavBar userName={userName} handleLogin={handleLogin} />
-        <MenuGrid />
-      </main>
-    </OrderPageStyled>
+    <OrderContext.Provider value={orderContextValue}>
+      <OrderPageStyled>
+        <div className="gbl-container">
+          <NavBar userName={userName} handleLogin={handleLogin} />
+          <Main />
+        </div>
+      </OrderPageStyled>
+    </OrderContext.Provider>
   );
 }
 
 const OrderPageStyled = styled.div`
-  background-color: ${theme.colors.primary_burger};
+  background-color: ${theme.colors.primary};
   height: 100vh;
   width: 100vw;
   display: flex;
@@ -35,7 +59,7 @@ const OrderPageStyled = styled.div`
   justify-content: center;
   margin: auto;
   z-index: 1;
-  main {
+  .gbl-container {
     position: relative;
     background-color: #fff;
     display: flex;
@@ -44,20 +68,12 @@ const OrderPageStyled = styled.div`
     margin: 0 auto;
     height: 96%;
     width: 96%;
+    max-width: 1200px;
     border-radius: 10px;
-    box-shadow: 0px 0px 16px 0px grey inset;
+    box-shadow: ${theme.shadows.strong};
     z-index: 1;
-    overflow: hidden; 
+    overflow: hidden;
   }
-
-    @media screen and (min-width: 2000px) {
-        main {
-          max-width: 2000px;
-          display: flex;
-          flex-direction: column;
-          align-content: center;
-        }
-    }
 `;
 
 export default OrderPage;

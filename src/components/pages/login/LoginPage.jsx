@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
-import LoginForm from "../../items/LoginForm";
+import LoginForm from "./LoginForm";
 import Logo from "../../reusableUI/Logo";
 import LogoImg from "../../../assets/images/logo-orange.jpg";
 import img from "../../../assets/images/burger-background.jpg";
