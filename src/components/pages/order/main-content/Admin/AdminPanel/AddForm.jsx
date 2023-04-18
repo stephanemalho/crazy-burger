@@ -4,7 +4,7 @@ import styled from "styled-components";
 import OrderContext from "../../../../../context/OrderContext";
 import { theme } from "../../../../../../assets/theme";
 import TextInput from "../../../../../reusableUI/TextInput";
-import ImagePreviou from "./ImagePreviou";
+import ImagePreviou from "./ImagePreview";
 import SuccessBox from "./SuccessBox";
 import { getInputTextConfig } from "./getInputTextConfig";
 
@@ -74,15 +74,15 @@ const AddFormStyled = styled.form`
   grid-template-columns: 1fr 3fr;
   grid-template-rows: repeat(4, 1fr);
   width: 100%;
-  padding-top: 5px;
+  padding-top: 10px;
 
   .inputs-field {
     grid-area: 1/2/4/3;
     border-radius: ${theme.borderRadius.round};
     display: grid;
-    padding: 20px 0 10px 0;
+    padding: 20px 0 15px 0;
     grid-template-rows: 1fr 1fr 1fr;
-    grid-row-gap: 10px;
+    grid-row-gap: 2px;
     width: 80%;
   }
 `;

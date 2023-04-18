@@ -6,7 +6,7 @@ import NavBar from "./navbar/NavBar";
 import Main from "./main-content/Main";
 import { theme } from "../../../assets/theme";
 import OrderContext from "../../context/OrderContext";
-import { fakeMenu1 } from "../../../fakeData/fakeMenu";
+import { fakeMenu2 } from "../../../fakeData/fakeMenu";
 import { EMPTY_CARD } from "./main-content/Admin/AdminPanel/AddForm";
 
 function OrderPage() {
@@ -18,7 +18,7 @@ function OrderPage() {
   const [isOnEditTab, setIsOnEditTab] = useState(false);
   const [isOnAddTab, setIsOnAddTab] = useState(true);
   const [currentTabSelected, setCurrentTabSelected] = useState("add")
-  const [menu, setMenu] = useState(fakeMenu1);
+  const [menu, setMenu] = useState(fakeMenu2);
   const [newCard, setNewCard] = useState(EMPTY_CARD);
 
 
@@ -41,7 +41,7 @@ function OrderPage() {
   };
 
   const resetMenu = () => {
-    setMenu(fakeMenu1);
+    setMenu(fakeMenu2);
   }
 
   // context
@@ -88,15 +88,15 @@ const OrderPageStyled = styled.div`
   z-index: 1;
   .gbl-container {
     position: relative;
-    background-color: #fff;
+    background-color: ${theme.colors.white};
     display: flex;
     flex-direction: column;
     align-content: center;
     margin: 0 auto;
     height: 96%;
     width: 96%;
-    max-width: 1200px;
-    border-radius: 10px;
+    max-width: 1400px;
+    border-radius: ${theme.borderRadius.extraRound};
     box-shadow: ${theme.shadows.strong};
     z-index: 1;
     overflow: hidden;

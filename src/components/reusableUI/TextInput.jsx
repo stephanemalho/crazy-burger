@@ -53,7 +53,7 @@ const extraStyleNormal = css`
   background-color: ${theme.colors.background_white};
   padding: 18px 28px;
   color: ${theme.colors.greySemiDark};
-  height: 5px;
+  height: 0;
   margin: 0;
   max-width: 80%;
 

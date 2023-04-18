@@ -25,11 +25,7 @@ export default function Card({
         <h1>{title}</h1>
         {/* arrondir le prix */}
         <p>{leftDescription}</p>
-        <MainButton
-          label={"Ajouter"}
-          className="btnCart"
-          version="primary"
-        />
+        <MainButton label={"Ajouter"} className="btnCart" version="primary" />
       </div>
     </CardStyled>
   );
@@ -39,14 +35,14 @@ const CardStyled = styled.figure`
   display: flex;
   position: relative;
   flex-direction: column;
-  margin: 20px auto;
-  background-color: white;
-  height: 300px;
-  width: 200px;
+  margin: ${theme.spacing.md} auto;
+  background-color: ${theme.colors.white};
+  height: 330px;
+  width: 240px;
   min-width: 200px;
-  border-radius: 10px;
+  border-radius: ${theme.borderRadius.extraRound};
   box-shadow: ${theme.shadows.medium};
-  padding: 20px;
+  box-sizing: border-box;
   .delete_button {
     position: absolute;
     width: 30px;
@@ -74,14 +70,15 @@ const CardStyled = styled.figure`
     }
   }
   figcaption {
-    height: 200px;
-    width: 90%;
+    height: 145px;
+    width: 200px;
     object-fit: cover;
     display: flex;
     align-items: center;
     margin: auto;
+    padding-top: 50px;
     img {
-      height: 65%;
+      height: 100%;
       width: 100%;
       object-fit: contain;
       margin: auto;
@@ -90,7 +87,7 @@ const CardStyled = styled.figure`
   }
   div {
     position: relative;
-    width: 90%;
+    width: 85%;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -99,7 +96,7 @@ const CardStyled = styled.figure`
     h1 {
       width: 95%;
       font-size: ${theme.fonts.size.P4};
-      font-weight: ${theme.fonts.weights.heavy};
+      font-weight: ${theme.fonts.weights.bold};
       font-family: "Amatic SC", cursive;
       text-overflow: ellipsis;
       overflow: hidden;
@@ -112,11 +109,11 @@ const CardStyled = styled.figure`
       color: ${theme.colors.loginLine};
     }
     .btnCart {
-      width: 100px;
-      height: 45px;
+      width: 95px;
+      height: 38px;
       position: absolute;
-      top: -55px;
-      right: -5px;
+      top: -50px;
+      right: -15px;
     }
   }
 `;

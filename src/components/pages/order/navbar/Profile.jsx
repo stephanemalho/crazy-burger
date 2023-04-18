@@ -29,6 +29,7 @@ const UserProfileStyled = styled.div`
     font-family: "Open Sans", sans-serif;
     font-size: 1rem;
     padding-left: 5px;
+    margin: 0;
     color: ${theme.colors.primary};
     span {
       color: ${theme.colors.greyDark};

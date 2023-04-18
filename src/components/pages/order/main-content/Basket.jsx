@@ -6,5 +6,5 @@ export default function Basket() {
 
 const BasketStyled = styled.div`
   background: pink;
-  width: 25%;
+  width: 100%;
 `

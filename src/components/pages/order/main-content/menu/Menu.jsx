@@ -39,20 +39,23 @@ const MenuGridStyled = styled.section`
   position: relative;
   overflow-y: scroll;
   display: grid;
-  border-bottom-left-radius: 15px;
-  border-bottom-right-radius: 15px;
+  //border-bottom-left-radius: ${theme.borderRadius.extraRound};
+  border-bottom-right-radius: ${theme.borderRadius.extraRound};
   z-index: 1;
+  overflow-x: hidden;
+  width: 100%;
   .cards-container {
-    width: 100%;
-    background: #f5f5f7;
+    background: ${theme.colors.background_white};
     box-shadow: ${theme.shadows.strong};
-    height: 100%;
     overflow-y: scroll;
     margin: auto;
+    padding: 30px 0 50px 0;
+    width: 96vw;
+    height: 100%;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-    grid-row-gap: 30px;
-    grid-column-gap: 20px;
+    grid-row-gap: 25px;
+    grid-column-gap: 10px;
     z-index: -1;
   }
   @media screen and (min-width: 2000px) {
