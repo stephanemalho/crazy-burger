@@ -5,13 +5,13 @@ import { MdKeyboardArrowRight } from "react-icons/md";
 import { BsPersonCircle } from "react-icons/bs";
 
 /**********************************/
-import { theme } from "../../assets/theme/index";
-import PrimaryButton from "../reusableUI/PrimaryButton";
-import TextInput from "../reusableUI/TextInput";
+import { theme } from "../../../assets/theme/index";
+import MainButton from "../../reusableUI/MainButton";
+import TextInput from "../../reusableUI/TextInput";
 
 const LoginForm = () => {
   // state
-  const [userName, setUserName] = useState("");
+  const [userName, setUserName] = useState("Steph");
   const navigate = useNavigate();
 
   // behavior
@@ -41,9 +41,10 @@ const LoginForm = () => {
           value={userName}
           placeholder={"Entrez votre prénom"}
           required
+          version="login"
         />
       </label>
-      <PrimaryButton
+      <MainButton
         className={"btnIcon"}
         label={"Accéder à mon espace"}
         ButtonIcon={<MdKeyboardArrowRight size={30} />}
@@ -53,28 +54,29 @@ const LoginForm = () => {
 };
 
 const LoginFormStyled = styled.form`
-    width: 100vw;
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-    justify-content: center;
-    h2 , label {
-      font-family: "Amatic SC", cursive;
-      color: ${theme.colors.white};
-      margin: 0 auto;
-    } 
-    h2 {
-      font-size: ${theme.fonts.size.P5};
-      display: inline-block;
-      margin-bottom: 20px;
-      width: 60vw;
-    }
-    label {
-      font-size: ${theme.fonts.size.P4};
-      border-top: 3px solid ${theme.colors.primary};
-      width: 340px;
-      padding-top: ${theme.spacing.lg};
-      position: relative;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  justify-content: center;
+  h2,
+  label {
+    font-family: "Amatic SC", cursive;
+    color: ${theme.colors.white};
+    margin: 0 auto;
+  }
+  h2 {
+    font-size: ${theme.fonts.size.P5};
+    display: inline-block;
+    margin-bottom: 20px;
+    width: 60vw;
+  }
+  label {
+    font-size: ${theme.fonts.size.P4};
+    border-top: 3px solid ${theme.colors.loginLine};
+    width: 340px;
+    padding-top: ${theme.spacing.lg};
+    position: relative;
   }
   .btnIcon {
     font-size: ${theme.fonts.size.P1};

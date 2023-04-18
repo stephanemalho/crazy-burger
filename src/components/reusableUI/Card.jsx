@@ -1,11 +1,23 @@
 import React from "react";
 import styled from "styled-components";
 import { theme } from "../../assets/theme";
-import PrimaryButton from "./PrimaryButton";
+import MainButton from "./MainButton";
+import { TiDelete } from "react-icons/ti";
 
-export default function Card({ imageSource, leftDescription, title }) {
+export default function Card({
+  imageSource,
+  leftDescription,
+  title,
+  hasDeleteButton,
+  onDelete,
+}) {
   return (
     <CardStyled>
+      {hasDeleteButton && (
+        <button className="delete_button" onClick={onDelete}>
+          <TiDelete className="icon" />
+        </button>
+      )}
       <figcaption>
         <img src={imageSource} height={"100px"} width={"80px"} alt={title} />
       </figcaption>
@@ -13,29 +25,61 @@ export default function Card({ imageSource, leftDescription, title }) {
         <h1>{title}</h1>
         {/* arrondir le prix */}
         <p>{leftDescription}</p>
-        <PrimaryButton label={"Ajouter"} className="btnCart" />
+        <MainButton label={"Ajouter"} className="btnCart" version="primary" />
       </div>
     </CardStyled>
   );
 }
 
 const CardStyled = styled.figure`
-  background-color: white;
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  margin: ${theme.spacing.md} auto;
+  background-color: ${theme.colors.white};
   height: 330px;
-  width: auto;
-  min-width: 170px;
-  border-radius: 10px;
-  box-shadow: -8px 8px 20px 0px rgb(0 0 0 / 20%);
+  width: 240px;
+  min-width: 200px;
+  border-radius: ${theme.borderRadius.extraRound};
+  box-shadow: ${theme.shadows.medium};
+  box-sizing: border-box;
+  .delete_button {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    top: 10px;
+    right: 10px;
+    border-radius: 50%;
+    border: none;
+    color: #ffa01b;
+    background: none;
+    padding: 0;
+    z-index: 2;
+    cursor: pointer;
+    .icon {
+      height: 100%;
+      width: 100%;
+    }
+
+    &:hover {
+      color: ${theme.colors.red};
+    }
+
+    &:active {
+      color: ${theme.colors.redSecondary};
+    }
+  }
   figcaption {
-    height: 200px;
-    width: 90%;
+    height: 145px;
+    width: 200px;
     object-fit: cover;
     display: flex;
     align-items: center;
     margin: auto;
+    padding-top: 50px;
     img {
-      height: 65%;
-      width: 80%;
+      height: 100%;
+      width: 100%;
       object-fit: contain;
       margin: auto;
       /* border: 2px solid red; */
@@ -43,7 +87,7 @@ const CardStyled = styled.figure`
   }
   div {
     position: relative;
-    width: 90%;
+    width: 85%;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -52,7 +96,7 @@ const CardStyled = styled.figure`
     h1 {
       width: 95%;
       font-size: ${theme.fonts.size.P4};
-      font-weight: ${theme.fonts.weights.heavy};
+      font-weight: ${theme.fonts.weights.bold};
       font-family: "Amatic SC", cursive;
       text-overflow: ellipsis;
       overflow: hidden;
@@ -62,14 +106,14 @@ const CardStyled = styled.figure`
     p {
       font-size: ${theme.fonts.size.P1};
       font-family: "Open sans", cursive;
-      color: ${theme.colors.primary};
+      color: ${theme.colors.loginLine};
     }
     .btnCart {
-      width: 100px;
-      height: 45px;
+      width: 95px;
+      height: 38px;
       position: absolute;
-      top: -55px;
-      right: -5px;
+      top: -50px;
+      right: -15px;
     }
   }
 `;

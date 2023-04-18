@@ -1,26 +1,24 @@
-import React from 'react'
-import styled from 'styled-components'
+import React from "react";
+import styled, { css } from "styled-components";
 
-import { theme } from '../../assets/theme/index'
+import { theme } from "../../assets/theme/index";
 
-function TextInput({ Icon, onChange, value, ...extraProps }) {
+function TextInput({ Icon, onChange, value, version="login", ...extraProps }) {
   return (
-    <InputStyled>
-        {Icon && Icon}
-        <input type="text" onChange={onChange} value={value} {...extraProps} />
-    </InputStyled>
-  )
+    <TextInputStyled version={version}>
+      {Icon && Icon}
+      <input type="text" onChange={onChange} value={value} {...extraProps} />
+    </TextInputStyled>
+  );
 }
 
-const InputStyled = styled.div`
+const TextInputStyled = styled.div`
   display: flex;
   padding-left: 15px;
   align-items: center;
   justify-content: left;
-  max-width: 340px;
-  background: ${theme.colors.white};
   height: ${theme.spacing.xl};
-  margin: ${theme.spacing.md} auto;
+  margin: ${theme.spacing.md} auto; 
   border: none;
   border-radius: 5px;
   .Icon {
@@ -35,18 +33,58 @@ const InputStyled = styled.div`
     overflow: hidden;
     text-overflow: ellipsis;
     :focus {
-      outline: solid 1px ${theme.colors.primary};
       border-radius: 5px;
+      outline: none;
+      caret-color: ${theme.colors.primary};
     }
   }
   @media screen and (max-width: 339px) {
-      width: 90%;
-      input {
-        :focus {
-          width: 70%;
-        }
+    
+    input {
+      :focus {
+        width: 70%;
       }
+    }
+  }
+  ${({ version }) => extraStyle[version]}
+`;
+
+const extraStyleNormal = css`
+  background-color: ${theme.colors.background_white};
+  padding: 18px 28px;
+  color: ${theme.colors.greySemiDark};
+  height: 0;
+  margin: 0;
+  max-width: 80%;
+
+  input {
+    color: ${theme.colors.dark};
+    background: ${theme.colors.background_white};
+
+    &::placeholder {
+      background: ${theme.colors.background_white};
+    }
   }
 `
 
-export default TextInput
+const extraStyleLogin = css`
+  background-color: ${theme.colors.background_white};
+  color: ${theme.colors.greyBlue};
+  max-width: 340px;
+
+  input {
+    background: ${theme.colors.background_white}; 
+    color: ${theme.colors.dark};
+
+    &:focus {
+      outline: 0; //// add outline
+    }
+  }
+`
+
+const extraStyle = {
+  admin: extraStyleNormal,
+  login: extraStyleLogin,
+}
+
+export default TextInput;
