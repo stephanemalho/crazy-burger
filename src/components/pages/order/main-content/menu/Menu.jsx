@@ -9,7 +9,7 @@ import { formatPrice } from "../../../../../utils/maths";
 import { theme } from "../../../../../assets/theme";
 import { checkIsCardSelected } from "./helper";
 
-function Menu() {
+function Menu() { // 1H37 video F09 2/2
   const {
     menu,
     isModeAdmin,
@@ -22,6 +22,7 @@ function Menu() {
   const defaultImage = "/images/coming-soon.png";
 
   const handleClickCard = (cardSelectedId) => {
+    if (!isModeAdmin) return;
     const cardSelected = menu.find((card) => card.id === cardSelectedId);
     setCardSelected(cardSelected);
   };
