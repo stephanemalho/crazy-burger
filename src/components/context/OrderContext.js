@@ -28,4 +28,5 @@ export default createContext({
   cardSelected:{},
   setCardSelected :() => {},
 
+  titleEditRef: {}
 })

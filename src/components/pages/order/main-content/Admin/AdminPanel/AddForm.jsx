@@ -9,8 +9,6 @@ import SuccessBox from "./SuccessBox";
 import { getInputTextConfig } from "./getInputTextConfig";
 import { EMPTY_CARD } from "../../../../../../enums/card";
 
-
-
 export default function AddForm() {
   const { handleAddCard, newCard, setNewCard } = useContext(OrderContext);
   const [isSubmited, setIsSubmited] = useState(false);

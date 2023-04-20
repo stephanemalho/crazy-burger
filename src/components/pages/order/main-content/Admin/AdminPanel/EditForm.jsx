@@ -8,8 +8,7 @@ import { getInputTextConfig } from './getInputTextConfig'
 
 export default function EditForm() {
  
-  const { cardSelected, setCardSelected, handleEditCard } = useContext(OrderContext)
-
+  const { cardSelected, setCardSelected, handleEditCard, titleEditRef } = useContext(OrderContext)
   const inputTexts = getInputTextConfig(cardSelected); 
 
   const handleChange = (e) => {
@@ -17,11 +16,7 @@ export default function EditForm() {
     const productUptaded = { ...cardSelected, [name]: value }
 
     setCardSelected(productUptaded)
-
     handleEditCard(productUptaded)
-
-    
-
     console.log();
   }
 
@@ -36,6 +31,7 @@ export default function EditForm() {
               value={cardSelected[input.name]}
               onChange={handleChange}
               version="admin"
+              ref={input.name === "title" ? titleEditRef : null}
             />
           );
         })}

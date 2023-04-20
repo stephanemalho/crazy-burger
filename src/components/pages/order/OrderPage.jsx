@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import styled from "styled-components";
 
@@ -22,6 +22,7 @@ function OrderPage() {
   const [menu, setMenu] = useState(fakeMenu1);
   const [newCard, setNewCard] = useState(EMPTY_CARD);
   const [cardSelected, setCardSelected] = useState(EMPTY_CARD);
+  const titleEditRef = useRef();
 
   // comportements
   const handleLogin = (e) => {
@@ -74,7 +75,8 @@ function OrderPage() {
     setNewCard,
     cardSelected,
     setCardSelected,
-    handleEditCard,
+    handleEditCard, 
+    titleEditRef,
   };
 
   // affichage
