@@ -10,7 +10,6 @@ import { theme } from "../../../../../assets/theme";
 import { checkIsCardSelected } from "./helper";
 
 function Menu() {
-  // 1H37 video F09 2/2
   const {
     menu,
     isModeAdmin,
@@ -25,15 +24,15 @@ function Menu() {
 
   const defaultImage = "/images/coming-soon.png";
   const handleClickCard = async (cardSelectedId) => {
-     if (!isModeAdmin) return;
-     
-     await setIsCollapsed(false);  
-     await setCurrentTabSelected("edit");
+    if (!isModeAdmin) return;
 
-     const cardSelected = menu.find((card) => card.id === cardSelectedId);
-     await setCardSelected(cardSelected);
-     
-     titleEditRef.current.focus();
+    setIsCollapsed(false);
+    setCurrentTabSelected("edit");
+
+    const cardSelected = menu.find((card) => card.id === cardSelectedId);
+    await setCardSelected(cardSelected);
+
+    titleEditRef.current.focus();
   };
 
   const handleCardDelete = (event, cardToDeleteId) => {
