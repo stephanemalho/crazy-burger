@@ -17,12 +17,18 @@ function Menu() { // 1H37 video F09 2/2
     resetMenu,
     setCardSelected,
     cardSelected,
+    setIsCollapsed,
+    setCurrentTabSelected,
+    
   } = useContext(OrderContext);
 
   const defaultImage = "/images/coming-soon.png";
 
   const handleClickCard = (cardSelectedId) => {
     if (!isModeAdmin) return;
+
+    setIsCollapsed(false);
+    setCurrentTabSelected("edit");
     const cardSelected = menu.find((card) => card.id === cardSelectedId);
     setCardSelected(cardSelected);
   };
@@ -31,6 +37,7 @@ function Menu() { // 1H37 video F09 2/2
     event.stopPropagation();
     handleDeleteCard(cardToDeleteId);
   };
+
   // Affichage
   if (menu.length === 0)
     return isModeAdmin ? (
