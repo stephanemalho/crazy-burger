@@ -40,7 +40,11 @@ function Menu() {
     event.stopPropagation();
     handleDeleteCard(cardToDeleteId);
     cardToDeleteId === cardSelected.id && setCardSelected(EMPTY_CARD);
-    titleEditRef.current.focus();
+    if (!titleEditRef.current) {
+      return;
+    } else {
+      titleEditRef.current.focus();
+    }
   };
 
   // Affichage
