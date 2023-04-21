@@ -8,6 +8,7 @@ import Card from "../../../../reusableUI/Card";
 import { formatPrice } from "../../../../../utils/maths";
 import { theme } from "../../../../../assets/theme";
 import { checkIsCardSelected } from "./helper";
+import { EMPTY_CARD } from "../../../../../enums/card";
 
 function Menu() {
   const {
@@ -38,6 +39,8 @@ function Menu() {
   const handleCardDelete = (event, cardToDeleteId) => {
     event.stopPropagation();
     handleDeleteCard(cardToDeleteId);
+    cardToDeleteId === cardSelected.id && setCardSelected(EMPTY_CARD);
+    titleEditRef.current.focus();
   };
 
   // Affichage

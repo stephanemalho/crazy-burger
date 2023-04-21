@@ -32,7 +32,7 @@ function OrderPage() {
 
   const handleAddCard = (newCard) => {
     const menuCopy = deepClone(menu);
-    const menuUpdated = [newCard, ...menuCopy];
+    const menuUpdated = [newCard, ...menuCopy]
     setMenu(menuUpdated);
   };
 
@@ -40,7 +40,6 @@ function OrderPage() {
     const menuCopy = deepClone(menu);
     const newMenu = menuCopy.filter((card) => card.id !== currentCard);
     setMenu(newMenu);
-    currentCard === cardSelected.id && setCardSelected(EMPTY_CARD);
   };
 
   const handleEditCard = (currentCard) => {
