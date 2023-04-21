@@ -4,38 +4,35 @@ import styled from "styled-components";
 import { theme } from "../../../../../../assets/theme";
 import TextInput from "../../../../../reusableUI/TextInput";
 import ImagePreviou from "./ImagePreviou";
-import SuccessBox from "./SuccessBox";
 import { getInputTextConfig } from "./getInputTextConfig";
 
+const Form = React.forwardRef(
+  ({ onSubmit, onChange, product, submitButton, hintMessage }, ref) => {
+    const inputTexts = getInputTextConfig(product);
 
-export default function Form({onSubmit, onChange, product, isSubmited}) {
+    return (
+      <FormStyled onSubmit={onSubmit}>
+        <ImagePreviou title={product.title} imageSource={product.imageSource} />
+        <div className="inputs-field">
+          {inputTexts.map((input) => {
+            return (
+              <TextInput
+                {...input}
+                value={product[input.name]}
+                onChange={onChange}
+                version="admin"
+                ref={ref && input.name === "title" ? ref : null}
+              />
+            );
+          })}
+          {onSubmit ? submitButton : hintMessage}
+        </div>
+      </FormStyled>
+    );
+  }
+);
 
-
-  // test link to add a card 
-  /*
-  https://media.auchan.fr/P02000000001KLRPRIMARY_2048x2048/B2CD/
-  */
-  const inputTexts = getInputTextConfig(product); 
-
-  return (
-    <FormStyled onSubmit={onSubmit}>
-      <ImagePreviou title={product.title} imageSource={product.imageSource} />
-      <div className="inputs-field">
-        {inputTexts.map((input) => {
-          return (
-            <TextInput
-              {...input}
-              value={product[input.name]}
-              onChange={onChange}
-              version="admin"
-            />
-          );
-        })}
-      </div>
-      <SuccessBox isSubmited={isSubmited} /> {/** Button & message success*/}
-    </FormStyled>
-  );
-}
+export default Form;
 
 const FormStyled = styled.form`
   display: grid;

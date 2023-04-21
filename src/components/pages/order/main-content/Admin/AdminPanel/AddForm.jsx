@@ -3,6 +3,7 @@ import React, { useContext, useState } from "react";
 import OrderContext from "../../../../../context/OrderContext";
 import { EMPTY_CARD } from "../../../../../../enums/card";
 import Form from "./Form";
+import SuccessBox from "./SuccessBox";
 
 export default function AddForm() {
   const { handleAddCard, newCard, setNewCard } = useContext(OrderContext);
@@ -31,13 +32,14 @@ export default function AddForm() {
       setIsSubmited(false);
     }, 2000);
   };
-  // test link to add a card 
-  /*
-  https://media.auchan.fr/P02000000001KLRPRIMARY_2048x2048/B2CD/
-  */
 
   return (
-    <Form product={newCard} onSubmit={handleSubmit} onChange={handleChange} isSubmited={isSubmited} />
+    <Form
+      product={newCard}
+      onSubmit={handleSubmit}
+      onChange={handleChange}
+      isSubmited={isSubmited}
+      submitButton={<SuccessBox isSubmited={isSubmited} />}
+    />
   );
 }
-

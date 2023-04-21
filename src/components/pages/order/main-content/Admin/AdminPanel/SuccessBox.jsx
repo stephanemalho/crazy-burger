@@ -25,5 +25,5 @@ const SucessBoxStyled = styled.div`
     grid-template-columns: 1fr 1fr;
     align-items: start;
     justify-items: start;
-    width: 60%;
+    width: 80%;
 `;

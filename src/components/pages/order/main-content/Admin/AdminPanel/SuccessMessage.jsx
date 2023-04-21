@@ -15,11 +15,11 @@ export default function SuccessMessage({ label, Icon , isSubmited, className}) {
 }
 
 const SucessMessageStyled = styled.div`
-      margin-left: 5px;
+      margin-right: auto;
       font-family: "open sans", sans-serif;
       align-items: center;
       display: flex;
-      height: 60%;
+      height: 100%;
       .icon {
         color: ${theme.colors.success};
         margin-left: 10px;

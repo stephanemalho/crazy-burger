@@ -69,6 +69,7 @@ const extraStyleSucess = css`
     color: ${theme.colors.white};
     width: 100%;
     height: 35px;
+    padding: 0 10px;
     background-color: ${theme.colors.success};
     border-radius: ${theme.borderRadius.round};
     border: none;
