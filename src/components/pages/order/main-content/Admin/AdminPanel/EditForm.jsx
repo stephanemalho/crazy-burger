@@ -1,28 +1,32 @@
-import React, { useContext } from 'react'
-import OrderContext from '../../../../../context/OrderContext'
-import styled from 'styled-components'
-import { theme } from '../../../../../../assets/theme'
-import ImagePreviou from './ImagePreviou'
-import TextInput from '../../../../../reusableUI/TextInput'
-import { getInputTextConfig } from './getInputTextConfig'
+import React, { useContext } from "react";
+import OrderContext from "../../../../../context/OrderContext";
+import styled from "styled-components";
+import { theme } from "../../../../../../assets/theme";
+import ImagePreviou from "./ImagePreviou";
+import TextInput from "../../../../../reusableUI/TextInput";
+import { getInputTextConfig } from "./getInputTextConfig";
+import EditInfoMessage from "./EditInfoMessage";
 
 export default function EditForm() {
- 
-  const { cardSelected, setCardSelected, handleEditCard, titleEditRef } = useContext(OrderContext)
-  const inputTexts = getInputTextConfig(cardSelected); 
+  const { cardSelected, setCardSelected, handleEditCard, titleEditRef } =
+    useContext(OrderContext);
+  const inputTexts = getInputTextConfig(cardSelected);
 
   const handleChange = (e) => {
-    const { name, value } = e.target
-    const productUptaded = { ...cardSelected, [name]: value }
+    const { name, value } = e.target;
+    const productUptaded = { ...cardSelected, [name]: value };
 
-    setCardSelected(productUptaded)
-    handleEditCard(productUptaded)
+    setCardSelected(productUptaded);
+    handleEditCard(productUptaded);
     console.log();
-  }
+  };
 
   return (
     <EditFormStyled>
-      <ImagePreviou title={cardSelected.title} imageSource={cardSelected.imageSource} />
+      <ImagePreviou
+        title={cardSelected.title}
+        imageSource={cardSelected.imageSource}
+      />
       <div className="inputs-field">
         {inputTexts.map((input) => {
           return (
@@ -35,9 +39,12 @@ export default function EditForm() {
             />
           );
         })}
+        <div className="submit">
+            <EditInfoMessage />
+        </div>
       </div>
     </EditFormStyled>
-  )
+  );
 }
 
 const EditFormStyled = styled.form`
@@ -56,4 +63,6 @@ const EditFormStyled = styled.form`
     grid-row-gap: 10px;
     width: 80%;
   }
+
+  
 `;
