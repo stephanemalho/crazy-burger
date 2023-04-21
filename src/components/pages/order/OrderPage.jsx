@@ -40,7 +40,7 @@ function OrderPage() {
     const menuCopy = deepClone(menu);
     const newMenu = menuCopy.filter((card) => card.id !== currentCard);
     setMenu(newMenu);
-    setCardSelected(EMPTY_CARD);
+    currentCard === cardSelected.id && setCardSelected(EMPTY_CARD);
   };
 
   const handleEditCard = (currentCard) => {
