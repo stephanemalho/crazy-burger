@@ -5,14 +5,17 @@ import { theme } from "../../../../../../assets/theme";
 import OrderContext from "../../../../../context/OrderContext";
 import AddForm from "./AddForm";
 import EditForm from "./EditForm";
+import HintMessage from "./HintMessage";
+
 
 export default function AdminPanel() {
-  const { currentTabSelected } = useContext(OrderContext);
+  const { currentTabSelected , cardSelected } = useContext(OrderContext);
+ 
 
   return (
     <AdminTabsStyled>
       {currentTabSelected === "add" && <AddForm />}
-      {currentTabSelected === "edit" && <EditForm />}
+      {currentTabSelected === "edit" && cardSelected.id ? <EditForm /> : <HintMessage /> }
     </AdminTabsStyled>
   );
 }

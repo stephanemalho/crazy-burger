@@ -18,7 +18,7 @@ function OrderPage() {
   const [isCollapsed, setIsCollapsed] = useState(false);
   const [isOnEditTab, setIsOnEditTab] = useState(false);
   const [isOnAddTab, setIsOnAddTab] = useState(true);
-  const [currentTabSelected, setCurrentTabSelected] = useState("edit"); // à changer en "add"
+  const [currentTabSelected, setCurrentTabSelected] = useState("add"); // à changer en "add"
   const [menu, setMenu] = useState(fakeMenu1);
   const [newCard, setNewCard] = useState(EMPTY_CARD);
   const [cardSelected, setCardSelected] = useState(EMPTY_CARD);
@@ -40,6 +40,7 @@ function OrderPage() {
     const menuCopy = deepClone(menu);
     const newMenu = menuCopy.filter((card) => card.id !== currentCard);
     setMenu(newMenu);
+    setCardSelected(EMPTY_CARD);
   };
 
   const handleEditCard = (currentCard) => {

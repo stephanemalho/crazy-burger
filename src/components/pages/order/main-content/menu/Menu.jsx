@@ -26,8 +26,8 @@ function Menu() {
   const handleClickCard = async (cardSelectedId) => {
     if (!isModeAdmin) return;
 
-    setIsCollapsed(false);
-    setCurrentTabSelected("edit");
+    await setIsCollapsed(false);
+    await setCurrentTabSelected("edit");
 
     const cardSelected = menu.find((card) => card.id === cardSelectedId);
     await setCardSelected(cardSelected);

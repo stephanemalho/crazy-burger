@@ -9,6 +9,7 @@ export const getTabConfig = (currentTabSelected, selectTab) => [
     Icon: <AiOutlinePlus />,
     onClick: () => selectTab("add"),
     className: currentTabSelected === "add" ? "is-active" : "",
+    
   },
   {
     index: "edit",
