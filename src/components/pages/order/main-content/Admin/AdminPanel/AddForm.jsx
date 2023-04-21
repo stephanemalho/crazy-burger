@@ -1,13 +1,8 @@
 import React, { useContext, useState } from "react";
-import styled from "styled-components";
 
 import OrderContext from "../../../../../context/OrderContext";
-import { theme } from "../../../../../../assets/theme";
-import TextInput from "../../../../../reusableUI/TextInput";
-import ImagePreviou from "./ImagePreview";
-import SuccessBox from "./SuccessBox";
-import { getInputTextConfig } from "./getInputTextConfig";
 import { EMPTY_CARD } from "../../../../../../enums/card";
+import Form from "./Form";
 
 export default function AddForm() {
   const { handleAddCard, newCard, setNewCard } = useContext(OrderContext);
@@ -40,42 +35,9 @@ export default function AddForm() {
   /*
   https://media.auchan.fr/P02000000001KLRPRIMARY_2048x2048/B2CD/
   */
-  const inputTexts = getInputTextConfig(newCard); 
 
   return (
-    <AddFormStyled onSubmit={handleSubmit}>
-      <ImagePreviou title={newCard.title} imageSource={newCard.imageSource} />
-      <div className="inputs-field">
-        {inputTexts.map((input) => {
-          return (
-            <TextInput
-              {...input}
-              value={newCard[input.name]}
-              onChange={handleChange}
-              version="admin"
-            />
-          );
-        })}
-      </div>
-      <SuccessBox isSubmited={isSubmited} /> {/** Button & message success*/}
-    </AddFormStyled>
+    <Form product={newCard} onSubmit={handleSubmit} onChange={handleChange} isSubmited={isSubmited} />
   );
 }
 
-const AddFormStyled = styled.form`
-  display: grid;
-  grid-template-columns: 1fr 3fr;
-  grid-template-rows: repeat(4, 1fr);
-  width: 100%;
-  padding-top: 10px;
-
-  .inputs-field {
-    grid-area: 1/2/4/3;
-    border-radius: ${theme.borderRadius.round};
-    display: grid;
-    padding: 20px 0 15px 0;
-    grid-template-rows: 1fr 1fr 1fr;
-    grid-row-gap: 2px;
-    width: 80%;
-  }
-`;
