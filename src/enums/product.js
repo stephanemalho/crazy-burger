@@ -1,4 +1,4 @@
-export const EMPTY_CARD = Object.freeze({
+export const EMPTY_PRODUCT = Object.freeze({
   key: "",
   id: "",
   title: "",

@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 import { theme } from "../../../../../../assets/theme";
 import TextInput from "../../../../../reusableUI/TextInput";
-import ImagePreviou from "./ImagePreviou";
+import ImagePreview from "./ImagePreview";
 import { getInputTextConfig } from "./getInputTextConfig";
 
 const Form = React.forwardRef(
@@ -12,7 +12,7 @@ const Form = React.forwardRef(
 
     return (
       <FormStyled onSubmit={onSubmit}>
-        <ImagePreviou title={product.title} imageSource={product.imageSource} />
+        <ImagePreview title={product.title} imageSource={product.imageSource} />
         <div className="inputs-field">
           {inputTexts.map((input) => {
             return (

@@ -1,15 +1,15 @@
 import React, { useContext } from "react";
 import styled from "styled-components";
 import { theme } from "../../../../../../assets/theme";
-import { OrderContext } from "../../../../../../contexts/OrderContext";
+import OrderContext from "../../../../../context/OrderContext";
 
 export default function ImagePreview({ title, imageSource}) {
 
-  const { newCard } = useContext(OrderContext);
+  const { newProduct } = useContext(OrderContext);
 
   return (
     <ImagePreviewStyled >
-        {newCard.imageSource ? (
+        {newProduct.imageSource ? (
           <div className="image-box">
             <img src={imageSource} alt={title} />
           </div>

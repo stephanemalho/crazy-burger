@@ -4,22 +4,22 @@ import Form from "./Form";
 import EditInfoMessage from "./EditInfoMessage";
 
 export default function EditForm() {
-  const { cardSelected, setCardSelected, handleEditCard, titleEditRef } =
+  const { productSelected, setProductSelected, handleEditProduct, titleEditRef } =
     useContext(OrderContext);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    const productUptaded = { ...cardSelected, [name]: value };
+    const productUptaded = { ...productSelected, [name]: value };
 
-    setCardSelected(productUptaded);
-    handleEditCard(productUptaded);
+    setProductSelected(productUptaded);
+    handleEditProduct(productUptaded);
     console.log();
   };
 
   return (
     <Form
       onChange={handleChange}
-      product={cardSelected}
+      product={productSelected}
       ref={titleEditRef}
       hintMessage={<EditInfoMessage />}
     />

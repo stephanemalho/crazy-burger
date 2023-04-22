@@ -7,7 +7,7 @@ import Main from "./main-content/Main";
 import { theme } from "../../../assets/theme";
 import OrderContext from "../../context/OrderContext";
 import { fakeMenu1 } from "../../../fakeData/fakeMenu";
-import { EMPTY_CARD } from "../../../enums/card";
+import { EMPTY_PRODUCT } from "../../../enums/product";
 import { deepClone } from "../../../utils/arrays";
 
 function OrderPage() {
@@ -20,8 +20,8 @@ function OrderPage() {
   const [isOnAddTab, setIsOnAddTab] = useState(true);
   const [currentTabSelected, setCurrentTabSelected] = useState("add"); // à changer en "add"
   const [menu, setMenu] = useState(fakeMenu1);
-  const [newCard, setNewCard] = useState(EMPTY_CARD);
-  const [cardSelected, setCardSelected] = useState(EMPTY_CARD);
+  const [newProduct, setNewProduct] = useState(EMPTY_PRODUCT);
+  const [productSelected, setProductSelected] = useState(EMPTY_PRODUCT);
   const titleEditRef = useRef();
 
   // comportements
@@ -30,24 +30,24 @@ function OrderPage() {
     navigate("/");
   };
 
-  const handleAddCard = (newCard) => {
+  const handleAddProduct = (newProduct) => {
     const menuCopy = deepClone(menu);
-    const menuUpdated = [newCard, ...menuCopy]
+    const menuUpdated = [newProduct, ...menuCopy]
     setMenu(menuUpdated);
   };
 
-  const handleDeleteCard = (currentCard) => {
+  const handleDeleteProduct = (currentProduct) => {
     const menuCopy = deepClone(menu);
-    const newMenu = menuCopy.filter((card) => card.id !== currentCard);
+    const newMenu = menuCopy.filter((product) => product.id !== currentProduct);
     setMenu(newMenu);
   };
 
-  const handleEditCard = (currentCard) => {
+  const handleEditProduct = (currentProduct) => {
     const menuCopy = deepClone(menu);
-    const indexOfCardToEdit = menuCopy.findIndex(
-      (card) => card.id === currentCard.id
+    const indexOfProductToEdit = menuCopy.findIndex(
+      (product) => product.id === currentProduct.id
     );
-    menuCopy[indexOfCardToEdit] = currentCard;
+    menuCopy[indexOfProductToEdit] = currentProduct;
     setMenu(menuCopy);
   };
 
@@ -68,14 +68,14 @@ function OrderPage() {
     currentTabSelected,
     setCurrentTabSelected,
     menu,
-    handleAddCard,
-    handleDeleteCard,
+    handleAddProduct,
+    handleDeleteProduct,
     resetMenu,
-    newCard,
-    setNewCard,
-    cardSelected,
-    setCardSelected,
-    handleEditCard, 
+    newProduct,
+    setNewProduct,
+    productSelected,
+    setProductSelected,
+    handleEditProduct, 
     titleEditRef,
   };
 

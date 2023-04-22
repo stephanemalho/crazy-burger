@@ -1,31 +1,31 @@
 import React, { useContext, useState } from "react";
 
 import OrderContext from "../../../../../context/OrderContext";
-import { EMPTY_CARD } from "../../../../../../enums/card";
+import { EMPTY_PRODUCT } from "../../../../../../enums/product";
 import Form from "./Form";
 import SuccessBox from "./SuccessBox";
 
 export default function AddForm() {
-  const { handleAddCard, newCard, setNewCard } = useContext(OrderContext);
+  const { handleAddProduct, newProduct, setNewProduct } = useContext(OrderContext);
   const [isSubmited, setIsSubmited] = useState(false);
 
   const handleChange = (event) => {
     const { name, value } = event.target;
-    setNewCard({ ...newCard, [name]: value });
+    setNewProduct({ ...newProduct, [name]: value });
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    const NewCard = {
-      ...newCard,
+    const NewProduct = {
+      ...newProduct,
       id: crypto.randomUUID(),
       key: Date.now(),
     };
 
-    handleAddCard(NewCard);
+    handleAddProduct(NewProduct);
 
-    setNewCard(EMPTY_CARD);
+    setNewProduct(EMPTY_PRODUCT);
     setIsSubmited(true);
 
     setTimeout(() => {
@@ -35,7 +35,7 @@ export default function AddForm() {
 
   return (
     <Form
-      product={newCard}
+      product={newProduct}
       onSubmit={handleSubmit}
       onChange={handleChange}
       isSubmited={isSubmited}

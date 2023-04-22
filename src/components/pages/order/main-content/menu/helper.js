@@ -1,3 +1,3 @@
-export const checkIsCardSelected = (idCards, cardId) => { 
-  return idCards === cardId;
+export const checkIsProductSelected = (idProducts, productId) => { 
+  return idProducts === productId;
 };

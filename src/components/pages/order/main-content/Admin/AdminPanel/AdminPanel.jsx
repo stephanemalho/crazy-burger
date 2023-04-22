@@ -9,13 +9,13 @@ import HintMessage from "./HintMessage";
 
 
 export default function AdminPanel() {
-  const { currentTabSelected , cardSelected } = useContext(OrderContext);
+  const { currentTabSelected , productSelected } = useContext(OrderContext);
  
 
   return (
     <AdminTabsStyled>
       {currentTabSelected === "add" && <AddForm />}
-      {currentTabSelected === "edit" && cardSelected.id ? <EditForm /> : <HintMessage /> }
+      {currentTabSelected === "edit" && productSelected.id ? <EditForm /> : <HintMessage /> }
     </AdminTabsStyled>
   );
 }

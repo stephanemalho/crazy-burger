@@ -25,8 +25,8 @@ export default createContext({
   newCard: {},
   setNewCard: () => {},
 
-  cardSelected:{},
-  setCardSelected :() => {},
+  productSelected:{},
+  setProductSelected :() => {},
 
   titleEditRef: {}
 })
