@@ -25,7 +25,7 @@ export default function Card({
         <h1>{title}</h1>
         {/* arrondir le prix */}
         <p>{leftDescription}</p>
-        <MainButton label={"Ajouter"} className="btnCart" version="primary" />
+        <MainButton label={"Ajouter"} className="btnCard" version="primary" />
       </div>
     </CardStyled>
   );
@@ -108,7 +108,7 @@ const CardStyled = styled.figure`
       font-family: "Open sans", cursive;
       color: ${theme.colors.loginLine};
     }
-    .btnCart {
+    .btnCard {
       width: 95px;
       height: 38px;
       position: absolute;

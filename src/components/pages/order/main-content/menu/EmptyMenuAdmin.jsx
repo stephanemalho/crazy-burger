@@ -8,7 +8,7 @@ export default function EmptyMenuAdmin({ onReset }) {
     <EmptyMenuStyled>
       <span className="title">Le menu est vide ?</span>
       <span className="description">Cliquez ci-dessous pour le réinitialiser</span>
-      <MainButton label={"Générer de nouveaux produits"} onClick={onReset} className={"fontSet"} />
+      <MainButton label={"Générer de nouveaux produits"} onClick={onReset} className={"empty-menu-btn"} />
     </EmptyMenuStyled>
   )
 }
@@ -39,7 +39,7 @@ const EmptyMenuStyled = styled.div`
     margin-top: 20px;
   }
 
-  .fontSet {
+  .empty-menu-btn {
     margin-top: 30px;
     font-size: ${theme.fonts.size.XS};
     font-family: "Open Sans", cursive;

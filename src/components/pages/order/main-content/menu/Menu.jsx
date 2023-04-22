@@ -13,7 +13,7 @@ import { theme } from "../../../../../assets/theme";
 function Menu() {
   const { menu, isModeAdmin, handleDeleteCard, resetMenu } = useContext(OrderContext);
 
-  console.log("menu", menu);
+  const defaultImage = "/images/coming-soon.png";
 
   if (menu.length === 0) return isModeAdmin ? <EmptyMenuAdmin onReset={resetMenu} /> : <EmptyMenuClient />;
 
@@ -24,7 +24,7 @@ function Menu() {
           <Card
             key={id}
             title={title}
-            imageSource={imageSource === "" ? "/images/coming-soon.png" : imageSource}
+            imageSource={imageSource === "" ? defaultImage : imageSource}
             leftDescription={formatPrice(price)}
             hasDeleteButton={isModeAdmin}
             onDelete={() => handleDeleteCard(id)}
