@@ -1,15 +1,14 @@
-import React, { useContext } from "react";
+import React from "react";
 import styled from "styled-components";
 import { theme } from "../../../../../../assets/theme";
-import OrderContext from "../../../../../context/OrderContext";
 
 export default function ImagePreview({ title, imageSource}) {
 
-  const { newProduct } = useContext(OrderContext);
+
 
   return (
     <ImagePreviewStyled >
-        {newProduct.imageSource ? (
+        {imageSource ? (
           <div className="image-box">
             <img src={imageSource} alt={title} />
           </div>
@@ -44,5 +43,11 @@ const ImagePreviewStyled = styled.div`
       width: 100px;
       display: flex;
       height: 100%;
+      margin:auto;
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+      }
     }
     `;
