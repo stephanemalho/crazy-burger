@@ -1,17 +1,19 @@
-import React, { useState } from "react";
+import React, { useContext } from "react";
 import { BsPersonCircle } from "react-icons/bs";
 import styled from "styled-components";
-import  {toast}  from "react-toastify";
+import { toast } from "react-toastify";
 
-import LogoImg from "../../../assets/images/logo-orange.jpg";
-import { theme } from "../../../assets/theme";
-import Logo from "../../reusableUI/Logo";
-import ToggleButton from "../../reusableUI/ToggleButton";
-import UserProfile from "../../reusableUI/UserProfile";
+import LogoImg from "../../../../assets/images/logo-orange.jpg";
+import { theme } from "../../../../assets/theme";
+import Logo from "../../../reusableUI/Logo";
+import ToggleButton from "../../../reusableUI/ToggleButton";
+import UserProfile from "./Profile";
 import ToastAdmin from "./ToastAdmin";
+import OrderContext from "../../../context/OrderContext";
 
 function NavBar({ userName, handleLogin }) {
-  const [isModeAdmin, setIsModeAdmin] = useState(false);
+  const { isModeAdmin, setIsModeAdmin } = useContext(OrderContext);
+
   const activer = "ACTIVER LE MODE ADMIN";
   const desactiver = "DESECTIVER LE MODE ADMIN";
 
@@ -41,6 +43,7 @@ function NavBar({ userName, handleLogin }) {
         className={"orderLogo"}
       />
       <ToggleButton
+        isChecked={isModeAdmin}
         labelIfUnchecked={activer}
         labelIfChecked={desactiver}
         className={"toggleButton"}
@@ -67,14 +70,13 @@ const NavBarStyled = styled.nav`
   flex-direction: row;
   justify-content: space-between;
   flex-wrap: nowrap;
-  height: 80px;
+  height: 10vh;
   border-radius: 10px 10px 0 0;
-  box-shadow: 0 10px 35px -10px grey;
+  border-bottom: 1px solid ${theme.colors.greyLight};
+  box-shadow: ${theme.shadows.subtle};
   .orderLogo {
     transform: scale(0.5);
-    top: -60px;
-    position: absolute;
-    left: -60px;
+    margin: 0 -50px;
   }
   .toggleButton {
     margin-left: auto;
@@ -83,7 +85,7 @@ const NavBarStyled = styled.nav`
   .userBox {
     display: flex;
     flex-direction: row;
-    width: auto;
+    padding-right: 20px;
     div {
       padding-right: 5px;
     }
