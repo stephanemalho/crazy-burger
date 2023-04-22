@@ -92,7 +92,7 @@ const MenuGridStyled = styled.section`
     overflow-y: scroll;
     margin: auto;
     padding: 30px 0 50px 0;
-    width: 96vw;
+    width: 100%;
     height: 100%;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
