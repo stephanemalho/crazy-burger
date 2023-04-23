@@ -1,5 +1,6 @@
-import React, { useContext, useState } from "react";
+import React, { useContext } from "react";
 
+import { useDelayMessage } from "../../../../../../hooks/useDelayMessage"; // custom hook
 import OrderContext from "../../../../../context/OrderContext";
 import { EMPTY_PRODUCT } from "../../../../../../enums/product";
 import Form from "./Form";
@@ -7,7 +8,7 @@ import SuccessBox from "./SuccessBox";
 
 export default function AddForm() {
   const { handleAddProduct, newProduct, setNewProduct } = useContext(OrderContext);
-  const [isSubmited, setIsSubmited] = useState(false);
+  const { isSubmited, displayMessage } = useDelayMessage(2000);  
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -26,12 +27,9 @@ export default function AddForm() {
     handleAddProduct(NewProduct);
 
     setNewProduct(EMPTY_PRODUCT);
-    setIsSubmited(true);
-
-    setTimeout(() => {
-      setIsSubmited(false);
-    }, 2000);
+    displayMessage();
   };
+  
 
   return (
     <Form
