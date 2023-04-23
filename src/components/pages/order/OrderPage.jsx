@@ -6,9 +6,8 @@ import NavBar from "./navbar/NavBar";
 import Main from "./main-content/Main";
 import { theme } from "../../../assets/theme";
 import OrderContext from "../../context/OrderContext";
-import { fakeMenu1 } from "../../../fakeData/fakeMenu";
 import { EMPTY_PRODUCT } from "../../../enums/product";
-import { deepClone } from "../../../utils/arrays";
+import { useMenu } from "../../../hooks/useMenu";
 
 function OrderPage() {
   // state
@@ -19,40 +18,15 @@ function OrderPage() {
   const [isOnEditTab, setIsOnEditTab] = useState(false);
   const [isOnAddTab, setIsOnAddTab] = useState(true);
   const [currentTabSelected, setCurrentTabSelected] = useState("add"); // à changer en "add"
-  const [menu, setMenu] = useState(fakeMenu1);
   const [newProduct, setNewProduct] = useState(EMPTY_PRODUCT);
   const [productSelected, setProductSelected] = useState(EMPTY_PRODUCT);
   const titleEditRef = useRef();
+  const {menu, handleAddProduct, handleDeleteProduct, handleEditProduct, resetMenu} = useMenu(); // custom hook
 
   // comportements
   const handleLogin = (e) => {
     e.preventDefault();
     navigate("/");
-  };
-
-  const handleAddProduct = (newProduct) => {
-    const menuCopy = deepClone(menu);
-    const menuUpdated = [newProduct, ...menuCopy]
-    setMenu(menuUpdated);
-  };
-
-  const handleDeleteProduct = (currentProduct) => {
-    const menuCopy = deepClone(menu);
-    const newMenu = menuCopy.filter((product) => product.id !== currentProduct);
-    setMenu(newMenu);
-  };
-
-  const handleEditProduct = (currentProduct) => {
-    const menuCopy = deepClone(menu);
-    const indexOfProductToEdit = menuCopy.findIndex(
-      (product) => product.id === currentProduct.id
-    );
-    menuCopy[indexOfProductToEdit] = currentProduct;
-    setMenu(menuCopy);
-  };
-
-  const resetMenu = () => {
-    setMenu(fakeMenu1);
   };
 
   // context
