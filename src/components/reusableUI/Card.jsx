@@ -62,8 +62,8 @@ const CardStyled = styled.figure`
       position: absolute;
       width: 30px;
       height: 30px;
-      top: 10px;
-      right: 10px;
+      top: 13px;
+      right: 13px;
       border-radius: 50%;
       border: none;
       color: #ffa01b;
@@ -127,7 +127,7 @@ const CardStyled = styled.figure`
         height: 45px;
         position: absolute;
         top: -55px;
-        right: -5px;
+        right: 0px;
       }
     }
     ${({ isHoverable, isSelected }) =>
