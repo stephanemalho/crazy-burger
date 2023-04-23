@@ -14,7 +14,7 @@ const FooterStyled = styled.footer`
   align-items: center;
   justify-content: center;
   background-color: ${theme.colors.background_dark};
-  height: 60px;
+  height: 70px;
   span {
     font-size: ${theme.fonts.size.P2};
     font-family: ${theme.fonts.family.stylish};

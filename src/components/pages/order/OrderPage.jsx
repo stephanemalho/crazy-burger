@@ -9,6 +9,7 @@ import OrderContext from "../../context/OrderContext";
 import { EMPTY_PRODUCT } from "../../../enums/product";
 import { useMenu } from "../../../hooks/useMenu";
 import { deepClone } from "../../../utils/arrays";
+import { formatPrice } from "../../../utils/maths";
 
 function OrderPage() {
   // state
@@ -46,7 +47,10 @@ function OrderPage() {
       (productInBasket) => productInBasket.id === id
     );
     if (productAlreadyInBasket) {
-      productAlreadyInBasket.quantity++;
+        productAlreadyInBasket.quantity++;
+        productAlreadyInBasket.price = formatPrice(
+        productAlreadyInBasket.quantity * product.price
+      );
     } else {
       basketCopy.push({ ...product, quantity: 1 });
     }

@@ -52,7 +52,7 @@ const CardStyled = styled.figure`
   height: 330px;
   ${(props) => props.isHoverable && hoverableStyle}
   border-radius: ${theme.borderRadius.extraRound};
-  margin: 50px auto;
+  margin: 30px auto;
   .card {
     box-sizing: border-box;
     display: flex;

@@ -88,7 +88,6 @@ const MenuGridStyled = styled.section`
   position: relative;
   overflow-y: scroll;
   display: grid;
-  //border-bottom-left-radius: ${theme.borderRadius.extraRound};
   border-bottom-right-radius: ${theme.borderRadius.extraRound};
   z-index: 1;
   overflow-x: hidden;
