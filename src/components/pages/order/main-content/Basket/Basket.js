@@ -10,11 +10,18 @@ import OrderContext from "../../../../context/OrderContext"
 export default function Basket() {
   
   const { basket } = useContext(OrderContext)
-
+  
+  const getTotalPriceOfBasket = () => {
+    let totalPrice = 0;
+    basket.forEach((item) => {
+      totalPrice += item.price;
+    });
+    return totalPrice ;
+  };
   
   return (
     <BasketStyled>
-      <Total amountToPay={formatPrice(basket.price)} />
+      <Total amountToPay={formatPrice(getTotalPriceOfBasket())} />
       <BasketBody />
       <Footer />
     </BasketStyled>
