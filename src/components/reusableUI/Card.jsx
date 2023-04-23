@@ -13,7 +13,9 @@ export default function Card({
   onClick,
   isHoverable,
   isSelected,
+  addToCard,
 }) {
+
   return (
     <CardStyled
       onClick={onClick}
@@ -33,7 +35,12 @@ export default function Card({
           <h1>{title}</h1>
           {/* arrondir le prix */}
           <p className="description">{leftDescription}</p>
-          <MainButton label={"Ajouter"} className="btnCart" version="primary" onClick={(event) => event.stopPropagation()} />
+          <MainButton
+            label={"Ajouter"}
+            className="btnCart"
+            version="primary"
+            onClick={addToCard}
+          />
         </div>
       </div>
     </CardStyled>
@@ -92,7 +99,7 @@ const CardStyled = styled.figure`
       align-items: center;
       margin: auto;
       img {
-        height: 65%;
+        height: 145px;
         width: 100%;
         object-fit: contain;
         margin: auto;
@@ -194,5 +201,4 @@ const selectedStyle = css`
       color: ${theme.colors.white};
     }
   }
-
 `;

@@ -8,6 +8,7 @@ import { theme } from "../../../assets/theme";
 import OrderContext from "../../context/OrderContext";
 import { EMPTY_PRODUCT } from "../../../enums/product";
 import { useMenu } from "../../../hooks/useMenu";
+import { deepClone } from "../../../utils/arrays";
 
 function OrderPage() {
   // state
@@ -19,14 +20,41 @@ function OrderPage() {
   const [isOnAddTab, setIsOnAddTab] = useState(true);
   const [currentTabSelected, setCurrentTabSelected] = useState("add"); // à changer en "add"
   const [newProduct, setNewProduct] = useState(EMPTY_PRODUCT);
+  const [basket, setBasket] = useState([]);
   const [productSelected, setProductSelected] = useState(EMPTY_PRODUCT);
   const titleEditRef = useRef();
-  const {menu, handleAddProduct, handleDeleteProduct, handleEditProduct, resetMenu} = useMenu(); // custom hook
+  const {
+    menu,
+    handleAddProduct,
+    handleDeleteProduct,
+    handleEditProduct,
+    resetMenu,
+  } = useMenu(); // custom hook
 
   // comportements
   const handleLogin = (e) => {
     e.preventDefault();
     navigate("/");
+  };
+
+  const handleAddToBasket = async (id) => {
+    const product = menu.find((product) => product.id === id);
+    const basketCopy = deepClone(basket);
+
+    // si le produit est déjà dans le panier on incrémente la quantité sinon on ajoute un quantité à 1
+    const productAlreadyInBasket = basketCopy.find(
+      (productInBasket) => productInBasket.id === id
+    );
+    if (productAlreadyInBasket) {
+      productAlreadyInBasket.quantity++;
+    } else {
+      basketCopy.push({ ...product, quantity: 1 });
+    }
+
+    await setBasket(basketCopy);
+
+    console.log("basket", basket);
+    
   };
 
   // context
@@ -49,8 +77,11 @@ function OrderPage() {
     setNewProduct,
     productSelected,
     setProductSelected,
-    handleEditProduct, 
+    handleEditProduct,
     titleEditRef,
+    basket,
+    setBasket,
+    handleAddToBasket,
   };
 
   // affichage

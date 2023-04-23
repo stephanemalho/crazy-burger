@@ -21,6 +21,7 @@ function Menu() {
     setIsCollapsed,
     setCurrentTabSelected,
     titleEditRef,
+    handleAddToBasket,
   } = useContext(OrderContext);
 
   const defaultImage = "/images/coming-soon.png";
@@ -48,6 +49,11 @@ function Menu() {
     }
   };
 
+  const addToCard = (event, id) => {
+    event.stopPropagation();
+    handleAddToBasket(id);
+  };
+
   // Affichage
   if (menu.length === 0)
     return isModeAdmin ? (
@@ -70,6 +76,7 @@ function Menu() {
             onClick={() => handleClickProduct(id)}
             isHoverable={isModeAdmin}
             isSelected={checkIsProductSelected(id, productSelected.id)}
+            addToCard={(event) => addToCard(event, id)}
           />
         ))}
       </div>
