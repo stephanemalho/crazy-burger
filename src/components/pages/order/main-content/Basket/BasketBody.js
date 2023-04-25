@@ -27,7 +27,7 @@ export default function BasketBody() {
               { !item.imageSource ? <img src={defaultImage} alt="arrive bientot" /> : <img src={item.imageSource} alt={item.title} />}
             </figcaption>
             <div className="name-and-price">
-            <h4 className="basket-item-name">{item.title}</h4>
+            <h4 className="basket-item-title">{item.title}</h4>
             <span className="basket-item-price">{formatPrice(item.price)}</span>
             </div>
             <span className="basket-item-quantity">X {item.quantity}</span>
@@ -42,6 +42,7 @@ const BasketBodyStyled = styled.main`
   flex: 1;
   background: ${theme.colors.background_white};
   box-shadow: ${theme.shadows.basket};
+  width: 350px;
 
   .empty-message {
     display: flex;
@@ -63,7 +64,6 @@ const BasketBodyStyled = styled.main`
     flex-direction: column;
     height: calc(95vh - 9vh - 70px - 70px);
     overflow-y: scroll;
-    width: 100%;
     margin: auto;
     box-shadow: ${theme.shadows.strong};
 
@@ -77,14 +77,14 @@ const BasketBodyStyled = styled.main`
       min-height: 85px;
       margin: 10px auto;
       figcaption {
-        width: 80px;
+        flex-basis: 40%;
         height: 100%;
         object-fit: cover;
         box-sizing: border-box;
         display: flex;
         margin: 0 5px;
         img {
-          height: 60px;
+          height: 50px;
           max-width: 70px;
           margin: auto;
         }
@@ -95,13 +95,16 @@ const BasketBodyStyled = styled.main`
         flex-direction: column;
         justify-content: space-evenly;
         align-items: left;
-        .basket-item-name {
+        .basket-item-title {
           padding: 0;
           margin: 0;
           font-family: ${theme.fonts.family.stylish};
           font-size: ${theme.fonts.size.P3};
-          overflow: ellipsis;
-          flex-wrap: nowrap;
+          min-width: 100%;
+          text-overflow: ellipsis;
+          overflow: hidden;
+          white-space: nowrap;
+          width: 120px;
         }
         .basket-item-price {
           color : ${theme.colors.primary};
