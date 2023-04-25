@@ -15,7 +15,7 @@ function NavBar({ userName, handleLogin }) {
   const { isModeAdmin, setIsModeAdmin } = useContext(OrderContext);
 
   const activer = "ACTIVER LE MODE ADMIN";
-  const desactiver = "DESECTIVER LE MODE ADMIN";
+  const desactiver = "DESACTIVER LE MODE ADMIN";
 
   const displayNotification = () => {
     if (!isModeAdmin) {

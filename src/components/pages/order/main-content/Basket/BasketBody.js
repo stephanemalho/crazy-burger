@@ -38,7 +38,7 @@ export default function BasketBody() {
             <h4 className="basket-item-title">{item.title}</h4>
             <span className="basket-item-price">{formatPrice(item.price)}</span>
             </div>
-            <span className="basket-item-quantity">X {item.quantity}</span>
+            <span className="basket-item-quantity">x {item.quantity}</span>
             <MainButton version="delete" className="delete"  ButtonIcon={<MdDeleteForever size="25"/>} onClick={handleDelete} />
           </figure>
 
@@ -105,6 +105,7 @@ const BasketBodyStyled = styled.main`
         flex-direction: column;
         justify-content: space-evenly;
         align-items: left;
+        font-family: "Open Sans", sans-serif;
         .basket-item-title {
           padding: 0;
           margin: 0;
