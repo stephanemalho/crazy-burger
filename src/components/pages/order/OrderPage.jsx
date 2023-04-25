@@ -40,32 +40,32 @@ function OrderPage() {
   const handleAddToBasket = async (id) => {
     const product = menu.find((product) => product.id === id);
     const basketCopy = deepClone(basket);
-  
-    // si le produit est déjà dans le panier on incrémente la quantité sinon on ajoute un quantité à 1
     const productAlreadyInBasket = basketCopy.find(
       (productInBasket) => productInBasket.id === id
     );
     if (productAlreadyInBasket) {
       productAlreadyInBasket.quantity++;
-      // productAlreadyInBasket.price = 
-      // productAlreadyInBasket.quantity * product.price
     } else {
       const newProduct = { ...product, quantity: 1, createdAt: Date.now() };
       basketCopy.unshift(newProduct);
     }
-
-    // if the name is empty we add a empty string and if the image is empty we add a default image
     basketCopy.forEach((product) => {
       if (!product.name) {
         product.name = "";
       }
     });
-  
+
     basketCopy.sort((a, b) => b.createdAt - a.createdAt);
-  
-    console.log("basketCopy", basketCopy);
-  
     await setBasket(basketCopy);
+  };
+
+  const handleDeleteProductFromBasket = (id) => {
+    const basketCopy = deepClone(basket);
+    const productToDeleteIndex = basketCopy.findIndex(
+      (product) => product.id === id
+    );
+    basketCopy.splice(productToDeleteIndex, 1);
+    setBasket(basketCopy);
   };
 
   // context
@@ -93,6 +93,7 @@ function OrderPage() {
     basket,
     setBasket,
     handleAddToBasket,
+    handleDeleteProductFromBasket,
   };
 
   // affichage

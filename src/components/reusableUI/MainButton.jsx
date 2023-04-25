@@ -2,7 +2,13 @@ import React from "react";
 import styled, { css } from "styled-components";
 import { theme } from "../../assets/theme/index";
 
-function MainButton({ ButtonIcon, label, className, onClick, version = "primary" }) {
+function MainButton({
+  ButtonIcon,
+  label,
+  className,
+  onClick,
+  version = "primary",
+}) {
   return (
     <MainButtonStyled version={version}>
       <button className={className} onClick={onClick}>
@@ -30,7 +36,6 @@ const MainButtonStyled = styled.div`
       left: 5px;
       color: ${theme.colors.white};
     }
-  
   }
   @media screen and (max-width: 339px) {
     width: 90%;
@@ -61,7 +66,6 @@ const extraStylePrimary = css`
       }
     }
   }
-
 `;
 
 const extraStyleSucess = css`
@@ -89,9 +93,48 @@ const extraStyleSucess = css`
   }
 `;
 
+const extraStyleDelete = css`
+  .delete {
+    display: none;
+    background-color: ${theme.colors.red};
+    border-radius: 0 5px 5px 0;
+    border: none;
+    width: 70px;
+    height: 100%;
+    padding: 0 10px;
+    border-radius: 0 5px 5px 0;
+    border: none;
+    right: 0px;
+    font-weight: ${theme.fonts.weights.bold};
+    font-size: ${theme.fonts.size.XS};
+    padding: 10px 30px 10px 30px;
+    span {
+      position: relative;
+      top: 3px;
+      left: 3px;
+      color: ${theme.colors.white};
+    }
+    &:hover {
+      background-color: ${theme.colors.red};
+      span {
+        color: ${theme.colors.background_dark};
+      }
+    }
+    &:active {
+      background-color: ${theme.colors.red};
+      color: ${theme.colors.white};
+      border: none;
+      span {
+        color: ${theme.colors.white};
+      }
+    }
+  }
+`;
+
 const extraStyle = {
   success: extraStyleSucess,
-  primary : extraStylePrimary
+  primary: extraStylePrimary,
+  delete: extraStyleDelete,
 };
 
 export default MainButton;

@@ -22,6 +22,8 @@ function Menu() {
     setCurrentTabSelected,
     titleEditRef,
     handleAddToBasket,
+    basket,
+    setBasket,
   } = useContext(OrderContext);
 
   const defaultImage = "/images/coming-soon.png";
@@ -42,6 +44,15 @@ function Menu() {
     event.stopPropagation();
     handleDeleteProduct(productToDeleteId);
     productToDeleteId === productSelected.id && setProductSelected(EMPTY_PRODUCT);
+    const productToDeleteInBasket = basket.find(  
+      (product) => product.id === productToDeleteId
+    );
+    if (productToDeleteInBasket) {
+      const basketCopy = [...basket];
+      const index = basketCopy.indexOf(productToDeleteInBasket);
+      basketCopy.splice(index, 1);
+      setBasket(basketCopy);
+    }
     if (!titleEditRef.current) {
       return;
     } else {

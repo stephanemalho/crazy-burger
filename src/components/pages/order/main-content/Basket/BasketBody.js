@@ -4,11 +4,18 @@ import styled from "styled-components";
 import { theme } from "../../../../../assets/theme";
 import OrderContext from "../../../../context/OrderContext";
 import { formatPrice } from "../../../../../utils/maths";
+import MainButton from "../../../../reusableUI/MainButton";
+import { MdDeleteForever } from "react-icons/md";
+
 
 const defaultImage = "/images/coming-soon.png";
 
 export default function BasketBody() {
-  const { basket } = useContext(OrderContext);
+  const { basket, handleDeleteProductFromBasket } = useContext(OrderContext);
+
+  const handleDelete = (e) => {
+    handleDeleteProductFromBasket(e.target.id);
+  };
 
   if (basket.length === 0)
     return (
@@ -22,6 +29,7 @@ export default function BasketBody() {
     <BasketBodyStyled>
       <div className="basket">
         {basket.map((item) => (
+
           <figure className="basket-item" key={item.id}>
             <figcaption>
               { !item.imageSource ? <img src={defaultImage} alt="arrive bientot" /> : <img src={item.imageSource} alt={item.title} />}
@@ -31,7 +39,9 @@ export default function BasketBody() {
             <span className="basket-item-price">{formatPrice(item.price)}</span>
             </div>
             <span className="basket-item-quantity">X {item.quantity}</span>
+            <MainButton version="delete" className="delete"  ButtonIcon={<MdDeleteForever size="25"/>} onClick={handleDelete} />
           </figure>
+
         ))}
       </div>
     </BasketBodyStyled>
@@ -43,7 +53,6 @@ const BasketBodyStyled = styled.main`
   background: ${theme.colors.background_white};
   box-shadow: ${theme.shadows.basket};
   width: 350px;
-
   .empty-message {
     display: flex;
     height: calc(95vh - 9vh - 70px - 70px);
@@ -68,6 +77,7 @@ const BasketBodyStyled = styled.main`
     box-shadow: ${theme.shadows.strong};
 
     .basket-item {
+      position: relative;
       display: flex;
       background: #ffffff;
       box-shadow: -4px 4px 15px rgba(0, 0, 0, 0.2);
@@ -120,6 +130,14 @@ const BasketBodyStyled = styled.main`
         font-family: "Open Sans", sans-serif;
         color: ${theme.colors.primary};
       }
+      &:hover {
+        .delete {
+          display: flex;
+          position: absolute;
+        }
+      }
     }
   }
 `;
+
+
