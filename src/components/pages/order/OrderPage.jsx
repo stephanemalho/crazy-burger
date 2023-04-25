@@ -47,8 +47,8 @@ function OrderPage() {
     );
     if (productAlreadyInBasket) {
         productAlreadyInBasket.quantity++;
-        productAlreadyInBasket.price = 
-        productAlreadyInBasket.quantity * product.price
+        // productAlreadyInBasket.price = 
+        // productAlreadyInBasket.quantity * product.price
       ;
     } else {
       basketCopy.push({ ...product, quantity: 1 });

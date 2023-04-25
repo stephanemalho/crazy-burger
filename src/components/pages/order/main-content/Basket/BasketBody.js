@@ -53,6 +53,7 @@ const BasketBodyStyled = styled.main`
     font-family: ${theme.fonts.family.stylish};
     font-size: ${theme.fonts.size.P4};
     color: ${theme.colors.greyBlue};
+    box-shadow: ${theme.shadows.strong};
   }
 
   .basket {
@@ -62,6 +63,7 @@ const BasketBodyStyled = styled.main`
     overflow-y: scroll;
     width: 100%;
     margin: auto;
+    box-shadow: ${theme.shadows.strong};
 
     .basket-item {
       display: flex;

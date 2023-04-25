@@ -14,7 +14,7 @@ export default function Basket() {
   const getTotalPriceOfBasket = () => {
     let totalPrice = 0;
     basket.forEach((item) => {
-      totalPrice += item.price;
+      totalPrice += item.price * item.quantity;
     });
     return totalPrice ;
   };
