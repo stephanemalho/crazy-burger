@@ -5,6 +5,8 @@ import { theme } from "../../../../../assets/theme";
 import OrderContext from "../../../../context/OrderContext";
 import { formatPrice } from "../../../../../utils/maths";
 
+const defaultImage = "/images/coming-soon.png";
+
 export default function BasketBody() {
   const { basket } = useContext(OrderContext);
 
@@ -22,7 +24,7 @@ export default function BasketBody() {
         {basket.map((item) => (
           <figure className="basket-item" key={item.id}>
             <figcaption>
-              <img src={item.imageSource} alt={item.title} />
+              { !item.imageSource ? <img src={defaultImage} alt="arrive bientot" /> : <img src={item.imageSource} alt={item.title} />}
             </figcaption>
             <div className="name-and-price">
             <h4 className="basket-item-name">{item.title}</h4>
