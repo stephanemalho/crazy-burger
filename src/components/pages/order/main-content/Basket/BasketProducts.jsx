@@ -28,7 +28,8 @@ export default function BasketBody() {
     <BasketBodyStyled>
       <div className="basket">
         {basket.map((item) => (
-          <BasketCard onClick={handleDelete} defaultImage={defaultImage} title={item.title} price={item.price} quantity={item.quantity} imageSource={item.imageSource}/>
+          <BasketCard onClick={handleDelete} defaultImage={defaultImage} title={item.title} price={item.price} quantity={item.quantity} imageSource={item.imageSource} 
+          />
         ))}
       </div>
     </BasketBodyStyled>

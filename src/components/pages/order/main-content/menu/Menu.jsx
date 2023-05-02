@@ -106,7 +106,7 @@ const MenuGridStyled = styled.section`
   .products-container {
     background: ${theme.colors.background_white};
     box-shadow: ${theme.shadows.strong};
-    overflow-y: scroll;
+    //overflow-y: scroll;
     margin: auto;
     padding: 30px 0 50px 0;
     width: 100%;

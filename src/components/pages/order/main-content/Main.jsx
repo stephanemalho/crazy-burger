@@ -21,7 +21,6 @@ export default function Main() {
 }
 
 const MainStyled = styled.div`
-  overflow-y: scroll;
   height: calc(95vh - 10vh);
   flex: 1;
   display:grid;

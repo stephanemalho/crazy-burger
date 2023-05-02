@@ -111,7 +111,7 @@ const extraStyleDelete = css`
     span {
       position: relative;
       top: 3px;
-      left: 3px;
+      left: 1px;
       color: ${theme.colors.white};
     }
     &:hover {
