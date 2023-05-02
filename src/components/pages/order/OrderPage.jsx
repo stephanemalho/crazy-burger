@@ -61,10 +61,8 @@ function OrderPage() {
 
   const handleDeleteProductFromBasket = (id) => {
     const basketCopy = deepClone(basket);
-    const productToDeleteIndex = basketCopy.findIndex(
-      (product) => product.id === id
-    );
-    basketCopy.splice(productToDeleteIndex, 1);
+    const productIndex = basketCopy.filter((product) => product.id === id);
+    basketCopy.splice(productIndex, 1);
     setBasket(basketCopy);
   };
 
