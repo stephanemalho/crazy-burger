@@ -5,42 +5,37 @@ import { deepClone, findObjectById, findIndexById, remove0bjectById } from "../u
 export const useBasket = () => {
   const [basket, setBasket] = useState(fakeBasket.EMPTY)
 
-  const handleAddToBasket = (productToAdd) => {
+  const handleAddToBasket = (idProductToAdd) => { 
     const basketCopy = deepClone(basket)
-    const isProductAlreadyInBasket = findObjectById(productToAdd.id, basketCopy) !== undefined
-
-    // Si le produit n'est pas déjà dans le basket
-    if (!isProductAlreadyInBasket) {
-      createNewProductInBasket(productToAdd, basketCopy, setBasket)
+    const productAlreadyInBasket = findObjectById(idProductToAdd, basketCopy)
+    if (productAlreadyInBasket) {
+      incrementProductAlreadyInBasket(idProductToAdd, basketCopy)
       return
     }
-    // Si le produit est déjà dans le basket 
-    incrementProductAlreadyInBasket(productToAdd, basketCopy)
+    createNewBasketProduct(idProductToAdd, basketCopy, setBasket)
   }
 
-  const incrementProductAlreadyInBasket = (productToAdd, basketCopy) => {
-    const indexOfBasketProductToIncrement = findIndexById(productToAdd.id, basketCopy)
-    basketCopy[indexOfBasketProductToIncrement].quantity += 1
+  const incrementProductAlreadyInBasket = (idProductToAdd, basketCopy) => {
+    const indexOfBasketProductToIncrement = findIndexById(idProductToAdd, basketCopy)
+    // increment quantity
+    basketCopy[indexOfBasketProductToIncrement].quantity += 1    
     setBasket(basketCopy)
   }
 
-  const createNewProductInBasket = (productToAdd, basketCopy, setBasket) => {
-    const newBasketProduct = {
-      ...productToAdd,
-      quantity: 1,
-    }
-    const basketUpdated = [newBasketProduct, ...basketCopy]
-    setBasket(basketUpdated)
+  const createNewBasketProduct = (idProductToAdd, basketCopy, setBasket) => {
+    const newBasketProduct = { id: idProductToAdd, quantity: 1 }
+    const newBasket = [newBasketProduct, ...basketCopy]
+    setBasket(newBasket)
   }
 
   const handleDeleteBasketProduct = (idBasketProduct) => {
     //copy du state
     const basketCopy = deepClone(basket)
-
     // manip de la copie state
     const basketUpdated = remove0bjectById(idBasketProduct, basketCopy)
-
     setBasket(basketUpdated)
   }
   return { basket, handleAddToBasket , handleDeleteBasketProduct}
 }
+
+

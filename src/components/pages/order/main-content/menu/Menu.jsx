@@ -50,11 +50,10 @@ function Menu() {
     titleEditRef.current.focus()
   };
 
-  const handleAddButton = (event, id) => {
+  const handleAddButton = (event, idProductToAdd) => {
     event.stopPropagation();
 
-    const productToAdd = findObjectById(id, menu);
-    handleAddToBasket(productToAdd);
+    handleAddToBasket(idProductToAdd);
   };
 
   // Affichage

@@ -3,10 +3,11 @@ import BasketCard from './BasketCard'
 import styled from 'styled-components';
 import { theme } from '../../../../../assets/theme';
 import OrderContext from '../../../../context/OrderContext';
+import { findObjectById } from '../../../../../utils/arrays';
 
-function BasketProducts({basket, defaultImage, handleDeleteBasketProduct}) {
+function BasketProducts({ defaultImage }) {
 
-  const { isModeAdmin } = useContext(OrderContext);
+  const { isModeAdmin,  menu, basket, handleDeleteBasketProduct } = useContext(OrderContext);
 
   const handleDelete = (id) => {
     handleDeleteBasketProduct(id)
@@ -14,15 +15,18 @@ function BasketProducts({basket, defaultImage, handleDeleteBasketProduct}) {
 
   return (
     <BasketProductsStyled>
-    {basket.map((item) => (
+    {basket.map((basketProduct) => {
+      const menuProduct = findObjectById(basketProduct.id, menu)
+      return (
       <BasketCard 
-        {...item} 
-        key={item.title} 
-        onClick={() => handleDelete(item.id)} 
+        {...menuProduct} 
+        key={menuProduct.id} 
+        quantity={basketProduct.quantity}
+        onClick={() => handleDelete(menuProduct.id)} 
         defaultImage={defaultImage}
         isClickable={isModeAdmin}
       />
-    ))}
+    )})}
     </BasketProductsStyled>
   )
 }
