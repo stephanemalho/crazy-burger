@@ -1,9 +1,12 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import BasketCard from './BasketCard'
 import styled from 'styled-components';
 import { theme } from '../../../../../assets/theme';
+import OrderContext from '../../../../context/OrderContext';
 
 function BasketProducts({basket, defaultImage, handleDeleteBasketProduct}) {
+
+  const { isModeAdmin } = useContext(OrderContext);
 
   const handleDelete = (id) => {
     handleDeleteBasketProduct(id)
@@ -12,7 +15,12 @@ function BasketProducts({basket, defaultImage, handleDeleteBasketProduct}) {
   return (
     <BasketProductsStyled>
     {basket.map((item) => (
-      <BasketCard key={item.title} onClick={() => handleDelete(item.id)} defaultImage={defaultImage} title={item.title} price={item.price} quantity={item.quantity} imageSource={item.imageSource} 
+      <BasketCard 
+        {...item} 
+        key={item.title} 
+        onClick={() => handleDelete(item.id)} 
+        defaultImage={defaultImage}
+        isClickable={isModeAdmin}
       />
     ))}
     </BasketProductsStyled>

@@ -108,6 +108,7 @@ const extraStyleDelete = css`
     font-weight: ${theme.fonts.weights.bold};
     font-size: ${theme.fonts.size.XS};
     padding: 10px 30px 10px 30px;
+    cursor: pointer;
     span {
       position: relative;
       top: 3px;

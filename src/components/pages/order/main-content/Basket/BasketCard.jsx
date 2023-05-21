@@ -5,10 +5,10 @@ import { MdDeleteForever } from "react-icons/md";
 import styled from 'styled-components';
 import { theme } from '../../../../../assets/theme';
 
-export default function BasketCard({title ,price , quantity, defaultImage, onClick , imageSource}) {
-  
+export default function BasketCard({title ,price , quantity, defaultImage, onClick , imageSource, isClickable}) {
+
   return (
-          <BasketCardStyled  key={title}>
+          <BasketCardStyled  key={title} isClickable={isClickable}>
             <figcaption>
               { !imageSource ? <img src={defaultImage} alt="arrive bientot" /> : <img src={imageSource} alt={title} />}
             </figcaption>
@@ -23,6 +23,7 @@ export default function BasketCard({title ,price , quantity, defaultImage, onCli
 }
 
 const BasketCardStyled = styled.figure`
+      cursor: ${({isClickable}) => isClickable ? "pointer" : "default"};
       position: relative;
       display: flex;
       background: #ffffff;
