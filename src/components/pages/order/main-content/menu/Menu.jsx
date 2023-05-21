@@ -9,7 +9,8 @@ import { formatPrice } from "../../../../../utils/maths";
 import { theme } from "../../../../../assets/theme";
 import { checkIsProductSelected } from "./helper";
 import { EMPTY_PRODUCT } from "../../../../../enums/product";
-import { findObjectById, isEmpty } from "../../../../../utils/arrays";
+import { isEmpty } from "../../../../../utils/arrays";
+import { defaultImage } from "../../../../../assets/images";
 
 function Menu() {
   const {
@@ -20,26 +21,9 @@ function Menu() {
     resetMenu,
     setProductSelected,
     productSelected,
-    setIsCollapsed,
-    setCurrentTabSelected,
     handleDeleteBasketProduct,
-    titleEditRef,
+    handleProductSelected
   } = useContext(OrderContext);
-
-
-  const defaultImage = "/images/coming-soon.png";
-
-  const handleClickProduct = async (productSelectedId) => {
-    if (!isModeAdmin) return;
-
-    await setIsCollapsed(false);
-    await setCurrentTabSelected("edit");
-
-    const productSelected = findObjectById(productSelectedId, menu);
-    await setProductSelected(productSelected);
-
-    titleEditRef.current.focus();
-  };
 
   const handleProductDelete = (event, idProductToDelete) => {
     event.stopPropagation()
@@ -47,12 +31,10 @@ function Menu() {
     handleDeleteProduct(idProductToDelete)
     handleDeleteBasketProduct(idProductToDelete)
     idProductToDelete === productSelected.id && setProductSelected(EMPTY_PRODUCT)
-    titleEditRef.current.focus()
   };
 
   const handleAddButton = (event, idProductToAdd) => {
     event.stopPropagation();
-
     handleAddToBasket(idProductToAdd);
   };
 
@@ -75,7 +57,7 @@ function Menu() {
             leftDescription={formatPrice(price)}
             hasDeleteButton={isModeAdmin}
             onDelete={(event) => handleProductDelete(event, id)}
-            onClick={() => handleClickProduct(id)}
+            onClick={isModeAdmin ? () => handleProductSelected(id) : null}
             isHoverable={isModeAdmin}
             isSelected={checkIsProductSelected(id, productSelected.id)}
             onAdd={(event) => handleAddButton(event, id)}

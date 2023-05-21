@@ -9,6 +9,7 @@ import OrderContext from "../../context/OrderContext";
 import { EMPTY_PRODUCT } from "../../../enums/product";
 import { useMenu } from "../../../hooks/useMenu";
 import { useBasket } from "../../../hooks/useBasket";
+import { findObjectById } from "../../../utils/arrays";
 
 function OrderPage() {
   // state
@@ -39,6 +40,14 @@ function OrderPage() {
     navigate("/");
   };
 
+  const handleProductSelected = async (productSelectedId) => {
+    const productSelected = findObjectById(productSelectedId, menu);
+    await setIsCollapsed(false);
+    await setCurrentTabSelected("edit");
+    await setProductSelected(productSelected);
+    titleEditRef.current.focus();
+  };
+
   // context
   const orderContextValue = {
     isModeAdmin,
@@ -63,7 +72,8 @@ function OrderPage() {
     titleEditRef,
     basket,
     handleAddToBasket,
-    handleDeleteBasketProduct
+    handleDeleteBasketProduct,
+    handleProductSelected
   };
 
   // affichage

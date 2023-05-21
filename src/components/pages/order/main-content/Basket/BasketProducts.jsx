@@ -7,11 +7,13 @@ import { findObjectById } from '../../../../../utils/arrays';
 
 function BasketProducts({ defaultImage }) {
 
-  const { isModeAdmin,  menu, basket, handleDeleteBasketProduct } = useContext(OrderContext);
+  const { isModeAdmin,  menu, basket, handleDeleteBasketProduct , handleProductSelected } = useContext(OrderContext);
 
-  const handleDelete = (id) => {
+  const handleDelete = (event, id) => {
+    event.stopPropagation()
     handleDeleteBasketProduct(id)
   }
+
 
   return (
     <BasketProductsStyled>
@@ -22,9 +24,10 @@ function BasketProducts({ defaultImage }) {
         {...menuProduct} 
         key={menuProduct.id} 
         quantity={basketProduct.quantity}
-        onClick={() => handleDelete(menuProduct.id)} 
+        onDelete={(event) => handleDelete(event, menuProduct.id)} 
         defaultImage={defaultImage}
         isClickable={isModeAdmin}
+        onClick={isModeAdmin ? () => handleProductSelected(menuProduct.id) : null}
       />
     )})}
     </BasketProductsStyled>
