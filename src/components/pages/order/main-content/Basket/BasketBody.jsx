@@ -11,7 +11,7 @@ const defaultImage = "/images/coming-soon.png";
 
 export default function BasketBody() {
   
-  const  {basket} = useContext(OrderContext);
+  const  {basket, handleDeleteBasketProduct} = useContext(OrderContext);
 
   if (basket.length === 0)
     return (
@@ -21,7 +21,7 @@ export default function BasketBody() {
     );
   return (
     <BasketBodyStyled>
-      <BasketProducts defaultImage={defaultImage} />
+      <BasketProducts defaultImage={defaultImage} basket={basket} handleDeleteBasketProduct={handleDeleteBasketProduct} />
     </BasketBodyStyled>
   );
 }

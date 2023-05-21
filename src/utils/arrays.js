@@ -5,3 +5,11 @@ export const deepClone = (array) => {
 export const findInArray = (id, array) => { 
   return array.find((element) => element.id === id);
 }
+
+export const findIndex = (idWithUnknowwIndex, array) => {
+  return array.findIndex((itemInArray) => itemInArray.id === idWithUnknowwIndex)
+}
+
+export const filter = (idOfItemToRemove, array) => {
+  return array.filter((item) => item.id !== idOfItemToRemove)
+}

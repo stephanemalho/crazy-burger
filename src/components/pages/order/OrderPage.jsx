@@ -21,7 +21,7 @@ function OrderPage() {
   const [currentTabSelected, setCurrentTabSelected] = useState("add"); // à changer en "add"
   const [newProduct, setNewProduct] = useState(EMPTY_PRODUCT);
 
-  const { basket , handleAddToBasket }  = useBasket();
+  const { basket , handleAddToBasket, handleDeleteBasketProduct }  = useBasket();
   
   const [productSelected, setProductSelected] = useState(EMPTY_PRODUCT);
   const titleEditRef = useRef();
@@ -37,11 +37,6 @@ function OrderPage() {
   const handleLogin = (e) => {
     e.preventDefault();
     navigate("/");
-  };
-
-
-  const handleDeleteProductFromBasket = () => {
-    
   };
 
   // context
@@ -68,7 +63,7 @@ function OrderPage() {
     titleEditRef,
     basket,
     handleAddToBasket,
-    handleDeleteProductFromBasket,
+    handleDeleteBasketProduct
   };
 
   // affichage

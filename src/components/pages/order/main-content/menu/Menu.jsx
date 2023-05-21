@@ -8,15 +8,14 @@ import Card from "../../../../reusableUI/Card";
 import { formatPrice } from "../../../../../utils/maths";
 import { theme } from "../../../../../assets/theme";
 import { checkIsProductSelected } from "./helper";
-// import { EMPTY_PRODUCT } from "../../../../../enums/product";
-// import { useBasket } from "../../../../../hooks/useBasket";
+ import { EMPTY_PRODUCT } from "../../../../../enums/product";
 import { findInArray } from "../../../../../utils/arrays";
 
 function Menu() {
   const {
     menu,
     isModeAdmin,
-    //handleDeleteProduct,
+    handleDeleteProduct,
     handleAddToBasket,
     resetMenu,
     setProductSelected,
@@ -24,6 +23,8 @@ function Menu() {
     setIsCollapsed,
     setCurrentTabSelected,
     titleEditRef,
+    basket,
+    setBasket
   } = useContext(OrderContext);
 
   const defaultImage = "/images/coming-soon.png";
@@ -41,23 +42,23 @@ function Menu() {
   };
 
   const handleProductDelete = (event,productToDeleteId) => {
-    // event.stopPropagation();
-    // handleDeleteProduct(productToDeleteId);
-    // productToDeleteId === productSelected.id && setProductSelected(EMPTY_PRODUCT);
-    // const productToDeleteInBasket = basket.find(  
-    //   (product) => product.id === productToDeleteId
-    // );
-    // if (productToDeleteInBasket) {
-    //   const basketCopy = [...basket];
-    //   const index = basketCopy.indexOf(productToDeleteInBasket);
-    //   basketCopy.splice(index, 1);
-    //   setBasket(basketCopy);
-    // }
-    // if (!titleEditRef.current) {
-    //   return;
-    // } else {
-    //   titleEditRef.current.focus();
-    // }
+    event.stopPropagation();
+    handleDeleteProduct(productToDeleteId);
+    productToDeleteId === productSelected.id && setProductSelected(EMPTY_PRODUCT);
+    const productToDeleteInBasket = basket.find(  
+      (product) => product.id === productToDeleteId
+    );
+    if (productToDeleteInBasket) {
+      const basketCopy = [...basket];
+      const index = basketCopy.indexOf(productToDeleteInBasket);
+      basketCopy.splice(index, 1);
+      setBasket(basketCopy);
+    }
+    if (!titleEditRef.current) {
+      return;
+    } else {
+      titleEditRef.current.focus();
+    }
   };
 
   const handleAddButton = (event, id) => {
