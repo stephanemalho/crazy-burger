@@ -1,7 +1,7 @@
 import styled from "styled-components"
-import Total from "./Total"
+import TotalHeader from "./TotalHeader"
 
-import BasketProducts from "./BasketProducts"
+import BasketBody from "./BasketBody"
 import Footer from "./Footer"
 import { formatPrice } from "../../../../../utils/maths"
 import { useContext } from "react"
@@ -21,8 +21,8 @@ export default function Basket() {
   
   return (
     <BasketStyled>
-      <Total amountToPay={formatPrice(getTotalPriceOfBasket())} />
-      <BasketProducts basket={basket} />
+      <TotalHeader amountToPay={formatPrice(getTotalPriceOfBasket())} />
+      <BasketBody basket={basket} />
       <Footer />
     </BasketStyled>
   )
