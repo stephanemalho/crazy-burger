@@ -21,7 +21,7 @@ function OrderPage() {
   const [currentTabSelected, setCurrentTabSelected] = useState("add"); // à changer en "add"
   const [newProduct, setNewProduct] = useState(EMPTY_PRODUCT);
 
-  const { basket , setBasket, handleAddToBasket }  = useBasket();
+  const { basket , handleAddToBasket }  = useBasket();
   
   const [productSelected, setProductSelected] = useState(EMPTY_PRODUCT);
   const titleEditRef = useRef();
@@ -67,7 +67,6 @@ function OrderPage() {
     handleEditProduct,
     titleEditRef,
     basket,
-    setBasket,
     handleAddToBasket,
     handleDeleteProductFromBasket,
   };

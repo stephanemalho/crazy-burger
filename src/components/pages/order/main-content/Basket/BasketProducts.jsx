@@ -1,14 +1,12 @@
 import React, { useContext } from 'react'
 import BasketCard from './BasketCard'
-import OrderContext from '../../../../context/OrderContext';
 import styled from 'styled-components';
 import { theme } from '../../../../../assets/theme';
+import OrderContext from '../../../../context/OrderContext';
 
-function BasketProducts({ defaultImage }) {
+function BasketProducts({ defaultImage, handleDeleteProductFromBasket }) {
 
-  const { basket, handleDeleteProductFromBasket } = useContext(OrderContext);
-
-  console.log("basket", basket);
+  const { basket } = useContext(OrderContext);
 
   const handleDelete = (item) => {
     handleDeleteProductFromBasket(item);
