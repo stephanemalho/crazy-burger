@@ -8,8 +8,8 @@ import Card from "../../../../reusableUI/Card";
 import { formatPrice } from "../../../../../utils/maths";
 import { theme } from "../../../../../assets/theme";
 import { checkIsProductSelected } from "./helper";
- import { EMPTY_PRODUCT } from "../../../../../enums/product";
-import { findInArray } from "../../../../../utils/arrays";
+import { EMPTY_PRODUCT } from "../../../../../enums/product";
+import { findObjectById, isEmpty } from "../../../../../utils/arrays";
 
 function Menu() {
   const {
@@ -35,7 +35,7 @@ function Menu() {
     await setIsCollapsed(false);
     await setCurrentTabSelected("edit");
 
-    const productSelected = findInArray(productSelectedId, menu);
+    const productSelected = findObjectById(productSelectedId, menu);
     await setProductSelected(productSelected);
 
     titleEditRef.current.focus();
@@ -53,12 +53,12 @@ function Menu() {
   const handleAddButton = (event, id) => {
     event.stopPropagation();
 
-    const productToAdd = findInArray(id, menu);
+    const productToAdd = findObjectById(id, menu);
     handleAddToBasket(productToAdd);
   };
 
   // Affichage
-  if (menu.length === 0)
+  if (isEmpty(menu))
     return isModeAdmin ? (
       <EmptyMenuAdmin onReset={resetMenu} />
     ) : (

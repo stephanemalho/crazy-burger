@@ -6,6 +6,7 @@ import { theme } from "../../../../../assets/theme";
 import EmptyBasket from "./EmptyBasket";
 import BasketProducts from "./BasketProducts";
 import OrderContext from "../../../../context/OrderContext";
+import { isEmpty } from "../../../../../utils/arrays";
 
 const defaultImage = "/images/coming-soon.png";
 
@@ -13,7 +14,7 @@ export default function BasketBody() {
   
   const  {basket, handleDeleteBasketProduct} = useContext(OrderContext);
 
-  if (basket.length === 0)
+  if (isEmpty(basket))
     return (
       <BasketBodyStyled>
         <EmptyBasket />
