@@ -22,7 +22,7 @@ export default function Basket() {
   return (
     <BasketStyled>
       <Total amountToPay={formatPrice(getTotalPriceOfBasket())} />
-      <BasketProducts />
+      <BasketProducts basket={basket} />
       <Footer />
     </BasketStyled>
   )

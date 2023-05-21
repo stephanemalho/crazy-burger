@@ -30,8 +30,8 @@ export default createContext({
 
   titleEditRef: {},
 
-  basket : {},
-  setBasket : () => {},
+  basket : [],
+
   handleAddToBasket : () => {},
   handleDeleteProductFromBasket : () => {},
 })
