@@ -4,10 +4,11 @@ import styled from 'styled-components';
 import { theme } from '../../../../../assets/theme';
 import OrderContext from '../../../../context/OrderContext';
 import { findObjectById } from '../../../../../utils/arrays';
+import { checkIsProductSelected } from '../menu/helper';
 
 function BasketProducts({ defaultImage }) {
 
-  const { isModeAdmin,  menu, basket, handleDeleteBasketProduct , handleProductSelected } = useContext(OrderContext);
+  const { isModeAdmin,  menu, basket, handleDeleteBasketProduct , handleProductSelected , productSelected} = useContext(OrderContext);
 
   const handleDelete = (event, id) => {
     event.stopPropagation()
@@ -27,6 +28,7 @@ function BasketProducts({ defaultImage }) {
         onDelete={(event) => handleDelete(event, menuProduct.id)} 
         defaultImage={defaultImage}
         isClickable={isModeAdmin}
+        isSelected={checkIsProductSelected(basketProduct.id, productSelected.id)}
         onClick={isModeAdmin ? () => handleProductSelected(menuProduct.id) : null}
       />
     )})}

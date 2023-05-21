@@ -2,13 +2,18 @@ import React from 'react'
 import { formatPrice } from "../../../../../utils/maths";
 import MainButton from "../../../../reusableUI/MainButton";
 import { MdDeleteForever } from "react-icons/md";
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import { theme } from '../../../../../assets/theme';
 
-export default function BasketCard({title ,price , quantity, defaultImage, onDelete , imageSource, isClickable, onClick }) {
+export default function BasketCard({title ,price , quantity, defaultImage, onDelete , imageSource, isClickable, onClick , isSelected}) {
 
   return (
-          <BasketCardStyled  key={title} isClickable={isClickable} onClick={onClick}>
+          <BasketCardStyled  
+            key={title} 
+            isClickable={isClickable} 
+            onClick={onClick} 
+            isSelected={isSelected}
+          >
             <figcaption>
               { !imageSource ? <img src={defaultImage} alt="arrive bientot" /> : <img src={imageSource} alt={title} />}
             </figcaption>
@@ -84,7 +89,16 @@ const BasketCardStyled = styled.figure`
           position: absolute;
         }
       }
-    
-
-
+  ${({isSelected, isClickable }) => isSelected && isClickable ? selectedStyle : null}
+`
+const selectedStyle = css `
+  background: ${theme.colors.primary};
+  .name-and-price {
+    .basket-item-price {
+      color : ${theme.colors.background_white};
+    }
+  }
+  .basket-item-quantity {
+    color: ${theme.colors.background_white};
+  }
 `
