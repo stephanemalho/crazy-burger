@@ -9,7 +9,6 @@ import OrderContext from "../../context/OrderContext";
 import { EMPTY_PRODUCT } from "../../../enums/product";
 import { useMenu } from "../../../hooks/useMenu";
 import { useBasket } from "../../../hooks/useBasket";
-import { deepClone } from "../../../utils/arrays";
 
 function OrderPage() {
   // state
@@ -21,7 +20,9 @@ function OrderPage() {
   const [isOnAddTab, setIsOnAddTab] = useState(true);
   const [currentTabSelected, setCurrentTabSelected] = useState("add"); // à changer en "add"
   const [newProduct, setNewProduct] = useState(EMPTY_PRODUCT);
-  const { basket, setBasket }  = useBasket();
+
+  const { basket , setBasket, handleAddToBasket }  = useBasket();
+  
   const [productSelected, setProductSelected] = useState(EMPTY_PRODUCT);
   const titleEditRef = useRef();
   const {
@@ -38,36 +39,9 @@ function OrderPage() {
     navigate("/");
   };
 
-  const handleAddToBasket = async (id) => {
-    const product = menu.find((product) => product.id === id);
-    const basketCopy = deepClone(basket);
-    const productAlreadyInBasket = basketCopy.find(
-      (productInBasket) => productInBasket.id === id
-    );
-    if (productAlreadyInBasket) {
-      productAlreadyInBasket.quantity++;
-      console.log("productAlreadyInBasket", productAlreadyInBasket);
-    } else {
-      const newProduct = { ...product, quantity: 1, createdAt: Date.now() };
-      basketCopy.unshift(newProduct);
-      console.log("newProduct", newProduct);
-    }
-    basketCopy.forEach((product) => {
-      if (!product.name) {
-        product.name = "";
-      }
-    });
 
-    basketCopy.sort((a, b) => b.createdAt - a.createdAt);
-    await setBasket(basketCopy);
-    console.log("basketCopy", basketCopy);
-  };
-
-  const handleDeleteProductFromBasket = (id) => {
-    const basketCopy = deepClone(basket);
-    const productIndex = basketCopy.filter((product) => product.id === id);
-    basketCopy.splice(productIndex, 1);
-    setBasket(basketCopy);
+  const handleDeleteProductFromBasket = () => {
+    
   };
 
   // context
@@ -93,6 +67,7 @@ function OrderPage() {
     handleEditProduct,
     titleEditRef,
     basket,
+    setBasket,
     handleAddToBasket,
     handleDeleteProductFromBasket,
   };

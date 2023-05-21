@@ -8,6 +8,8 @@ function BasketProducts({ defaultImage }) {
 
   const { basket, handleDeleteProductFromBasket } = useContext(OrderContext);
 
+  console.log("basket", basket);
+
   const handleDelete = (item) => {
     handleDeleteProductFromBasket(item);
   };

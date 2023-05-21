@@ -9,6 +9,8 @@ import { formatPrice } from "../../../../../utils/maths";
 import { theme } from "../../../../../assets/theme";
 import { checkIsProductSelected } from "./helper";
 import { EMPTY_PRODUCT } from "../../../../../enums/product";
+import { useBasket } from "../../../../../hooks/useBasket";
+import { findInArray } from "../../../../../utils/arrays";
 
 function Menu() {
   const {
@@ -21,10 +23,9 @@ function Menu() {
     setIsCollapsed,
     setCurrentTabSelected,
     titleEditRef,
-    handleAddToBasket,
-    basket,
-    setBasket,
   } = useContext(OrderContext);
+
+  const { basket, setBasket, handleAddToBasket } = useBasket();
 
   const defaultImage = "/images/coming-soon.png";
 
@@ -34,7 +35,7 @@ function Menu() {
     await setIsCollapsed(false);
     await setCurrentTabSelected("edit");
 
-    const productSelected = menu.find((product) => product.id === productSelectedId);
+    const productSelected = findInArray(productSelectedId, menu);
     await setProductSelected(productSelected);
 
     titleEditRef.current.focus();
@@ -60,9 +61,12 @@ function Menu() {
     }
   };
 
-  const addToCard = (event, id) => {
+  const handleAddButton = (event, id) => {
     event.stopPropagation();
-    handleAddToBasket(id);
+
+    const productToAdd = findInArray(id, menu);
+    handleAddToBasket(productToAdd);
+    
   };
 
   // Affichage
@@ -87,7 +91,7 @@ function Menu() {
             onClick={() => handleClickProduct(id)}
             isHoverable={isModeAdmin}
             isSelected={checkIsProductSelected(id, productSelected.id)}
-            addToCard={(event) => addToCard(event, id)}
+            onAdd={(event) => handleAddButton(event, id)}
           />
         ))}
       </div>

@@ -13,7 +13,7 @@ export default function Card({
   onClick,
   isHoverable,
   isSelected,
-  addToCard,
+  onAdd,
 }) {
 
   return (
@@ -39,7 +39,7 @@ export default function Card({
             label={"Ajouter"}
             className="btnCart"
             version="primary"
-            onClick={addToCard}
+            onClick={onAdd}
           />
         </div>
       </div>

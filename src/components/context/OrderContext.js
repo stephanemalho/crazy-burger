@@ -16,7 +16,7 @@ export default createContext({
   currentTabSelected: false,
   setCurrentTabSelected: () => {},
 
-  menu: [],
+  menu: {},
   resetMenu: () => {},
   handleAddCard: () => {},
   handleEditCard: () => {},
@@ -31,6 +31,7 @@ export default createContext({
   titleEditRef: {},
 
   basket : [],
+  setBasket : () => {},
 
   handleAddToBasket : () => {},
   handleDeleteProductFromBasket : () => {},
