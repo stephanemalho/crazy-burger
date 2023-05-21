@@ -13,7 +13,7 @@ function Logo({ props, className, onClick }) {
 
 const StyledLogo = styled.h1`
   font-size: ${theme.fonts.size.P6};
-  color: ${theme.colors.primary_burger};
+  color: ${theme.colors.primary};
   font-family: "Amatic SC", cursive;
   text-transform: uppercase;
   transform: scale(1.5);
