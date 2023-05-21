@@ -22,10 +22,10 @@ function Menu() {
     productSelected,
     setIsCollapsed,
     setCurrentTabSelected,
+    handleDeleteBasketProduct,
     titleEditRef,
-    basket,
-    setBasket
   } = useContext(OrderContext);
+
 
   const defaultImage = "/images/coming-soon.png";
 
@@ -41,24 +41,13 @@ function Menu() {
     titleEditRef.current.focus();
   };
 
-  const handleProductDelete = (event,productToDeleteId) => {
-    event.stopPropagation();
-    handleDeleteProduct(productToDeleteId);
-    productToDeleteId === productSelected.id && setProductSelected(EMPTY_PRODUCT);
-    const productToDeleteInBasket = basket.find(  
-      (product) => product.id === productToDeleteId
-    );
-    if (productToDeleteInBasket) {
-      const basketCopy = [...basket];
-      const index = basketCopy.indexOf(productToDeleteInBasket);
-      basketCopy.splice(index, 1);
-      setBasket(basketCopy);
-    }
-    if (!titleEditRef.current) {
-      return;
-    } else {
-      titleEditRef.current.focus();
-    }
+  const handleProductDelete = (event, idProductToDelete) => {
+    event.stopPropagation()
+    console.log("idProductToDelete", idProductToDelete);
+    handleDeleteProduct(idProductToDelete)
+    handleDeleteBasketProduct(idProductToDelete)
+    idProductToDelete === productSelected.id && setProductSelected(EMPTY_PRODUCT)
+    titleEditRef.current.focus()
   };
 
   const handleAddButton = (event, id) => {
@@ -66,7 +55,6 @@ function Menu() {
 
     const productToAdd = findInArray(id, menu);
     handleAddToBasket(productToAdd);
-    
   };
 
   // Affichage
