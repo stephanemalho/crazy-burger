@@ -64,6 +64,7 @@ const BasketCardStyled = styled.figure`
           font-family: ${theme.fonts.family.stylish};
           font-size: ${theme.fonts.size.P3};
           min-width: 100%;
+          min-height: 30px;
           text-overflow: ellipsis;
           overflow: hidden;
           white-space: nowrap;
