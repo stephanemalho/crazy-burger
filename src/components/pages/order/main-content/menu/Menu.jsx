@@ -79,23 +79,14 @@ const MenuGridStyled = styled.section`
   .products-container {
     background: ${theme.colors.background_white};
     box-shadow: ${theme.shadows.strong};
-    //overflow-y: scroll;
     margin: auto;
-    padding: 30px 0 50px 0;
-    width: 100%;
+    padding: 30px;
+    width: 95%;
     height: 100%;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-    grid-row-gap: 25px;
-    grid-column-gap: 10px;
+    gap: 15px;
     z-index: -1;
-  }
-  @media screen and (min-width: 2000px) {
-    .products-container {
-      max-width: 2000px;
-      height: 100%;
-      width: 100%;
-    }
   }
 `;
 

@@ -30,5 +30,6 @@ const MainStyled = styled.div`
     overflow-y: hidden;
     display: grid;
     height: 100%;
+    width: 100%;
   }
 `;
