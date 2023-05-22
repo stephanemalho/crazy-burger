@@ -85,7 +85,8 @@ const MenuGridStyled = styled.section`
     height: 100%;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-    gap: 15px;
+    grid-column-gap: 20px;
+    grid-row-gap: 0px;
     z-index: -1;
   }
 `;
