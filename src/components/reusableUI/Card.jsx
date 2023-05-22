@@ -116,6 +116,7 @@ const CardStyled = styled.figure`
       /* border: 2px solid red; */
       h1 {
         width: 95%;
+        min-height: 50px;
         font-size: ${theme.fonts.size.P4};
         font-weight: ${theme.fonts.weights.heavy};
         font-family: "Amatic SC", cursive;
