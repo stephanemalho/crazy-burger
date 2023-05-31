@@ -132,9 +132,9 @@ const CardStyled = styled.figure`
       }
       .btnCart {
         width: 100px;
-        height: 45px;
+        height: 38px;
         position: absolute;
-        top: -55px;
+        top: -50px;
         right: 0px;
       }
     }
