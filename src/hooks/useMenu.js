@@ -4,11 +4,14 @@ import { deepClone } from "../utils/arrays";
 import { fakeMenu2 } from "../fakeData/fakeMenu";
 
 export const useMenu = () => {
-  const [menu, setMenu] = useState(fakeMenu2);
+  const [menu, setMenu] = useState(
+    JSON.parse(localStorage.getItem("menu")) || fakeMenu2
+  );
 
   const handleAddProduct = (newProduct) => {
     const menuCopy = deepClone(menu);
     const menuUpdated = [newProduct, ...menuCopy];
+    localStorage.setItem("menu", JSON.stringify(menuUpdated));
     setMenu(menuUpdated);
   };
 

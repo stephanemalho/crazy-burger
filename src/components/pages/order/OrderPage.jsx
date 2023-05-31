@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import styled from "styled-components";
 
@@ -15,7 +15,7 @@ function OrderPage() {
   // state
   const navigate = useNavigate();
   const { userName } = useParams();
-  const [isModeAdmin, setIsModeAdmin] = useState(true); // à changer en false
+  const [isModeAdmin, setIsModeAdmin] = useState(false); 
   const [isCollapsed, setIsCollapsed] = useState(false);
   const [isOnEditTab, setIsOnEditTab] = useState(false);
   const [isOnAddTab, setIsOnAddTab] = useState(true);
@@ -39,6 +39,11 @@ function OrderPage() {
     e.preventDefault();
     navigate("/");
   };
+
+  useEffect(() => {
+    const menuData = JSON.stringify(menu);
+    localStorage.setItem("menu", menuData);
+  }, [menu]);
 
   const handleProductSelected = async (productSelectedId) => {
     const productSelected = findObjectById(productSelectedId, menu);
