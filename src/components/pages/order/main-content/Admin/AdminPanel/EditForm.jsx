@@ -1,9 +1,11 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import OrderContext from "../../../../../context/OrderContext";
 import Form from "./Form";
 import EditInfoMessage from "./EditInfoMessage";
+import EditSucessMessage from "./EditSucessMessage";
 
 export default function EditForm() {
+  const [showSuccessMessage, setShowSuccessMessage] = useState(false);
   const { productSelected, setProductSelected, handleEditProduct, titleEditRef } =
     useContext(OrderContext);
 
@@ -13,7 +15,17 @@ export default function EditForm() {
 
     setProductSelected(productUptaded);
     handleEditProduct(productUptaded);
-    console.log();
+  };
+
+  const handleBlur = () => {
+    setShowSuccessMessage(true);
+    setTimeout(() => {
+      setShowSuccessMessage(false); 
+    }, 2000);
+  };
+
+  const handleFocus = () => {
+    setShowSuccessMessage(false);
   };
 
   return (
@@ -21,7 +33,9 @@ export default function EditForm() {
       onChange={handleChange}
       product={productSelected}
       ref={titleEditRef}
-      hintMessage={<EditInfoMessage />}
+      onBlur={handleBlur}
+      onFocus={handleFocus}
+      hintMessage={showSuccessMessage ? <EditSucessMessage /> : <EditInfoMessage />}
     />
   );
 }

@@ -7,9 +7,9 @@ import ImagePreview from "./ImagePreview";
 import { getInputTextConfig } from "./getInputTextConfig";
 
 const Form = React.forwardRef(
-  ({ onSubmit, onChange, product, submitButton, hintMessage }, ref) => {
+  ({ onSubmit,onBlur,onFocus, onChange, product, submitButton, hintMessage }, ref) => {
     const inputTexts = getInputTextConfig(product);
-
+    
     return (
       <FormStyled onSubmit={onSubmit}>
         <ImagePreview title={product.title} imageSource={product.imageSource} />
@@ -20,6 +20,8 @@ const Form = React.forwardRef(
                 {...input}
                 value={product[input.name]}
                 onChange={onChange}
+                onBlur={onBlur}
+                onFocus={onFocus}
                 version="admin"
                 ref={ref && input.name === "title" ? ref : null}
               />
