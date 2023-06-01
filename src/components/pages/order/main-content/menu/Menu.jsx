@@ -1,9 +1,10 @@
-import React, { useContext } from "react";
+import React, { useContext, useLayoutEffect, useState } from "react";
 import styled from "styled-components";
 
 import OrderContext from "../../../../context/OrderContext";
 import EmptyMenuAdmin from "./EmptyMenuAdmin";
 import EmptyMenuClient from "./EmptyMenuClient";
+import OnLoadMenu from "./OnLoadMenu";
 import Card from "../../../../reusableUI/Card";
 import { formatPrice } from "../../../../../utils/maths";
 import { theme } from "../../../../../assets/theme";
@@ -25,6 +26,18 @@ function Menu() {
     handleProductSelected
   } = useContext(OrderContext);
 
+  const [isLoading, setIsLoading] = useState(true);
+
+  useLayoutEffect(() => {
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 4000);
+
+    return () => {
+      clearTimeout(timer);
+    };
+  }, []);
+
   const handleProductDelete = (event, idProductToDelete) => {
     event.stopPropagation()
     console.log("idProductToDelete", idProductToDelete);
@@ -39,12 +52,9 @@ function Menu() {
   };
 
   // Affichage
-  if (isEmpty(menu))
-    return isModeAdmin ? (
-      <EmptyMenuAdmin onReset={resetMenu} />
-    ) : (
-      <EmptyMenuClient />
-    );
+  if (isEmpty(menu) || isLoading) {
+    return isLoading ? <OnLoadMenu /> : (isModeAdmin ? <EmptyMenuAdmin onReset={resetMenu} /> : <EmptyMenuClient />);
+  }
 
   return (
     <MenuGridStyled>
