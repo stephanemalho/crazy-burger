@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import styled, { keyframes } from "styled-components";
-import { theme } from "../../../../../assets/theme";
 
-const dots = ["", ".", "..", "..."];
+import { theme } from "../../../../../assets/theme";
+import { dots } from "../../../../../utils/dots";
 
 function OnLoadMenu() {
   const [dotIndex, setDotIndex] = useState(0);

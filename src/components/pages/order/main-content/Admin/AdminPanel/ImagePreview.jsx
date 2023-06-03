@@ -28,7 +28,7 @@ const ImagePreviewStyled = styled.div`
     align-items: center;
     margin-left: auto;
     padding: 20px 20px 0 50px;
-    height: 120px;
+    height: 130px;
     width: 215px;
     .previews-box {
       border: 1px solid ${theme.colors.greyLight};
@@ -45,8 +45,8 @@ const ImagePreviewStyled = styled.div`
       height: 100%;
       margin:auto;
       img {
-        width: 100%;
-        height: 100%;
+        width: 100px;
+        height: 100px;
         object-fit: contain;
       }
     }

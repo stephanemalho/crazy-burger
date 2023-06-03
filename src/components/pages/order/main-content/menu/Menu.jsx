@@ -46,13 +46,13 @@ function Menu() {
     idProductToDelete === productSelected.id && setProductSelected(EMPTY_PRODUCT)
   };
 
-  const handleAddButton = (event, idProductToAdd) => {
+  const handleAddProducts = (event, idProductToAdd) => {
     event.stopPropagation();
     handleAddToBasket(idProductToAdd);
   };
 
   // Affichage
-  if (isEmpty(menu) || isLoading) {
+  if (isEmpty(menu) || (isLoading && isEmpty)) {
     return isLoading ? <OnLoadMenu /> : (isModeAdmin ? <EmptyMenuAdmin onReset={resetMenu} /> : <EmptyMenuClient />);
   }
 
@@ -70,7 +70,7 @@ function Menu() {
             onClick={isModeAdmin ? () => handleProductSelected(id) : null}
             isHoverable={isModeAdmin}
             isSelected={checkIsProductSelected(id, productSelected.id)}
-            onAdd={(event) => handleAddButton(event, id)}
+            onAdd={(event) => handleAddProducts(event, id)}
           />
         ))}
       </div>

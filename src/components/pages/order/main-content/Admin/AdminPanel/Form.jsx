@@ -50,6 +50,6 @@ const FormStyled = styled.form`
     padding: 20px 0 10px 0;
     grid-template-rows: 1fr 1fr 1fr;
     grid-row-gap: 10px;
-    width: 80%;
+    width: 100%;
   }
 `;
