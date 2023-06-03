@@ -8,17 +8,24 @@ import { BsPersonCircle } from "react-icons/bs";
 import { theme } from "../../../assets/theme/index";
 import MainButton from "../../reusableUI/MainButton";
 import TextInput from "../../reusableUI/TextInput";
+import { createUser, getUser } from "../../../api/users";
+import { fakeMenu2 } from "../../../fakeData/fakeMenu";
 
 const LoginForm = () => {
-  // state
-  const [userName, setUserName] = useState("Steph");
+  const [userName, setUserName] = useState("");
   const navigate = useNavigate();
 
   // behavior
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+    const user = await getUser(userName);
+    if (!user) {
+      await createUser(userName, fakeMenu2);
+    }
+    const userMenu = await getUser(userName);
+
     setUserName("");
-    navigate(`order/${userName}`);
+    navigate(`order/${userName}`, { state: { menu: userMenu } });
   };
 
   const handleChange = (e) => {
