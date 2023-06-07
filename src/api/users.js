@@ -3,7 +3,7 @@ import { db } from "./firebase-config";
 //import { fakeMenu2 } from "../fakeData/fakeMenu";
 
 export const getUser = async (name) => {
-  const userId = name; // Convertir le nom en minuscules
+  const userId = name;
   const docRefToRetrieve = doc(db, "users", userId);
   const docSnap = await getDoc(docRefToRetrieve);
   if (docSnap.exists()) {
@@ -32,8 +32,3 @@ export const createUser = async (name, menu) => {
     });
   }
 };
-
-
-
-
-

@@ -43,7 +43,9 @@ function OrderPage() {
   useEffect(() => {
     const menuData = JSON.stringify(menu);
     localStorage.setItem("menu", menuData);
-  }, [menu]);
+    const basketData = JSON.stringify(basket);
+    localStorage.setItem("basket", basketData);
+  }, [menu, basket]);
 
   const handleProductSelected = async (productSelectedId) => {
     const productSelected = findObjectById(productSelectedId, menu);

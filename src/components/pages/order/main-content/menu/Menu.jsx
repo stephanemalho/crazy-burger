@@ -1,4 +1,4 @@
-import React, { useContext, useLayoutEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import styled from "styled-components";
 
 import OrderContext from "../../../../context/OrderContext";
@@ -28,14 +28,19 @@ function Menu() {
 
   const [isLoading, setIsLoading] = useState(true);
 
-  useLayoutEffect(() => {
+  console.log("haut dessus de useEffect", isLoading);
+
+  useEffect(() => {
     menu.lenght === 0 && setIsLoading(true);
+    console.log("LOading dans le UseEffect ", isLoading);
     setTimeout(() => {
       setIsLoading(false);
-    console.log("LOading ", isLoading);
+      console.log("LOading dans le setTime out du UseEffect ", isLoading);
     }, 4000);
-    
   }, [ menu, isLoading ]);
+
+  console.log("en dessous de useEffect", isLoading);
+
 
   const handleProductDelete = (event, idProductToDelete) => {
     event.stopPropagation()

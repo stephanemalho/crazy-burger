@@ -2,6 +2,7 @@ import { useState } from "react";
 
 import { deepClone } from "../utils/arrays";
 import { fakeMenu2 } from "../fakeData/fakeMenu";
+//import { updateProduct } from "../api/products";
 
 export const useMenu = () => {
   const [menu, setMenu] = useState(
@@ -28,6 +29,7 @@ export const useMenu = () => {
     );
     menuCopy[indexOfProductToEdit] = currentProduct;
     setMenu(menuCopy);
+    //updateProduct(currentProduct);
   };
 
   const resetMenu = () => {

@@ -6,26 +6,29 @@ import EditSucessMessage from "./EditSucessMessage";
 
 export default function EditForm() {
   const [showSuccessMessage, setShowSuccessMessage] = useState(false);
-  const { productSelected, setProductSelected, handleEditProduct, titleEditRef } =
-    useContext(OrderContext);
+  const {
+    productSelected,
+    setProductSelected,
+    handleEditProduct,
+    titleEditRef,
+  } = useContext(OrderContext);
 
-  const handleChange = (e) => {
+  const handleChange = async (e) => {
     const { name, value } = e.target;
     const productUptaded = { ...productSelected, [name]: value };
-
     setProductSelected(productUptaded);
     handleEditProduct(productUptaded);
+  };
+
+  const handleFocus = () => {
+    setShowSuccessMessage(false);
   };
 
   const handleBlur = () => {
     setShowSuccessMessage(true);
     setTimeout(() => {
-      setShowSuccessMessage(false); 
+      setShowSuccessMessage(false);
     }, 2000);
-  };
-
-  const handleFocus = () => {
-    setShowSuccessMessage(false);
   };
 
   return (
@@ -35,7 +38,9 @@ export default function EditForm() {
       ref={titleEditRef}
       onBlur={handleBlur}
       onFocus={handleFocus}
-      hintMessage={showSuccessMessage ? <EditSucessMessage /> : <EditInfoMessage />}
+      hintMessage={
+        showSuccessMessage ? <EditSucessMessage /> : <EditInfoMessage />
+      }
     />
   );
 }
