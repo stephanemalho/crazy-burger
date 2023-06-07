@@ -7,7 +7,7 @@ import Form from "./Form";
 import SuccessBox from "./SuccessBox";
 
 export default function AddForm() {
-  const { handleAddProduct, newProduct, setNewProduct } = useContext(OrderContext);
+  const { userName, handleAddProduct, newProduct, setNewProduct } = useContext(OrderContext);
   const { isSubmited, displayMessage } = useDelayMessage(2000);  
 
   const handleChange = (event) => {
@@ -24,7 +24,7 @@ export default function AddForm() {
       key: Date.now(),
     };
 
-    handleAddProduct(NewProduct);
+    handleAddProduct(NewProduct, userName);
 
     setNewProduct(EMPTY_PRODUCT);
     displayMessage();

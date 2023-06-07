@@ -2,6 +2,7 @@ import { useState } from "react";
 
 import { deepClone } from "../utils/arrays";
 import { fakeMenu2 } from "../fakeData/fakeMenu";
+import { addProductToDB } from "../api/products";
 //import { updateProduct } from "../api/products";
 
 export const useMenu = () => {
@@ -9,11 +10,11 @@ export const useMenu = () => {
     JSON.parse(localStorage.getItem("menu")) || fakeMenu2
   );
 
-  const handleAddProduct = (newProduct) => {
+  const handleAddProduct = (newProduct, name) => {
     const menuCopy = deepClone(menu);
     const menuUpdated = [newProduct, ...menuCopy];
-    localStorage.setItem("menu", JSON.stringify(menuUpdated));
     setMenu(menuUpdated);
+    addProductToDB(menuUpdated, name);
   };
 
   const handleDeleteProduct = (currentProduct) => {
@@ -29,7 +30,7 @@ export const useMenu = () => {
     );
     menuCopy[indexOfProductToEdit] = currentProduct;
     setMenu(menuCopy);
-    //updateProduct(currentProduct);
+    //updateProduct(currentProduct.products,);
   };
 
   const resetMenu = () => {
