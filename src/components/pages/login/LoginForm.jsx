@@ -9,27 +9,25 @@ import { theme } from "../../../assets/theme/index";
 import MainButton from "../../reusableUI/MainButton";
 import TextInput from "../../reusableUI/TextInput";
 import { createUser, getUser } from "../../../api/users";
-import { fakeMenu2 } from "../../../fakeData/fakeMenu";
 
 const LoginForm = () => {
-  const [userName, setUserName] = useState("");
+  const [username, setUsername] = useState("");
   const navigate = useNavigate();
 
   // behavior
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const user = await getUser(userName);
-    if (!user) {
-      await createUser(userName, fakeMenu2);
+    const existingUser = await getUser(username);
+    if (!existingUser) {
+      await createUser(username);
     }
-    const userMenu = await getUser(userName);
-
-    setUserName("");
-    navigate(`order/${userName}`, { state: { menu: userMenu } });
+    const userMenu = await getUser(username);
+    setUsername("");
+    navigate(`order/${username}`, { state: { menu: userMenu } });
   };
 
   const handleChange = (e) => {
-    setUserName(e.target.value);
+    setUsername(e.target.value);
   };
 
   // render
@@ -45,7 +43,7 @@ const LoginForm = () => {
           type="text"
           Icon={<BsPersonCircle className="Icon" />}
           onChange={handleChange}
-          value={userName}
+          value={username}
           placeholder={"Entrez votre prénom"}
           required
           version="login"

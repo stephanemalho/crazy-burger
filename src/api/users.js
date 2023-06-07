@@ -1,5 +1,6 @@
 import { doc, getDoc, setDoc } from "firebase/firestore";
 import { db } from "./firebase-config";
+import { fakeMenu2 } from "../fakeData/fakeMenu";
 //import { fakeMenu2 } from "../fakeData/fakeMenu";
 
 export const getUser = async (name) => {
@@ -15,20 +16,11 @@ export const getUser = async (name) => {
   }
 };
 
-export const createUser = async (name, menu) => {
-  const user = await getUser(name);
-  if (user) {
-    // Utilisateur déjà existant
-    return;
-  } else {
-    const userId = name; // Convertir le nom en minuscules
+export const createUser = async (name) => {
     localStorage.clear();
-    const nourriture = {
+    const userInfo = {
       prenom: name,
-      products: menu,
+      productsMenu: fakeMenu2,
     };
-    setDoc(doc(db, "users", userId), {
-      nourriture,
-    });
-  }
+    setDoc(doc(db, "users", name ), userInfo);
 };
