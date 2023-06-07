@@ -29,7 +29,7 @@ const ImagePreviewStyled = styled.div`
     margin-left: auto;
     padding: 20px 20px 0 50px;
     height: 130px;
-    width: 215px;
+    width: 130px;
     .previews-box {
       border: 1px solid ${theme.colors.greyLight};
       border-radius: ${theme.borderRadius.round};
@@ -42,7 +42,7 @@ const ImagePreviewStyled = styled.div`
     .image-box {
       width: 100px;
       display: flex;
-      height: 100%;
+      height: 100px;
       margin:auto;
       img {
         width: 100px;

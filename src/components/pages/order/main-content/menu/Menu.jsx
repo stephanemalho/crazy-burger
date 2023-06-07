@@ -29,14 +29,13 @@ function Menu() {
   const [isLoading, setIsLoading] = useState(true);
 
   useLayoutEffect(() => {
-    const timer = setTimeout(() => {
+    menu.lenght === 0 && setIsLoading(true);
+    setTimeout(() => {
       setIsLoading(false);
+    console.log("LOading ", isLoading);
     }, 4000);
-
-    return () => {
-      clearTimeout(timer);
-    };
-  }, []);
+    
+  }, [ menu, isLoading ]);
 
   const handleProductDelete = (event, idProductToDelete) => {
     event.stopPropagation()
