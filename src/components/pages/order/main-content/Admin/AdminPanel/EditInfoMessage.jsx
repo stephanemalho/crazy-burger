@@ -1,6 +1,5 @@
 import React from "react";
-import styled from "styled-components";
-import { theme } from "../../../../../../assets/theme";
+import { EditInfoMessageStyled } from "../../../../../../styled";
 
 export default function EditInfoMessage() {
   return (
@@ -10,14 +9,3 @@ export default function EditInfoMessage() {
     </EditInfoMessageStyled>
   );
 }
-
-const EditInfoMessageStyled = styled.span`
-
-    font-family: "open sans", sans-serif;
-    color: ${theme.colors.primary};
-    font-size: ${theme.fonts.size.SM};
-
-  .live-update{
-      text-decoration: underline;
-  }
-  `;

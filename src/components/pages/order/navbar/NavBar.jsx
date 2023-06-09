@@ -1,19 +1,17 @@
 import React, { useContext } from "react";
 import { BsPersonCircle } from "react-icons/bs";
-import styled from "styled-components";
 import { toast } from "react-toastify";
 
-import LogoImg from "../../../../assets/images/logo-orange.jpg";
-import { theme } from "../../../../assets/theme";
 import Logo from "../../../reusableUI/Logo";
+import { logo } from "../../../../assets/images";
 import ToggleButton from "../../../reusableUI/ToggleButton";
 import UserProfile from "./Profile";
 import ToastAdmin from "./ToastAdmin";
 import OrderContext from "../../../context/OrderContext";
+import { NavBarStyled } from "../../../../styled";
 
 function NavBar({ userName, handleLogin }) {
   const { isModeAdmin, setIsModeAdmin } = useContext(OrderContext);
-
   const activer = "ACTIVER LE MODE ADMIN";
   const desactiver = "DESACTIVER LE MODE ADMIN";
 
@@ -36,7 +34,7 @@ function NavBar({ userName, handleLogin }) {
   return (
     <NavBarStyled>
       <Logo
-        props={<img src={LogoImg} alt="dessin d'un burger" />}
+        props={<img src={logo} alt="dessin d'un burger" />}
         onClick={() => {
           window.location.reload();
         }}
@@ -62,40 +60,4 @@ function NavBar({ userName, handleLogin }) {
   );
 }
 
-const NavBarStyled = styled.nav`
-  font-family: "Open Sans", sans-serif;
-  position: relative;
-  background-color: white;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  flex-wrap: nowrap;
-  height: 10vh;
-  border-radius: 10px 10px 0 0;
-  border-bottom: 1px solid ${theme.colors.greyLight};
-  box-shadow: ${theme.shadows.subtle};
-  .orderLogo {
-    transform: scale(0.5);
-    margin: 0 -50px;
-  }
-  .toggleButton {
-    margin-left: auto;
-    align-items: center;
-  }
-  .userBox {
-    display: flex;
-    flex-direction: row;
-    padding-right: 20px;
-    div {
-      padding-right: 5px;
-    }
-  }
-  .icon {
-    font-size: ${theme.fonts.size.P2};
-    color: ${theme.colors.greyMedium};
-    height: 35px;
-    width: 35px;
-    margin-right: 10px;
-  }
-`;
 export default NavBar;

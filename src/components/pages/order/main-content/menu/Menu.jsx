@@ -1,5 +1,4 @@
 import React, { useContext, useEffect, useState } from "react";
-import styled from "styled-components";
 
 import OrderContext from "../../../../context/OrderContext";
 import EmptyMenuAdmin from "./EmptyMenuAdmin";
@@ -7,11 +6,11 @@ import EmptyMenuClient from "./EmptyMenuClient";
 import OnLoadMenu from "./OnLoadMenu";
 import Card from "../../../../reusableUI/Card";
 import { formatPrice } from "../../../../../utils/maths";
-import { theme } from "../../../../../assets/theme";
 import { checkIsProductSelected } from "./helper";
 import { EMPTY_PRODUCT } from "../../../../../enums/product";
 import { isEmpty } from "../../../../../utils/arrays";
 import { defaultImage } from "../../../../../assets/images";
+import { MenuGridStyled } from "../../../../../styled";
 
 function Menu() {
   const {
@@ -81,28 +80,5 @@ function Menu() {
     </MenuGridStyled>
   );
 }
-
-const MenuGridStyled = styled.section`
-  position: relative;
-  overflow-y: scroll;
-  display: grid;
-  border-bottom-right-radius: ${theme.borderRadius.extraRound};
-  z-index: 1;
-  overflow-x: hidden;
-  width: 100%;
-  .products-container {
-    background: ${theme.colors.background_white};
-    box-shadow: ${theme.shadows.strong};
-    margin: auto;
-    padding: 30px;
-    width: 95%;
-    height: 100%;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-    grid-column-gap: 20px;
-    grid-row-gap: 0px;
-    z-index: -1;
-  }
-`;
 
 export default Menu;

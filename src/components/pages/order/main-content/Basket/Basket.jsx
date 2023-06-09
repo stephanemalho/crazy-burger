@@ -1,10 +1,10 @@
-import styled from "styled-components"
 import TotalHeader from "./TotalHeader"
 
 import BasketBody from "./BasketBody"
 import Footer from "./Footer"
 import { useContext } from "react"
 import OrderContext from "../../../../context/OrderContext"
+import { BasketStyled } from "../../../../../styled"
 
 export default function Basket() {
   const { basket } = useContext(OrderContext)
@@ -16,12 +16,5 @@ export default function Basket() {
     </BasketStyled>
   )
 }
-
-const BasketStyled = styled.div`
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  width: 350px;
-`
 
 

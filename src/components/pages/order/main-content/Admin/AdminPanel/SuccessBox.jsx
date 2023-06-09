@@ -1,8 +1,8 @@
 import React from 'react'
 import SucessButton from "../../../../../reusableUI/MainButton";
-import styled from 'styled-components';
 import SuccessMessage from './SuccessMessage';
 import { FiCheck } from 'react-icons/fi';
+import { SucessBoxStyled } from '../../../../../../styled';
 
 export default function SuccessBox({ isSubmited }) {
   return (
@@ -16,14 +16,3 @@ export default function SuccessBox({ isSubmited }) {
       </SucessBoxStyled>
   )
 }
-
-const SucessBoxStyled = styled.div`
-    display: grid;
-    grid-area: 4/-2/-1/-1;
-    justify-content: left;
-    align-items: start;
-    grid-template-columns: 1fr 1fr;
-    align-items: start;
-    justify-items: start;
-    height: 100%;
-`;

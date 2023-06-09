@@ -1,9 +1,9 @@
-import styled from "styled-components"
-import { theme } from "../../../../../assets/theme"
+import { useContext } from "react"
+
 import Header from "../../../../reusableUI/Header"
 import { calculateSumToPay, formatPrice } from "../../../../../utils/maths"
-import { useContext } from "react"
 import OrderContext from "../../../../context/OrderContext"
+import { TotalStyled } from "../../../../../styled"
 
 export default function Total() {
 
@@ -19,15 +19,3 @@ export default function Total() {
     </Header>
   )
 }
-
-const TotalStyled = styled.div`
-  height: 100%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  color: ${theme.colors.primary};
-  font-family: "Amatic SC", cursive;
-  font-size: ${theme.fonts.size.P4};
-  font-weight: ${theme.fonts.weights.bold};
-  letter-spacing: 2px;
-`

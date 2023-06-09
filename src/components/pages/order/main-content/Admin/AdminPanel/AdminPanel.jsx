@@ -1,11 +1,10 @@
 import React, { useContext } from "react";
-import styled from "styled-components";
 
-import { theme } from "../../../../../../assets/theme";
 import OrderContext from "../../../../../context/OrderContext";
 import AddForm from "./AddForm";
 import EditForm from "./EditForm";
 import HintMessage from "./HintMessage";
+import { AdminPanelStyled } from "../../../../../../styled";
 
 
 export default function AdminPanel() {
@@ -13,16 +12,10 @@ export default function AdminPanel() {
  
 
   return (
-    <AdminTabsStyled>
+    <AdminPanelStyled>
       {currentTabSelected === "add" && <AddForm />}
       {currentTabSelected === "edit" && productSelected.id ? <EditForm /> : <HintMessage /> }
-    </AdminTabsStyled>
+    </AdminPanelStyled>
   );
 }
 
-const AdminTabsStyled = styled.div`
-  background-color: ${theme.colors.white};
-  border: 1px solid ${theme.colors.greyLight};
-  box-shadow: ${theme.shadows.subtle};
-  height: 250px;
-`;

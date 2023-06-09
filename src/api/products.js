@@ -30,7 +30,12 @@ export const updateProduct = async (newMenu, name) => {
   await updateDoc(docRef, userInfo);
 };
 //D
-export const deleteProduct = (name) => {
-  const docRef = doc(db, "users", name);
-  deleteDoc(docRef);
+export const deleteProduct = async (newMenu) => {
+ //delete 
+  const userInfo = {
+    productsMenu: newMenu,
+  };
+  const docRef = doc(db, "users", userInfo.productsMenu);
+  await deleteDoc(docRef);
 };
+
