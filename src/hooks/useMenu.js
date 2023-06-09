@@ -1,9 +1,13 @@
 import { useState } from "react";
-
 import { deepClone } from "../utils/arrays";
 import { fakeMenu2 } from "../fakeData/fakeMenu";
-import { addProductToDB } from "../api/products";
-//import { updateProduct } from "../api/products";
+import {
+  addProductToDB,
+  //getProductsMenu,
+  //getProductsMenu,
+  //updateProduct,
+  //deleteProduct,
+} from "../api/products";
 
 export const useMenu = () => {
   const [menu, setMenu] = useState(
@@ -19,8 +23,11 @@ export const useMenu = () => {
 
   const handleDeleteProduct = (currentProduct) => {
     const menuCopy = deepClone(menu);
-    const newMenu = menuCopy.filter((product) => product.id !== currentProduct);
-    setMenu(newMenu);
+    const productToDelete = menuCopy.filter(
+      (product) => product.id !== currentProduct
+    );
+    setMenu(productToDelete);
+    //deleteProduct(productToDelete);
   };
 
   const handleEditProduct = (currentProduct) => {
@@ -30,7 +37,7 @@ export const useMenu = () => {
     );
     menuCopy[indexOfProductToEdit] = currentProduct;
     setMenu(menuCopy);
-    //updateProduct(currentProduct.products,);
+    //updateProduct(menuCopy);
   };
 
   const resetMenu = () => {

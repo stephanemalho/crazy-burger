@@ -32,7 +32,7 @@ function OrderPage() {
     handleDeleteProduct,
     handleEditProduct,
     resetMenu,
-  } = useMenu(); // custom hook
+  } = useMenu(userName); // custom hook
 
   // comportements
   const handleLogin = (e) => {
@@ -57,6 +57,7 @@ function OrderPage() {
 
   // context
   const orderContextValue = {
+    userName,
     isModeAdmin,
     setIsModeAdmin,
     isCollapsed,
@@ -80,7 +81,7 @@ function OrderPage() {
     basket,
     handleAddToBasket,
     handleDeleteBasketProduct,
-    handleProductSelected
+    handleProductSelected,
   };
 
   // affichage

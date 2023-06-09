@@ -1,10 +1,36 @@
-import { doc, setDoc } from "firebase/firestore";
+import { deleteDoc, doc, getDoc, setDoc, updateDoc } from "firebase/firestore";
 import { db } from "./firebase-config";
-
+//C
 export const addProductToDB = (newMenu, name) => {
   const userInfo = {
     prenom: name,
     productsMenu: newMenu,
   };
-  setDoc(doc(db, "users", name), userInfo);
+  const docRef = doc(db, "users", name);
+  setDoc(docRef, userInfo);
+};
+//R
+export const getProductsMenu = async (name) => {
+  const productsMenu = await getDoc(doc(db, "users", name));
+  if (productsMenu.exists()) {
+    console.log("Document data:", productsMenu.data());
+    return productsMenu.data().productsMenu;
+  } else {
+    console.log("No such document!");
+    return null;
+  }
+};
+//U
+export const updateProduct = async (newMenu, name) => {
+  const userInfo = {
+    prenom: name,
+    productsMenu: newMenu,
+  };
+  const docRef = doc(db, "users", name);
+  await updateDoc(docRef, userInfo);
+};
+//D
+export const deleteProduct = (name) => {
+  const docRef = doc(db, "users", name);
+  deleteDoc(docRef);
 };
