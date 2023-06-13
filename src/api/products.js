@@ -3,8 +3,8 @@ import { db } from "./firebase-config";
 //C
 export const addProductToDB = (newMenu, name) => {
   const userInfo = {
-    prenom: name,
-    productsMenu: newMenu,
+    username: name,
+    menu: newMenu,
   };
   const docRef = doc(db, "users", name);
   setDoc(docRef, userInfo);
@@ -23,8 +23,8 @@ export const getProductsMenu = async (name) => {
 //U
 export const updateProduct = async (newMenu, name) => {
   const userInfo = {
-    prenom: name,
-    productsMenu: newMenu,
+    username: name,
+    menu: newMenu,
   };
   const docRef = doc(db, "users", name);
   await updateDoc(docRef, userInfo);
@@ -33,7 +33,7 @@ export const updateProduct = async (newMenu, name) => {
 export const deleteProduct = async (newMenu) => {
  //delete 
   const userInfo = {
-    productsMenu: newMenu,
+    menu: newMenu,
   };
   const docRef = doc(db, "users", userInfo.productsMenu);
   await deleteDoc(docRef);

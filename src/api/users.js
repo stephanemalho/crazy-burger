@@ -18,8 +18,8 @@ export const getUser = async (name) => {
 export const createUser = async (name) => {
     localStorage.clear();
     const userInfo = {
-      prenom: name,
-      productsMenu: fakeMenu2,
+      username: name,
+      menu: fakeMenu2,
     };
     setDoc(doc(db, "users", name ), userInfo);
 };

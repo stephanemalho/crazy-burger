@@ -30,12 +30,12 @@ function Menu() {
   console.log("haut dessus de useEffect", isLoading);
 
   useEffect(() => {
-    menu.lenght === 0 && setIsLoading(true);
+    isEmpty(menu) && setIsLoading(true);
     console.log("LOading dans le UseEffect ", isLoading);
-    setTimeout(() => {
+    // setTimeout(() => {
       setIsLoading(false);
       console.log("LOading dans le setTime out du UseEffect ", isLoading);
-    }, 4000);
+    // }, 4000);
   }, [ menu, isLoading ]);
 
   console.log("en dessous de useEffect", isLoading);
