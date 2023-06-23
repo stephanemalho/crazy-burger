@@ -23,3 +23,10 @@ export const createUser = async (name) => {
     };
     setDoc(doc(db, "users", name ), userInfo);
 };
+
+export const authenticateUser = async (userId) => {
+  const existingUser = await getUser(userId);
+    if (!existingUser) {
+      await createUser(userId);
+    }
+  };

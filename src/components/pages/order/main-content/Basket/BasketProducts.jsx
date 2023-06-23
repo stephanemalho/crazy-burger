@@ -8,7 +8,7 @@ import { checkIsProductSelected } from '../menu/helper';
 
 function BasketProducts({ defaultImage }) {
 
-  const { isModeAdmin,  menu, basket, handleDeleteBasketProduct , handleProductSelected , productSelected} = useContext(OrderContext);
+  const { isModeAdmin,  menu, basket, handleDeleteBasketProduct , handleProductSelected , productSelected} = useContext(OrderContext)
 
   const handleDelete = (event, id) => {
     event.stopPropagation()

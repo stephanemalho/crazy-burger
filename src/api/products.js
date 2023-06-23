@@ -1,4 +1,4 @@
-import { deleteDoc, doc, getDoc, setDoc, updateDoc } from "firebase/firestore";
+import { doc, getDoc, setDoc } from "firebase/firestore";
 import { db } from "./firebase-config";
 //C
 export const addProductToDB = (newMenu, name) => {
@@ -11,31 +11,47 @@ export const addProductToDB = (newMenu, name) => {
 };
 //R
 export const getProductsMenu = async (name) => {
-  const productsMenu = await getDoc(doc(db, "users", name));
-  if (productsMenu.exists()) {
-    console.log("Document data:", productsMenu.data());
-    return productsMenu.data().productsMenu;
-  } else {
-    console.log("No such document!");
+  try {
+    const productsMenu = await getDoc(doc(db, "users", name));
+    if (productsMenu.exists()) {
+      console.log("Document data:", productsMenu.data());
+      return productsMenu.data();
+    } else {
+      console.log("No such document!");
+      return null;
+    }
+  } catch (error) {
+    console.log("Error getting menu data:", error);
     return null;
   }
 };
 //U
-export const updateProduct = async (newMenu, name) => {
+export const updateProduct = (newMenu, name) => {
   const userInfo = {
     username: name,
     menu: newMenu,
   };
-  const docRef = doc(db, "users", name);
-  await updateDoc(docRef, userInfo);
-};
+  try {
+    const docRef = doc(db, "users", name);
+    setDoc(docRef, userInfo);
+  }
+  catch (error) {
+    console.log("Error updating menu data:", error);
+  }
+}
+
 //D
-export const deleteProduct = async (newMenu) => {
- //delete 
+export const deleteProduct = (newMenu, name) => {
   const userInfo = {
+    username: name,
     menu: newMenu,
   };
-  const docRef = doc(db, "users", userInfo.productsMenu);
-  await deleteDoc(docRef);
-};
+  try {
+    const docRef = doc(db, "users", name);
+    setDoc(docRef, userInfo);
+  }
+  catch (error) {
+    console.log("Error deleting menu data:", error);
+  }
+}
 

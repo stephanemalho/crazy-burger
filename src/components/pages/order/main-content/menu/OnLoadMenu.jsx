@@ -38,6 +38,7 @@ const dotAnimation = keyframes`
 `;
 
 const DotAnimation = styled.span`
+  width: 100px;
   animation: ${dotAnimation} 1s ease-in-out infinite;
 `;
 
@@ -56,6 +57,8 @@ const OnLoadMenuStyled = styled.div`
 const TextWrapper = styled.div`
   display: flex;
   align-items: center;
+  width: 100%;
+  justify-content: center;
 `;
 
 export default OnLoadMenu;

@@ -14,10 +14,11 @@ export default function EditForm() {
   } = useContext(OrderContext);
 
   const handleChange = async (e) => {
+    const userName = window.location.pathname.split("/").pop();
     const { name, value } = e.target;
     const productUptaded = { ...productSelected, [name]: value };
     setProductSelected(productUptaded);
-    handleEditProduct(productUptaded);
+    handleEditProduct(productUptaded , userName );
   };
 
   const handleFocus = () => {

@@ -5,8 +5,7 @@ import BasketProducts from "./BasketProducts";
 import OrderContext from "../../../../context/OrderContext";
 import { isEmpty } from "../../../../../utils/arrays";
 import { BasketBodyStyled } from "../../../../../styled";
-
-const defaultImage = "/images/coming-soon.png";
+import { defaultImage } from "../../../../../assets/images";
 
 export default function BasketBody() {
   

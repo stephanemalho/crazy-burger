@@ -27,36 +27,39 @@ function Menu() {
 
   const [isLoading, setIsLoading] = useState(true);
 
-  console.log("haut dessus de useEffect", isLoading);
-
   useEffect(() => {
-    isEmpty(menu) && setIsLoading(true);
-    console.log("LOading dans le UseEffect ", isLoading);
-    // setTimeout(() => {
+    !isEmpty(menu) && setIsLoading(false);
+    setTimeout(() => {
       setIsLoading(false);
-      console.log("LOading dans le setTime out du UseEffect ", isLoading);
-    // }, 4000);
-  }, [ menu, isLoading ]);
-
-  console.log("en dessous de useEffect", isLoading);
-
+    }
+    , 2000);
+  }, [menu, isLoading]);
 
   const handleProductDelete = (event, idProductToDelete) => {
-    event.stopPropagation()
-    console.log("idProductToDelete", idProductToDelete);
-    handleDeleteProduct(idProductToDelete)
-    handleDeleteBasketProduct(idProductToDelete)
-    idProductToDelete === productSelected.id && setProductSelected(EMPTY_PRODUCT)
+    event.stopPropagation();
+    const userName = window.location.pathname.split("/").pop();
+    handleDeleteProduct(idProductToDelete, userName);
+    handleDeleteBasketProduct(idProductToDelete);
+    idProductToDelete === productSelected.id &&
+      setProductSelected(EMPTY_PRODUCT);
   };
 
   const handleAddProducts = (event, idProductToAdd) => {
     event.stopPropagation();
     handleAddToBasket(idProductToAdd);
+    
+    console.log("idProductToAdd", idProductToAdd);
   };
 
   // Affichage
   if (isEmpty(menu) || (isLoading && isEmpty)) {
-    return isLoading ? <OnLoadMenu /> : (isModeAdmin ? <EmptyMenuAdmin onReset={resetMenu} /> : <EmptyMenuClient />);
+    return isLoading ? (
+      <OnLoadMenu />
+    ) : isModeAdmin ? (
+      <EmptyMenuAdmin onReset={resetMenu} />
+    ) : (
+      <EmptyMenuClient />
+    );
   }
 
   return (

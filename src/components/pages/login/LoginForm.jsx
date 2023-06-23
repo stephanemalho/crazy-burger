@@ -3,11 +3,10 @@ import { useNavigate } from "react-router-dom";
 import { MdKeyboardArrowRight } from "react-icons/md";
 import { BsPersonCircle } from "react-icons/bs";
 
-
 /**********************************/
 import MainButton from "../../reusableUI/MainButton";
 import TextInput from "../../reusableUI/TextInput";
-import { createUser, getUser } from "../../../api/users";
+import { authenticateUser } from "../../../api/users";
 import { LoginFormStyled } from "../../../styled";
 
 const LoginForm = () => {
@@ -17,13 +16,10 @@ const LoginForm = () => {
   // behavior
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const existingUser = await getUser(username);
-    if (!existingUser) {
-      await createUser(username);
-    }
-    const userMenu = await getUser(username);
+
+    authenticateUser(username);
     setUsername("");
-    navigate(`order/${username}`, { state: { menu: userMenu } });
+    navigate(`order/${username}`, { state: { menu: username } });
   };
 
   const handleChange = (e) => {

@@ -9,20 +9,21 @@ import { useMenu } from "../../../hooks/useMenu";
 import { useBasket } from "../../../hooks/useBasket";
 import { findObjectById } from "../../../utils/arrays";
 import { OrderPageStyled } from "../../../styled";
+import { getProductsMenu } from "../../../api/products";
 
 function OrderPage() {
   // state
   const navigate = useNavigate();
   const { userName } = useParams();
-  const [isModeAdmin, setIsModeAdmin] = useState(false); 
+  const [isModeAdmin, setIsModeAdmin] = useState(false);
   const [isCollapsed, setIsCollapsed] = useState(false);
   const [isOnEditTab, setIsOnEditTab] = useState(false);
   const [isOnAddTab, setIsOnAddTab] = useState(true);
   const [currentTabSelected, setCurrentTabSelected] = useState("add"); // à changer en "add"
   const [newProduct, setNewProduct] = useState(EMPTY_PRODUCT);
 
-  const { basket , handleAddToBasket, handleDeleteBasketProduct }  = useBasket();
-  
+  const { basket, handleAddToBasket, handleDeleteBasketProduct } = useBasket();
+
   const [productSelected, setProductSelected] = useState(EMPTY_PRODUCT);
   const titleEditRef = useRef();
   const {
@@ -31,6 +32,7 @@ function OrderPage() {
     handleDeleteProduct,
     handleEditProduct,
     resetMenu,
+    setMenu,
   } = useMenu(userName); // custom hook
 
   // comportements
@@ -40,11 +42,26 @@ function OrderPage() {
   };
 
   useEffect(() => {
-    const menuData = JSON.stringify(menu);
-    localStorage.setItem("menu", menuData);
+    const fetchMenuData = async () => {
+      try {
+        const menuData = await getProductsMenu(userName);
+        if (menuData && menuData.menu) {
+          setMenu(menuData.menu);
+          localStorage.setItem("menu", JSON.stringify(menuData.menu));
+        } else {
+          console.log("Menu data is missing or invalid.");
+        }
+      } catch (error) {
+        console.log("Error fetching menu data:", error);
+      }
+    };
+    fetchMenuData();
+  }, [userName, setMenu]);
+
+  useEffect(() => {
     const basketData = JSON.stringify(basket);
     localStorage.setItem("basket", basketData);
-  }, [menu, basket]);
+  }, [basket]);
 
   const handleProductSelected = async (productSelectedId) => {
     const productSelected = findObjectById(productSelectedId, menu);
@@ -68,6 +85,7 @@ function OrderPage() {
     currentTabSelected,
     setCurrentTabSelected,
     menu,
+    setMenu,
     handleAddProduct,
     handleDeleteProduct,
     resetMenu,
