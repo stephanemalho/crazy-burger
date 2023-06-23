@@ -42,17 +42,17 @@ function OrderPage() {
   };
 
   useEffect(() => {
-    const fetchMenuData = async () => {
+    const fetchMenuData = async () => { // externaliser dans un fichier api
       try {
         const menuData = await getProductsMenu(userName);
         if (menuData && menuData.menu) {
           setMenu(menuData.menu);
           localStorage.setItem("menu", JSON.stringify(menuData.menu));
         } else {
-          console.log("Menu data is missing or invalid.");
+          console.warn("Menu data is missing or invalid.");
         }
       } catch (error) {
-        console.log("Error fetching menu data:", error);
+        console.error("Error fetching menu data:", error);
       }
     };
     fetchMenuData();

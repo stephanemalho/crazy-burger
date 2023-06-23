@@ -21,7 +21,7 @@ export const getProductsMenu = async (name) => {
       return null;
     }
   } catch (error) {
-    console.log("Error getting menu data:", error);
+    console.error("Error getting menu data:", error);
     return null;
   }
 };
@@ -36,12 +36,12 @@ export const updateProduct = (newMenu, name) => {
     setDoc(docRef, userInfo);
   }
   catch (error) {
-    console.log("Error updating menu data:", error);
+    console.error("Error updating menu data:", error);
   }
 }
 
 //D
-export const deleteProduct = (newMenu, name) => {
+export const deleteProduct = (newMenu, name) => { // unifier les trois code smell en un seul puis utiliser les try catch dans les fonctions appelées
   const userInfo = {
     username: name,
     menu: newMenu,
@@ -51,7 +51,7 @@ export const deleteProduct = (newMenu, name) => {
     setDoc(docRef, userInfo);
   }
   catch (error) {
-    console.log("Error deleting menu data:", error);
+    console.error("Error deleting menu data:", error);
   }
 }
 
