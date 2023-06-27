@@ -33,7 +33,6 @@ export const useMenu = () => {
     const indexOfProductToEdit = menuCopy.findIndex(
       (product) => product.id === currentProduct.id
     );
-    console.log("indexOfProductToEdit " + indexOfProductToEdit);
     menuCopy[indexOfProductToEdit] = currentProduct;
     setMenu(menuCopy);
     updateProduct(menuCopy, userName );

@@ -25,6 +25,7 @@ function Menu() {
     handleProductSelected
   } = useContext(OrderContext);
 
+  const userName = window.location.pathname.split("/").pop();
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
@@ -37,16 +38,15 @@ function Menu() {
 
   const handleProductDelete = (event, idProductToDelete) => {
     event.stopPropagation();
-    const userName = window.location.pathname.split("/").pop();
     handleDeleteProduct(idProductToDelete, userName);
     handleDeleteBasketProduct(idProductToDelete);
     idProductToDelete === productSelected.id &&
       setProductSelected(EMPTY_PRODUCT);
   };
 
-  const handleAddProducts = (event, idProductToAdd) => {
+  const handleAddProducts = async (event, idProductToAdd) => {
     event.stopPropagation();
-    handleAddToBasket(idProductToAdd);
+    await handleAddToBasket(idProductToAdd, userName);
     
     console.log("idProductToAdd", idProductToAdd);
   };

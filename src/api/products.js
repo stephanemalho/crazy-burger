@@ -1,13 +1,18 @@
 import { doc, getDoc, setDoc } from "firebase/firestore";
 import { db } from "./firebase-config";
+//CRUD
 //C
 export const addProductToDB = (newMenu, name) => {
-  const userInfo = {
-    username: name,
-    menu: newMenu,
-  };
-  const docRef = doc(db, "users", name);
-  setDoc(docRef, userInfo);
+  try {
+    const userInfo = {
+      username: name,
+      menu: newMenu,
+    };
+    const docRef = doc(db, "users", name);
+    setDoc(docRef, userInfo);
+  } catch (error) {
+    console.error("Error adding menu data:", error);
+  }
 };
 //R
 export const getProductsMenu = async (name) => {
@@ -34,14 +39,12 @@ export const updateProduct = (newMenu, name) => {
   try {
     const docRef = doc(db, "users", name);
     setDoc(docRef, userInfo);
-  }
-  catch (error) {
+  } catch (error) {
     console.error("Error updating menu data:", error);
   }
-}
-
+};
 //D
-export const deleteProduct = (newMenu, name) => { // unifier les trois code smell en un seul puis utiliser les try catch dans les fonctions appelées
+export const deleteProduct = (newMenu, name) => {
   const userInfo = {
     username: name,
     menu: newMenu,
@@ -49,9 +52,7 @@ export const deleteProduct = (newMenu, name) => { // unifier les trois code smel
   try {
     const docRef = doc(db, "users", name);
     setDoc(docRef, userInfo);
-  }
-  catch (error) {
+  } catch (error) {
     console.error("Error deleting menu data:", error);
   }
-}
-
+};

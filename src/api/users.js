@@ -15,13 +15,13 @@ export const getUser = async (name) => {
   }
 };
 
-export const createUser = async (name) => {
+export const createUser = async (userId) => {
     localStorage.clear();
     const userInfo = {
-      username: name,
+      username: userId,
       menu: fakeMenu2,
     };
-    setDoc(doc(db, "users", name ), userInfo);
+    setDoc(doc(db, "users", userId ), userInfo);
 };
 
 export const authenticateUser = async (userId) => {
