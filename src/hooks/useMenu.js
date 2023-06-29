@@ -1,14 +1,10 @@
-import { useContext, useState } from "react";
+import { useState } from "react";
 import { deepClone } from "../utils/arrays";
-import { fakeMenu2 } from "../fakeData/fakeMenu";
+import { fakeMenu1 } from "../fakeData/fakeMenu";
 import { syncBothMenu } from "../api/products";
-import OrderContext from "../components/context/OrderContext";
 
 export const useMenu = () => {
-  const [menu, setMenu] = useState(
-    JSON.parse(localStorage.getItem("menu")) || []
-  );
-  const { userName } = useContext(OrderContext);
+  const [menu, setMenu] = useState([]);
 
   const handleAddProduct = (newProduct, name) => {
     const menuCopy = deepClone(menu);
@@ -50,15 +46,9 @@ export const useMenu = () => {
     }
   };
 
-  const resetMenu = () => {
-    setMenu(fakeMenu2);
-    localStorage.setItem("menu", JSON.stringify(fakeMenu2));
-    try {
-      syncBothMenu(fakeMenu2, userName);
-    }
-    catch (error) {
-      console.log(error);
-    }
+  const resetMenu = (userName) => {
+    setMenu(fakeMenu1);
+    syncBothMenu(fakeMenu1, userName);
   };
 
   return {

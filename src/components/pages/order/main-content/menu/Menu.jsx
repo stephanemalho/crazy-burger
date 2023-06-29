@@ -22,7 +22,7 @@ function Menu() {
     setProductSelected,
     productSelected,
     handleDeleteBasketProduct,
-    handleProductSelected
+    handleProductSelected,
   } = useContext(OrderContext);
 
   const userName = window.location.pathname.split("/").pop();
@@ -30,10 +30,6 @@ function Menu() {
 
   useEffect(() => {
     !isEmpty(menu) && setIsLoading(false);
-    setTimeout(() => {
-      setIsLoading(false);
-    }
-    , 2000);
   }, [menu, isLoading]);
 
   const handleProductDelete = (event, idProductToDelete) => {
@@ -47,21 +43,23 @@ function Menu() {
   const handleAddProducts = async (event, idProductToAdd) => {
     event.stopPropagation();
     await handleAddToBasket(idProductToAdd, userName);
-    
+
     console.log("idProductToAdd", idProductToAdd);
   };
 
-  // Affichage
-  if (isEmpty(menu) || (isLoading && isEmpty)) {
-    return isLoading ? (
-      <OnLoadMenu />
-    ) : isModeAdmin ? (
-      <EmptyMenuAdmin onReset={resetMenu} />
-    ) : (
-      <EmptyMenuClient />
+  if (isLoading) return <OnLoadMenu />;
+  if (isEmpty(menu) && isModeAdmin) {
+    return (
+      <EmptyMenuAdmin
+        onReset={() => {
+          resetMenu(userName);
+        }}
+      />
     );
   }
-
+  if (isEmpty(menu) && !isModeAdmin) {
+    return <EmptyMenuClient />;
+  }
   return (
     <MenuGridStyled>
       <div className="products-container">
