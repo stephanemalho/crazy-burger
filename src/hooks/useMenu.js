@@ -1,25 +1,20 @@
 import { useContext, useState } from "react";
 import { deepClone } from "../utils/arrays";
 import { fakeMenu2 } from "../fakeData/fakeMenu";
-import {
-  addProductToDB,
-  updateProduct,
-  deleteProduct,
-} from "../api/products";
+import { syncBothMenu } from "../api/products";
 import OrderContext from "../components/context/OrderContext";
 
 export const useMenu = () => {
-
   const [menu, setMenu] = useState(
     JSON.parse(localStorage.getItem("menu")) || []
   );
-  const { userName } = useContext(OrderContext)
+  const { userName } = useContext(OrderContext);
 
   const handleAddProduct = (newProduct, name) => {
     const menuCopy = deepClone(menu);
     const menuUpdated = [newProduct, ...menuCopy];
     setMenu(menuUpdated);
-    addProductToDB(menuUpdated, name);
+    syncBothMenu(menuUpdated, name);
   };
 
   const handleDeleteProduct = (currentProduct, userName) => {
@@ -28,23 +23,23 @@ export const useMenu = () => {
       (product) => product.id !== currentProduct
     );
     setMenu(productToDelete);
-    deleteProduct(productToDelete, userName);
+    syncBothMenu(productToDelete, userName);
   };
 
-  const handleEditProduct = (currentProduct, userName ) => {
+  const handleEditProduct = (currentProduct, userName) => {
     const menuCopy = deepClone(menu);
     const indexOfProductToEdit = menuCopy.findIndex(
       (product) => product.id === currentProduct.id
     );
     menuCopy[indexOfProductToEdit] = currentProduct;
     setMenu(menuCopy);
-    updateProduct(menuCopy, userName );
+    syncBothMenu(menuCopy, userName);
   };
 
   const resetMenu = () => {
     setMenu(fakeMenu2);
     localStorage.setItem("menu", JSON.stringify(fakeMenu2));
-    addProductToDB(fakeMenu2, userName);
+    syncBothMenu(fakeMenu2, userName);
   };
 
   return {
