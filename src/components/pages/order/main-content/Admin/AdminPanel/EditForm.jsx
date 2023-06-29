@@ -2,7 +2,7 @@ import React, { useContext, useState } from "react";
 import OrderContext from "../../../../../context/OrderContext";
 import Form from "./Form";
 import EditInfoMessage from "./EditInfoMessage";
-import EditSucessMessage from "./EditSucessMessage";
+import EditSavingMessage from "./EditSavingMessage";
 
 export default function EditForm() {
   const [showSuccessMessage, setShowSuccessMessage] = useState(false);
@@ -45,7 +45,7 @@ export default function EditForm() {
       onBlur={handleBlur}
       onFocus={handleOnFocus}
       hintMessage={
-        showSuccessMessage ? <EditSucessMessage /> : <EditInfoMessage />
+        showSuccessMessage ? <EditSavingMessage /> : <EditInfoMessage />
       }
     />
   );

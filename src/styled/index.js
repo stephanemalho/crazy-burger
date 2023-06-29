@@ -6,7 +6,7 @@ import BasketCardStyled from "./basketStyled/basketCardStyled.js";
 import BasketProductsStyled from "./basketStyled/basketProductsStyled.js";
 import BasketStyled from "./basketStyled/basketStyled.js";
 import EditInfoMessageStyled from "./messageStyled/editInfoMessageStyled.js";
-import EditSuccessMessageStyled from "./messageStyled/editSuccessMessageStyled.js";
+import EditSavingMessageStyled from "./messageStyled/editSavingMessageStyled.js";
 import EmptyBasketStyled from "./basketStyled/emptyBasketStyled.js";
 import EmptyMenuAdminStyled from "./menuStyled/emptyMenuAdminStyled.js";
 import EmptyMenuClientStyled from "./menuStyled/emptyMenuClientStyled.js";
@@ -34,7 +34,7 @@ export {
   BasketProductsStyled,
   BasketStyled,
   EditInfoMessageStyled,
-  EditSuccessMessageStyled,
+  EditSavingMessageStyled,
   EmptyBasketStyled,
   EmptyMenuAdminStyled,
   EmptyMenuClientStyled,

@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { theme } from "../../assets/theme";
 
-const EditSuccessMessageStyled = styled.span`
+const EditSavingMessageStyled = styled.span`
   font-family: "open sans", sans-serif;
   color: ${theme.colors.blue};
   font-size: ${theme.fonts.size.SM};
@@ -9,7 +9,7 @@ const EditSuccessMessageStyled = styled.span`
   align-items: center;
   justify-content: left;
   flex-direction: row;
-  .EditSucessIcon {
+  .EditSavingIcon {
     color: ${theme.colors.blue};
     font-size: ${theme.fonts.size.MD};
     height: 1.2rem;
@@ -18,4 +18,4 @@ const EditSuccessMessageStyled = styled.span`
   }
 `;
 
-export default EditSuccessMessageStyled;
+export default EditSavingMessageStyled;
