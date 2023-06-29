@@ -9,7 +9,7 @@ export default function Total() {
 
   const { basket, menu } = useContext(OrderContext) // Context ponction on this specifical component
   const sumToPAy = calculateSumToPay(basket, menu)
-
+  
   return (
     <Header>
       <TotalStyled>

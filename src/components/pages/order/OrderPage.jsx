@@ -11,6 +11,7 @@ import { useBasket } from "../../../hooks/useBasket";
 import { findObjectById } from "../../../utils/arrays";
 import { OrderPageStyled } from "../../../styled";
 import { getMenu } from "../../../api/products";
+import { getLocalStorage } from "../../../utils/window";
 
 function OrderPage() {
   // state
@@ -23,7 +24,7 @@ function OrderPage() {
   const [currentTabSelected, setCurrentTabSelected] = useState("add"); // à changer en "add"
   const [newProduct, setNewProduct] = useState(EMPTY_PRODUCT);
 
-  const { basket, handleAddToBasket, handleDeleteBasketProduct } = useBasket();
+  const { basket, setBasket, handleAddToBasket, handleDeleteBasketProduct } = useBasket();
 
   const [productSelected, setProductSelected] = useState(EMPTY_PRODUCT);
   const titleEditRef = useRef();
@@ -47,14 +48,22 @@ function OrderPage() {
     setMenu(menuReceived);
   }
 
-  useEffect(() => {
-    initializeMenu();
-  }, []);
+  const initializeBasket = () => {
+    const basketReceived = getLocalStorage(userName)
+    if (basketReceived)
+    setBasket(basketReceived);
+  };
 
-  useEffect(() => {
-    const basketData = JSON.stringify(basket);
-    localStorage.setItem("basket", basketData);
-  }, [basket]);
+  const initialazeArray = async () => {
+    await initializeMenu();
+    initializeBasket();
+  }
+
+useEffect(() => {
+  initialazeArray();
+}, []);
+
+
 
   const handleProductSelected = async (productSelectedId) => {
     const productSelected = findObjectById(productSelectedId, menu);

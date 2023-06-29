@@ -19,7 +19,7 @@ const LoginForm = () => {
 
     authenticateUser(username);
     setUsername("");
-    navigate(`order/${username}`, { state: { menu: username } });
+    navigate(`order/${username}`);
   };
 
   const handleChange = (e) => {

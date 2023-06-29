@@ -5,14 +5,16 @@ import { BasketProductsStyled } from '../../../../../styled'
 import OrderContext from '../../../../context/OrderContext';
 import { findObjectById } from '../../../../../utils/arrays';
 import { checkIsProductSelected } from '../menu/helper';
+import { useParams } from 'react-router-dom';
 
 function BasketProducts({ defaultImage }) {
 
-  const { isModeAdmin,  menu, basket, handleDeleteBasketProduct , handleProductSelected , productSelected} = useContext(OrderContext)
+  const { isModeAdmin, menu, basket, handleDeleteBasketProduct , handleProductSelected , productSelected} = useContext(OrderContext)
+  const username = useParams().userName
 
   const handleDelete = (event, id) => {
     event.stopPropagation()
-    handleDeleteBasketProduct(id)
+    handleDeleteBasketProduct(id, username)
   }
 
   return (

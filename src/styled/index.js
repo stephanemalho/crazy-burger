@@ -19,6 +19,7 @@ import LoginPageStyled from "./loginStyled/loginPageStyled.js";
 import MainStyled from "./containerStyled/mainStyled.js";
 import MenuGridStyled from "./menuStyled/menuGridStyled.js";
 import NavBarStyled from "./containerStyled/navBarStyled.js";
+import OnLoadStyled from "./loaderStyled/onloadStyled.js";
 import OrderPageStyled from "./containerStyled/orderPageStyled.js";
 import SucessBoxStyled from "./uiElementStyled/sucessBoxStyled.js";
 import SucessMessageStyled from "./messageStyled/sucessMessageStyled.js";
@@ -47,6 +48,7 @@ export {
   MainStyled,
   MenuGridStyled,
   NavBarStyled,
+  OnLoadStyled,
   OrderPageStyled,
   SucessBoxStyled,
   SucessMessageStyled,
