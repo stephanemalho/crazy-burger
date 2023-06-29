@@ -6,6 +6,7 @@ import EditSucessMessage from "./EditSucessMessage";
 
 export default function EditForm() {
   const [showSuccessMessage, setShowSuccessMessage] = useState(false);
+  const [valueOnFocus, setValueOnFocus] = useState("");
   const {
     userName,
     productSelected,
@@ -21,15 +22,19 @@ export default function EditForm() {
     handleEditProduct(productUptaded , userName );
   };
 
-  const handleFocus = () => {
-    setShowSuccessMessage(false);
+  const handleOnFocus = (e) => {
+    const inputOnFucus = e.target.value ;
+    setValueOnFocus(inputOnFucus);
   };
 
-  const handleBlur = () => {
-    setShowSuccessMessage(true);
-    setTimeout(() => {
-      setShowSuccessMessage(false);
-    }, 2000);
+  const handleBlur = (e) => {
+    const valueOnBlur = e.target.value;
+    if (valueOnFocus !== valueOnBlur) {
+      setShowSuccessMessage(true);
+      setTimeout(() => {
+        setShowSuccessMessage(false);
+      }, 2000);
+    }
   };
 
   return (
@@ -38,7 +43,7 @@ export default function EditForm() {
       product={productSelected}
       ref={titleEditRef}
       onBlur={handleBlur}
-      onFocus={handleFocus}
+      onFocus={handleOnFocus}
       hintMessage={
         showSuccessMessage ? <EditSucessMessage /> : <EditInfoMessage />
       }
