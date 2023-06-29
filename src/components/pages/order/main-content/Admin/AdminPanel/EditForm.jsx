@@ -5,7 +5,7 @@ import EditInfoMessage from "./EditInfoMessage";
 import EditSavingMessage from "./EditSavingMessage";
 
 export default function EditForm() {
-  const [showSuccessMessage, setShowSuccessMessage] = useState(false);
+  const [showSavingMessage, setShowSavingMessage] = useState(false);
   const [valueOnFocus, setValueOnFocus] = useState("");
   const {
     userName,
@@ -30,10 +30,11 @@ export default function EditForm() {
   const handleBlur = (e) => {
     const valueOnBlur = e.target.value;
     if (valueOnFocus !== valueOnBlur) {
-      setShowSuccessMessage(true);
+      setShowSavingMessage(true);
       setTimeout(() => {
-        setShowSuccessMessage(false);
-      }, 2000);
+        setShowSavingMessage(false);
+      }
+      , 2000);
     }
   };
 
@@ -45,7 +46,7 @@ export default function EditForm() {
       onBlur={handleBlur}
       onFocus={handleOnFocus}
       hintMessage={
-        showSuccessMessage ? <EditSavingMessage /> : <EditInfoMessage />
+        showSavingMessage ? <EditSavingMessage /> : <EditInfoMessage />
       }
     />
   );
