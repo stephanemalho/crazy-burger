@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import styled, { keyframes } from "styled-components";
+import styled from "styled-components";
 
 import { theme } from "../../../../../assets/theme";
 import { dots } from "../../../../../utils/dots";
@@ -27,19 +27,9 @@ function OnLoadMenu() {
   );
 }
 
-const dotAnimation = keyframes`
-  from {
-    opacity: 0;
-  }
-
-  to {
-    opacity: 1;
-  }
-`;
-
 const DotAnimation = styled.span`
   width: 100px;
-  animation: ${dotAnimation} 1s ease-in-out infinite;
+  animation: 1s ease-in-out infinite;
 `;
 
 const OnLoadMenuStyled = styled.div`

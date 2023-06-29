@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useRef, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 
@@ -9,7 +10,7 @@ import { useMenu } from "../../../hooks/useMenu";
 import { useBasket } from "../../../hooks/useBasket";
 import { findObjectById } from "../../../utils/arrays";
 import { OrderPageStyled } from "../../../styled";
-import { getProductsMenu } from "../../../api/products";
+import { getMenu } from "../../../api/products";
 
 function OrderPage() {
   // state
@@ -41,22 +42,14 @@ function OrderPage() {
     navigate("/");
   };
 
+  const initializeMenu = async () => { 
+    const menuReceived = await getMenu(userName); 
+    setMenu(menuReceived);
+  }
+
   useEffect(() => {
-    const fetchMenuData = async () => { // externaliser dans un fichier api
-      try {
-        const menuData = await getProductsMenu(userName);
-        if (menuData && menuData.menu) {
-          setMenu(menuData.menu);
-          localStorage.setItem("menu", JSON.stringify(menuData.menu));
-        } else {
-          console.warn("Menu data is missing or invalid.");
-        }
-      } catch (error) {
-        console.error("Error fetching menu data:", error);
-      }
-    };
-    fetchMenuData();
-  }, [userName, setMenu]);
+    initializeMenu();
+  }, []);
 
   useEffect(() => {
     const basketData = JSON.stringify(basket);

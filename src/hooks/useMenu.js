@@ -14,7 +14,12 @@ export const useMenu = () => {
     const menuCopy = deepClone(menu);
     const menuUpdated = [newProduct, ...menuCopy];
     setMenu(menuUpdated);
-    syncBothMenu(menuUpdated, name);
+    try {
+      syncBothMenu(menuUpdated, name);
+    }
+    catch (error) {
+      console.log(error);
+    }
   };
 
   const handleDeleteProduct = (currentProduct, userName) => {
@@ -23,7 +28,12 @@ export const useMenu = () => {
       (product) => product.id !== currentProduct
     );
     setMenu(productToDelete);
-    syncBothMenu(productToDelete, userName);
+    try {
+      syncBothMenu(productToDelete, userName);
+    }
+    catch (error) {
+      console.log(error);
+    }
   };
 
   const handleEditProduct = (currentProduct, userName) => {
@@ -33,13 +43,22 @@ export const useMenu = () => {
     );
     menuCopy[indexOfProductToEdit] = currentProduct;
     setMenu(menuCopy);
-    syncBothMenu(menuCopy, userName);
+    try {
+      syncBothMenu(menuCopy, userName);
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   const resetMenu = () => {
     setMenu(fakeMenu2);
     localStorage.setItem("menu", JSON.stringify(fakeMenu2));
-    syncBothMenu(fakeMenu2, userName);
+    try {
+      syncBothMenu(fakeMenu2, userName);
+    }
+    catch (error) {
+      console.log(error);
+    }
   };
 
   return {

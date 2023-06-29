@@ -2,15 +2,12 @@ import { doc, getDoc, setDoc } from "firebase/firestore";
 import { db } from "./firebase-config";
 import { fakeMenu1 } from "../fakeData/fakeMenu";
 
-export const getUser = async (name) => {
-  const userId = name;
-  const docRefToRetrieve = doc(db, "users", userId);
+export const getUser = async (id) => {
+  const docRefToRetrieve = doc(db, "users", id);
   const docSnap = await getDoc(docRefToRetrieve);
   if (docSnap.exists()) {
-    return docSnap.data(); // Retourne les données de l'utilisateur
-  } else {
-    console.log("No such document!");
-    return null; // Retourne null si l'utilisateur n'existe pas
+    const userReceived = docSnap.data();
+    return userReceived;
   }
 };
 
