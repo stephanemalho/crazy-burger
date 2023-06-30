@@ -1,63 +1,121 @@
-import React from "react";
+/* eslint-disable react-hooks/exhaustive-deps */
+import React, { useEffect, useRef, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import styled from "styled-components";
 
-
-import NavBar from "../../../components/items/navbar/NavBar";
-import MenuGrid from "../../items/MenuGrid";
-import { theme } from "../../../assets/theme";
+import NavBar from "./navbar/NavBar";
+import Main from "./main-content/Main";
+import OrderContext from "../../context/OrderContext";
+import { EMPTY_PRODUCT } from "../../../enums/product";
+import { useMenu } from "../../../hooks/useMenu";
+import { useBasket } from "../../../hooks/useBasket";
+import { findObjectById } from "../../../utils/arrays";
+import { OrderPageStyled } from "../../../styled";
+import { getMenu } from "../../../api/products";
+import { getLocalStorage } from "../../../utils/window";
 
 function OrderPage() {
+  // state
   const navigate = useNavigate();
   const { userName } = useParams();
+  const [isModeAdmin, setIsModeAdmin] = useState(false);
+  const [isCollapsed, setIsCollapsed] = useState(false);
+  const [isOnEditTab, setIsOnEditTab] = useState(false);
+  const [isOnAddTab, setIsOnAddTab] = useState(true);
+  const [currentTabSelected, setCurrentTabSelected] = useState("add"); // à changer en "add"
+  const [newProduct, setNewProduct] = useState(EMPTY_PRODUCT);
 
+  const { basket, setBasket, handleAddToBasket, handleDeleteBasketProduct } =
+    useBasket();
+
+  const [productSelected, setProductSelected] = useState(EMPTY_PRODUCT);
+  const titleEditRef = useRef();
+  const {
+    menu,
+    handleAddProduct,
+    handleDeleteProduct,
+    handleEditProduct,
+    resetMenu,
+    setMenu,
+  } = useMenu(userName); // custom hook
+
+  // comportements
   const handleLogin = (e) => {
     e.preventDefault();
     navigate("/");
+    console.log("login name",userName);
   };
 
+  const initializeMenu = async () => {
+    const menuReceived = await getMenu(userName);
+    setMenu(menuReceived);
+    console.log("menu on mounting", menuReceived);
+  };
+
+  const initializeBasket = () => {
+    const basketReceived = getLocalStorage(userName);
+    console.log("basketReceived", basketReceived);
+    if (basketReceived) setBasket(basketReceived);
+  };
+
+  const initialazeUserSession = async () => {
+    await initializeMenu();
+    initializeBasket();
+    console.log("basket both session", basket);
+  };
+
+  useEffect(() => {
+    initialazeUserSession();
+  }, []);
+
+  const handleProductSelected = async (productSelectedId) => {
+    const productSelected = findObjectById(productSelectedId, menu);
+    await setIsCollapsed(false);
+    await setCurrentTabSelected("edit");
+    await setProductSelected(productSelected);
+    titleEditRef.current.focus();
+  };
+
+  // context
+  const orderContextValue = {
+    userName,
+    isModeAdmin,
+    setIsModeAdmin,
+    isCollapsed,
+    setIsCollapsed,
+    isOnEditTab,
+    setIsOnEditTab,
+    isOnAddTab,
+    setIsOnAddTab,
+    currentTabSelected,
+    setCurrentTabSelected,
+    menu,
+    setMenu,
+    handleAddProduct,
+    handleDeleteProduct,
+    resetMenu,
+    newProduct,
+    setNewProduct,
+    productSelected,
+    setProductSelected,
+    handleEditProduct,
+    titleEditRef,
+    basket,
+    handleAddToBasket,
+    handleDeleteBasketProduct,
+    handleProductSelected,
+  };
+
+  // affichage
   return (
-    <OrderPageStyled>
-      <main>
-        <NavBar userName={userName} handleLogin={handleLogin} />
-        <MenuGrid />
-      </main>
-    </OrderPageStyled>
+    <OrderContext.Provider value={orderContextValue}>
+      <OrderPageStyled>
+        <div className="gbl-container">
+          <NavBar userName={userName} handleLogin={handleLogin} />
+          <Main />
+        </div>
+      </OrderPageStyled>
+    </OrderContext.Provider>
   );
 }
-
-const OrderPageStyled = styled.div`
-  background-color: ${theme.colors.primary_burger};
-  height: 100vh;
-  width: 100vw;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  margin: auto;
-  z-index: 1;
-  main {
-    position: relative;
-    background-color: #fff;
-    display: flex;
-    flex-direction: column;
-    align-content: center;
-    margin: 0 auto;
-    height: 96%;
-    width: 96%;
-    border-radius: 10px;
-    box-shadow: 0px 0px 16px 0px grey inset;
-    z-index: 1;
-    overflow: hidden; 
-  }
-
-    @media screen and (min-width: 2000px) {
-        main {
-          max-width: 2000px;
-          display: flex;
-          flex-direction: column;
-          align-content: center;
-        }
-    }
-`;
 
 export default OrderPage;
