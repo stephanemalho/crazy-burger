@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { deepClone } from "../utils/arrays";
-import { fakeMenu1 } from "../fakeData/fakeMenu";
+import { fakeMenu } from "../fakeData/fakeMenu";
 import { syncBothMenu } from "../api/products";
 
 export const useMenu = () => {
@@ -47,8 +47,8 @@ export const useMenu = () => {
   };
 
   const resetMenu = (userName) => {
-    setMenu(fakeMenu1);
-    syncBothMenu(fakeMenu1, userName);
+    setMenu(fakeMenu.LARGE);
+    syncBothMenu(fakeMenu.LARGE, userName);
   };
 
   return {

@@ -17,7 +17,7 @@ const LoginForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    authenticateUser(username);
+    await authenticateUser(username);
     setUsername("");
     navigate(`order/${username}`);
   };
