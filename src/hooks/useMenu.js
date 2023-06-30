@@ -4,7 +4,7 @@ import { fakeMenu } from "../fakeData/fakeMenu";
 import { syncBothMenu } from "../api/products";
 
 export const useMenu = () => {
-  const [menu, setMenu] = useState([]);
+  const [menu, setMenu] = useState();
 
   const handleAddProduct = async (newProduct, name) => {
     const menuCopy = await deepClone(menu);

@@ -9,7 +9,7 @@ import OnLoad from "../../../../loader/OnLoad";
 
 export default function Basket() {
   const { basket, menu } = useContext(OrderContext);
-  if ( !menu )
+  if ( menu === undefined )
     return (
       <BasketStyled>
         <TotalHeader />

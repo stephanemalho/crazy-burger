@@ -43,7 +43,7 @@ function Menu() {
 
   console.log("menu on mounting" ,menu);
 
-  if (!menu) return <OnLoad label={"Chargement du menu"} />;
+  if (menu === undefined) return <OnLoad label={"Chargement du menu"} />;
   if (isEmpty(menu)) {
     if (isModeAdmin)
       return (
