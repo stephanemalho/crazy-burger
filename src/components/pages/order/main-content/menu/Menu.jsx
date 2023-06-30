@@ -25,18 +25,20 @@ function Menu() {
     handleDeleteBasketProduct,
     handleProductSelected,
   } = useContext(OrderContext);
-  
+
   const handleProductDelete = (event, idProductToDelete) => {
     event.stopPropagation();
     handleDeleteProduct(idProductToDelete, userName);
     handleDeleteBasketProduct(idProductToDelete, userName);
     idProductToDelete === productSelected.id &&
-      setProductSelected(EMPTY_PRODUCT);
+    setProductSelected(EMPTY_PRODUCT);
+    console.log("basket after delete", userName);
   };
 
-  const handleAddProducts = (event, idProductToAdd) => {
+  const handleAddProducts = async (event, idProductToAdd) => {
     event.stopPropagation();
-    handleAddToBasket(idProductToAdd, userName);
+    await handleAddToBasket(idProductToAdd, userName);
+    console.log("basket after add", userName);
   };
 
   console.log("menu on mounting" ,menu);

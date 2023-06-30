@@ -1,10 +1,10 @@
 import { useState } from "react";
 import { deepClone } from "../utils/arrays";
-import { fakeMenu2 } from "../fakeData/fakeMenu";
+import { fakeMenu1 } from "../fakeData/fakeMenu";
 import { syncBothMenu } from "../api/products";
 
 export const useMenu = () => {
-  const [menu, setMenu] = useState();
+  const [menu, setMenu] = useState([]);
 
   const handleAddProduct = async (newProduct, name) => {
     const menuCopy = await deepClone(menu);
@@ -47,8 +47,8 @@ export const useMenu = () => {
   };
 
   const resetMenu = (userName) => {
-    setMenu(fakeMenu2);
-    syncBothMenu(fakeMenu2, userName);
+    setMenu(fakeMenu1);
+    syncBothMenu(fakeMenu1, userName);
   };
 
   return {

@@ -1,6 +1,6 @@
 import { doc, getDoc, setDoc } from "firebase/firestore";
 import { db } from "./firebase-config";
-import { fakeMenu2 } from "../fakeData/fakeMenu";
+import { fakeMenu1 } from "../fakeData/fakeMenu";
 
 export const getUser = async (id) => {
   const docRefToRetrieve = doc(db, "users", id);
@@ -16,7 +16,7 @@ export const createUser = (userId) => {
     localStorage.clear();
     const userInfo = {
       username: userId,
-      menu: fakeMenu2,
+      menu: fakeMenu1,
     };
     setDoc(doc(db, "users", userId ), userInfo);
     localStorage.setItem("user", JSON.stringify(userInfo));
