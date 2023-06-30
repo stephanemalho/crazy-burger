@@ -24,7 +24,8 @@ function OrderPage() {
   const [currentTabSelected, setCurrentTabSelected] = useState("add"); // à changer en "add"
   const [newProduct, setNewProduct] = useState(EMPTY_PRODUCT);
 
-  const { basket, setBasket, handleAddToBasket, handleDeleteBasketProduct } = useBasket();
+  const { basket, setBasket, handleAddToBasket, handleDeleteBasketProduct } =
+    useBasket();
 
   const [productSelected, setProductSelected] = useState(EMPTY_PRODUCT);
   const titleEditRef = useRef();
@@ -43,27 +44,25 @@ function OrderPage() {
     navigate("/");
   };
 
-  const initializeMenu = async () => { 
-    const menuReceived = await getMenu(userName); 
+  const initializeMenu = async () => {
+    const menuReceived = await getMenu(userName);
     setMenu(menuReceived);
-  }
-
-  const initializeBasket = () => {
-    const basketReceived = getLocalStorage(userName)
-    if (basketReceived)
-    setBasket(basketReceived);
+    console.log("menu on mounting", menuReceived);
   };
 
-  const initialazeArray = async () => {
+  const initializeBasket = () => {
+    const basketReceived = getLocalStorage(userName);
+    if (basketReceived) setBasket(basketReceived);
+  };
+
+  const initialazeUserSession = async () => {
     await initializeMenu();
     initializeBasket();
-  }
+  };
 
-useEffect(() => {
-  initialazeArray();
-}, []);
-
-
+  useEffect(() => {
+    initialazeUserSession();
+  }, []);
 
   const handleProductSelected = async (productSelectedId) => {
     const productSelected = findObjectById(productSelectedId, menu);

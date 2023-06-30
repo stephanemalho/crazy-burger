@@ -1,17 +1,13 @@
 import { doc, getDoc, setDoc } from "firebase/firestore";
 import { db } from "./firebase-config";
 
-export const syncBothMenu = async (newMenu, name) => {
+export const syncBothMenu = (name ,menuUpdated) => {
+  const docRef = doc(db, "users", name);
   const userInfo = {
     username: name,
-    menu: newMenu,
+    menu: menuUpdated
   };
-  try {
-    const docRef = doc(db, "users", name);
-    await setDoc(docRef, userInfo);
-  } catch (error) {
-    console.error(error);
-  }
+    setDoc(docRef, userInfo);
 };
 
 export const getMenu = async (id) => {

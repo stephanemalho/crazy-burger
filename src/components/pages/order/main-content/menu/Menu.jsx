@@ -3,7 +3,6 @@ import React, { useContext } from "react";
 import OrderContext from "../../../../context/OrderContext";
 import EmptyMenuAdmin from "./EmptyMenuAdmin";
 import EmptyMenuClient from "./EmptyMenuClient";
-
 import OnLoad from "../../../../loader/OnLoad";
 import Card from "../../../../reusableUI/Card";
 import { formatPrice } from "../../../../../utils/maths";
@@ -16,6 +15,7 @@ import { MenuGridStyled } from "../../../../../styled";
 function Menu() {
   const {
     menu,
+    userName,
     isModeAdmin,
     handleDeleteProduct,
     handleAddToBasket,
@@ -25,9 +25,7 @@ function Menu() {
     handleDeleteBasketProduct,
     handleProductSelected,
   } = useContext(OrderContext);
-
-  const userName = window.location.pathname.split("/").pop();
-
+  
   const handleProductDelete = (event, idProductToDelete) => {
     event.stopPropagation();
     handleDeleteProduct(idProductToDelete, userName);
@@ -36,18 +34,23 @@ function Menu() {
       setProductSelected(EMPTY_PRODUCT);
   };
 
-  const handleAddProducts = async (event, idProductToAdd) => {
+  const handleAddProducts = (event, idProductToAdd) => {
     event.stopPropagation();
-    await handleAddToBasket(idProductToAdd, userName);
-
-    console.log("idProductToAdd", idProductToAdd);
+    handleAddToBasket(idProductToAdd, userName);
   };
 
-  if ( !menu ) return <OnLoad label={"Chargement du menu"} />;
+  console.log("menu on mounting" ,menu);
+
+  if (!menu) return <OnLoad label={"Chargement du menu"} />;
   if (isEmpty(menu)) {
-    if (isModeAdmin) return <EmptyMenuAdmin   onReset={() => {
-      resetMenu(userName);
-    }}/>;
+    if (isModeAdmin)
+      return (
+        <EmptyMenuAdmin
+          onReset={() => {
+            resetMenu(userName);
+          }}
+        />
+      );
     return <EmptyMenuClient />;
   }
   return (

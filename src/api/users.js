@@ -9,20 +9,24 @@ export const getUser = async (id) => {
     const userReceived = docSnap.data();
     return userReceived;
   }
+  return null;
 };
 
-export const createUser = async (userId) => {
+export const createUser = (userId) => {
     localStorage.clear();
     const userInfo = {
       username: userId,
       menu: fakeMenu1,
     };
     setDoc(doc(db, "users", userId ), userInfo);
+    localStorage.setItem("user", JSON.stringify(userInfo));
+    console.log("user created");
+    console.log(userInfo);
 };
 
 export const authenticateUser = async (userId) => {
   const existingUser = await getUser(userId);
     if (!existingUser) {
-      await createUser(userId);
+      createUser(userId);
     }
   };

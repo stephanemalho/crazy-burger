@@ -6,8 +6,8 @@ import { syncBothMenu } from "../api/products";
 export const useMenu = () => {
   const [menu, setMenu] = useState();
 
-  const handleAddProduct = (newProduct, name) => {
-    const menuCopy = deepClone(menu);
+  const handleAddProduct = async (newProduct, name) => {
+    const menuCopy = await deepClone(menu);
     const menuUpdated = [newProduct, ...menuCopy];
     setMenu(menuUpdated);
     try {
