@@ -1,10 +1,10 @@
 import React, { useContext } from "react";
 
 import BasketCard from "./BasketCard";
-import { BasketProductsStyled } from "../../../../../styled";
-import OrderContext from "../../../../context/OrderContext";
-import { findObjectById } from "../../../../../utils/arrays";
-import { checkIsProductSelected } from "../menu/helper";
+import { BasketProductsStyled } from "../../../../../../../styled";
+import OrderContext from "../../../../../../context/OrderContext";
+import { findObjectById } from "../../../../../../../utils/arrays";
+import { checkIsProductSelected } from "../../../menu/helper";
 import { CSSTransition } from "react-transition-group";
 
 function BasketProducts({ defaultImage }) {
@@ -28,11 +28,11 @@ function BasketProducts({ defaultImage }) {
       {basket.map((basketProduct) => {
         const menuProduct = findObjectById(basketProduct.id, menu);
         return (
-          <CSSTransition 
-          classNames="basket-card-transition"
-          timeout={500}
-          key={menuProduct.id}
-          appear={true}
+          <CSSTransition
+            classNames="basket-card-transition"
+            timeout={500}
+            key={menuProduct.id}
+            appear={true}
           >
             <BasketCard
               {...menuProduct}

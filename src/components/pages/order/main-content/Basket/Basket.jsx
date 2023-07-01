@@ -1,7 +1,7 @@
-import TotalHeader from "./TotalHeader";
+import BasketHeader from "./BasketHeader/BasketHeader";
 
-import BasketBody from "./BasketBody";
-import Footer from "./Footer";
+import BasketBody from "./BasketBody/BasketBody";
+import BasketFooter from "./BasketFooter/BasketFooter";
 import { useContext } from "react";
 import OrderContext from "../../../../context/OrderContext";
 import { BasketStyled } from "../../../../../styled";
@@ -9,19 +9,19 @@ import OnLoad from "../../../../loader/OnLoad";
 
 export default function Basket() {
   const { basket, menu } = useContext(OrderContext);
-  if ( menu === undefined )
+  if (!menu === undefined)
     return (
       <BasketStyled>
-        <TotalHeader />
+        <BasketHeader />
         <OnLoad label={"Chargement du panier"} />
-        <Footer />
+        <BasketFooter />
       </BasketStyled>
     );
   return (
     <BasketStyled>
-      <TotalHeader />
-      <BasketBody basket={basket}/>
-      <Footer />
+      <BasketHeader />
+      <BasketBody basket={basket} />
+      <BasketFooter />
     </BasketStyled>
   );
 }

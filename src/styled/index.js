@@ -3,6 +3,7 @@ import AdminStyled from "./adminStyled/adminStyled.js";
 import AdminTabsStyled from "./adminStyled/adminTabsStyled.js";
 import BasketBodyStyled from "./basketStyled/basketBodyStyled.js";
 import BasketCardStyled from "./basketStyled/basketCardStyled.js";
+import BasketHeaderStyled from "./basketStyled/BasketHeaderStyled.js";
 import BasketProductsStyled from "./basketStyled/basketProductsStyled.js";
 import BasketStyled from "./basketStyled/basketStyled.js";
 import EditInfoMessageStyled from "./messageStyled/editInfoMessageStyled.js";
@@ -23,7 +24,6 @@ import OnLoadStyled from "./loaderStyled/onloadStyled.js";
 import OrderPageStyled from "./containerStyled/orderPageStyled.js";
 import SucessBoxStyled from "./uiElementStyled/sucessBoxStyled.js";
 import SucessMessageStyled from "./messageStyled/sucessMessageStyled.js";
-import TotalStyled from "./uiElementStyled/totalStyled.js";
 import UserProfileStyled from "./uiElementStyled/userProfileStyled.js";
 
 export {
@@ -32,6 +32,7 @@ export {
   AdminTabsStyled,
   BasketBodyStyled,
   BasketCardStyled,
+  BasketHeaderStyled,
   BasketProductsStyled,
   BasketStyled,
   EditInfoMessageStyled,
@@ -52,6 +53,5 @@ export {
   OrderPageStyled,
   SucessBoxStyled,
   SucessMessageStyled,
-  TotalStyled,
   UserProfileStyled,
 };

@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { theme } from "../../assets/theme";
 
-const TotalStyled = styled.div`
+const BasketHeaderStyled = styled.div`
   height: 100%;
   display: flex;
   justify-content: space-between;
@@ -13,4 +13,4 @@ const TotalStyled = styled.div`
   letter-spacing: 2px;
 `;
 
-export default TotalStyled;
+export default BasketHeaderStyled;

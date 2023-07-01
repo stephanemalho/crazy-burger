@@ -1,6 +1,6 @@
-import { FooterStyled } from "../../../../../styled";
+import { FooterStyled } from "../../../../../../styled";
 
-export default function Footer() {
+export default function BasketFooter() {
   return (
     <FooterStyled>
       <span>Codé avec ❤️ et React.JS</span>
