@@ -8,7 +8,6 @@ export default function BasketCard({title ,price , quantity, defaultImage, onDel
 
   return (
           <BasketCardStyled  
-            key={title} 
             isClickable={isClickable} 
             onClick={onClick} 
             isSelected={isSelected}
