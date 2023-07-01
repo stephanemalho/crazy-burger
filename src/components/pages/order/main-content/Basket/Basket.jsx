@@ -5,15 +5,15 @@ import BasketFooter from "./BasketFooter/BasketFooter";
 import { useContext } from "react";
 import OrderContext from "../../../../context/OrderContext";
 import { BasketStyled } from "../../../../../styled";
-import OnLoad from "../../../../loader/OnLoad";
+import OnLoadBasketBody from "../../../../loader/OnLoad";
 
 export default function Basket() {
   const { basket, menu } = useContext(OrderContext);
-  if (!menu === undefined)
+  if (menu === undefined)
     return (
       <BasketStyled>
         <BasketHeader />
-        <OnLoad label={"Chargement du panier"} />
+        <OnLoadBasketBody label={"Chargement du panier"} />
         <BasketFooter />
       </BasketStyled>
     );
