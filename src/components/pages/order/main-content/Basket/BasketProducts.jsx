@@ -5,6 +5,7 @@ import { BasketProductsStyled } from "../../../../../styled";
 import OrderContext from "../../../../context/OrderContext";
 import { findObjectById } from "../../../../../utils/arrays";
 import { checkIsProductSelected } from "../menu/helper";
+import { CSSTransition } from "react-transition-group";
 
 function BasketProducts({ defaultImage }) {
   const {
@@ -27,9 +28,14 @@ function BasketProducts({ defaultImage }) {
       {basket.map((basketProduct) => {
         const menuProduct = findObjectById(basketProduct.id, menu);
         return (
+          <CSSTransition 
+          classNames="basket-card-transition"
+          timeout={500}
+          key={menuProduct.id}
+          appear={true}
+          >
             <BasketCard
               {...menuProduct}
-              key={menuProduct.id}
               quantity={basketProduct.quantity}
               onDelete={(event) => handleDelete(event, menuProduct.id)}
               defaultImage={defaultImage}
@@ -42,6 +48,7 @@ function BasketProducts({ defaultImage }) {
                 isModeAdmin ? () => handleProductSelected(menuProduct.id) : null
               }
             />
+          </CSSTransition>
         );
       })}
     </BasketProductsStyled>

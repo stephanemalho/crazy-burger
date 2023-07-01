@@ -1,14 +1,8 @@
 import styled, { css } from "styled-components";
-import { CSSTransition } from "react-transition-group";
 
 import { theme } from "../../assets/theme";
 
-const BasketCardStyled = styled(CSSTransition).attrs({
-  classNames: "basket-card-transition",
-  timeout: 500,
-  appear: true,
-  })
-  `
+const BasketCardStyled = styled.figure`
   cursor: ${({ isClickable }) => (isClickable ? "pointer" : "default")};
   position: relative;
   display: flex;
