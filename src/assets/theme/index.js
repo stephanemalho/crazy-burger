@@ -21,7 +21,7 @@ const animations = {
   },
   slideOutRight: {
     from: { transform: "translateX(0)" },
-    to: { transform: "translateX(100%)" },
+    to: { transform: "translateX(+100%)" },
   },
   slideOutLeft: {
     from: { transform: "translateX(0)" },

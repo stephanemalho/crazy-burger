@@ -1,21 +1,22 @@
 import { css } from "styled-components";
+import { theme } from "../../../assets/theme";
 
 export const casinoEffectRTG = css`
 .casino-effect-enter {
-    transform: translateY(100%);
+    ${theme.animations.slideInBottom.from};
   }
   .casino-effect-enter-active {
-    transform: translateY(0%);
-    transition: 300ms;
+    ${theme.animations.slideInBottom.to};
+    ${theme.animations.transition.fast};
   }
   .casino-effect-exit {
-    transform: translateY(0%);
+    ${theme.animations.slideOutTop.from};
     position: absolute;
     bottom: 0;
     right: 0;
   }
   .casino-effect-exit-active {
-    transform: translateY(-100%);
-    transition: 300ms;
+    ${theme.animations.slideOutTop.to};
+    ${theme.animations.transition.fast};
   }
   `;
