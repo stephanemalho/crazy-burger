@@ -11,6 +11,7 @@ import { EMPTY_PRODUCT } from "../../../../../enums/product";
 import { isEmpty } from "../../../../../utils/arrays";
 import { defaultImage } from "../../../../../assets/images";
 import { MenuGridStyled } from "../../../../../styled";
+import { CSSTransition, TransitionGroup } from "react-transition-group";
 
 function Menu() {
   const {
@@ -31,7 +32,7 @@ function Menu() {
     handleDeleteProduct(idProductToDelete, userName);
     handleDeleteBasketProduct(idProductToDelete, userName);
     idProductToDelete === productSelected.id &&
-    setProductSelected(EMPTY_PRODUCT);
+      setProductSelected(EMPTY_PRODUCT);
     console.log("basket after delete", userName);
   };
 
@@ -41,7 +42,7 @@ function Menu() {
     console.log("basket after add", userName);
   };
 
-  console.log("menu on mounting" ,menu);
+  console.log("menu on mounting", menu);
 
   if (menu === undefined) return <OnLoad label={"Chargement du menu"} />;
   if (isEmpty(menu)) {
@@ -57,22 +58,24 @@ function Menu() {
   }
   return (
     <MenuGridStyled>
-      <div className="products-container">
+      <TransitionGroup className="products-container">
         {menu.map(({ title, id, imageSource, price }) => (
-          <Card
-            key={id}
-            title={title}
-            imageSource={imageSource === "" ? defaultImage : imageSource}
-            leftDescription={formatPrice(price)}
-            hasDeleteButton={isModeAdmin}
-            onDelete={(event) => handleProductDelete(event, id)}
-            onClick={isModeAdmin ? () => handleProductSelected(id) : null}
-            isHoverable={isModeAdmin}
-            isSelected={checkIsProductSelected(id, productSelected.id)}
-            onAdd={(event) => handleAddProducts(event, id)}
-          />
+          <CSSTransition key={id} timeout={300} classNames="card-animation-rtg">
+            <Card
+              key={id}
+              title={title}
+              imageSource={imageSource === "" ? defaultImage : imageSource}
+              leftDescription={formatPrice(price)}
+              hasDeleteButton={isModeAdmin}
+              onDelete={(event) => handleProductDelete(event, id)}
+              onClick={isModeAdmin ? () => handleProductSelected(id) : null}
+              isHoverable={isModeAdmin}
+              isSelected={checkIsProductSelected(id, productSelected.id)}
+              onAdd={(event) => handleAddProducts(event, id)}
+            />
+          </CSSTransition>
         ))}
-      </div>
+      </TransitionGroup>
     </MenuGridStyled>
   );
 }

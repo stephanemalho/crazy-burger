@@ -1,5 +1,6 @@
-import styled from "styled-components";
+import styled from "styled-components/macro";
 import { theme } from "../../assets/theme";
+import { CardAnimationRTG } from "../animations/rtg-animations/menuRTG/card/card-animation";
 
 const MenuGridStyled = styled.section`
   position: relative;
@@ -9,6 +10,7 @@ const MenuGridStyled = styled.section`
   z-index: 1;
   overflow-x: hidden;
   width: 100%;
+  min-height: 90vh;
   .products-container {
     background: ${theme.colors.background_white};
     box-shadow: ${theme.shadows.strong};
@@ -21,6 +23,7 @@ const MenuGridStyled = styled.section`
     grid-column-gap: 20px;
     grid-row-gap: 0px;
     z-index: -1;
+    ${CardAnimationRTG}
   }
 `;
 
