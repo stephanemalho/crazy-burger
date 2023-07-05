@@ -1,8 +1,8 @@
 import { css } from "styled-components";
-import { theme } from "../../../assets/theme";
+import { theme } from "../../../../assets/theme";
 
-export const basketAnimationRTG= css`
-.basket-card-transition-appear {
+export const basketAnimationRTG = css`
+  .basket-card-transition-appear {
     ${theme.animations.slideInRight.from};
     ${theme.animations.fadeIn.from};
   }
@@ -20,7 +20,7 @@ export const basketAnimationRTG= css`
     ${theme.animations.slideInRight.to};
     ${theme.animations.fadeIn.to};
   }
-  
+
   .basket-card-transition-exit {
     ${theme.animations.fadeOut.from};
   }
@@ -29,4 +29,4 @@ export const basketAnimationRTG= css`
     ${theme.animations.fadeOut.to};
     ${theme.animations.slideOutLeft.to};
   }
-  `;
+`;

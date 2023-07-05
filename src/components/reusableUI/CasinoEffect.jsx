@@ -1,7 +1,7 @@
 import React from "react";
 import { CSSTransition, TransitionGroup } from "react-transition-group";
 import styled from "styled-components";
-import { casinoEffectRTG } from "../../styled/rtg-animations/basketRTG/casinoEffectRTG";
+import { casinoEffectRTG } from "../../styled/animations/rtg-animations/basketRTG/casinoEffectRTG";
 
 const CasinoEffect = ({ count }) => {
   return (

@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { theme } from "../../assets/theme";
 import { TransitionGroup } from "react-transition-group";
-import { basketAnimationRTG } from "../rtg-animations/basketRTG/basketProductRTG";
+import { basketAnimationRTG } from "../animations/rtg-animations/basketRTG/basketProductRTG";
 
 const BasketProductsStyled = styled(TransitionGroup)`
   display: flex;

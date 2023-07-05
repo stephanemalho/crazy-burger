@@ -1,5 +1,5 @@
 import { css } from "styled-components";
-import { theme } from "../../../assets/theme";
+import { theme } from "../../../../assets/theme";
 
 export const casinoEffectRTG = css`
 .casino-effect-enter {

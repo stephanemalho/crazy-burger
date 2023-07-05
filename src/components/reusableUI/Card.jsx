@@ -3,6 +3,7 @@ import styled, { css } from "styled-components";
 import { theme } from "../../assets/theme";
 import MainButton from "./MainButton";
 import { TiDelete } from "react-icons/ti";
+import { fadeInFromRight } from "../../styled/animations/globalAnimations";
 
 export default function Card({
   imageSource,
@@ -15,7 +16,6 @@ export default function Card({
   isSelected,
   onAdd,
 }) {
-
   return (
     <CardStyled
       onClick={onClick}
@@ -77,6 +77,8 @@ const CardStyled = styled.figure`
       background: none;
       padding: 0;
       z-index: 2;
+      animation: ${fadeInFromRight} ${theme.animations.timeSpeed.fast}
+        ease-in-out;
       cursor: pointer;
       .icon {
         height: 100%;

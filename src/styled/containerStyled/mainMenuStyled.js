@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { menuRTG } from "../rtg-animations/mainMenuRTG";
+import { menuRTG } from "../animations/rtg-animations/menuRTG/mainMenuRTG";
 
 const MainMenuStyled = styled.div`
   height: calc(95vh - 10vh);
