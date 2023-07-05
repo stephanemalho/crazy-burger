@@ -2,11 +2,12 @@ import React from "react";
 import styled from "styled-components";
 
 import { theme } from "../../assets/theme/index";
+import { crazeeBurger } from "../../utils/variables";
 
 function Logo({ props, className, onClick }) {
   return (
     <StyledLogo onClick={onClick} className={className}>
-      Crazee {props} Burger
+      {crazeeBurger.crazy}{props}{crazeeBurger.burger}
     </StyledLogo>
   );
 }

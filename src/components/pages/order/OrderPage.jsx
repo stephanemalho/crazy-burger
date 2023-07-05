@@ -42,25 +42,21 @@ function OrderPage() {
   const handleLogin = (e) => {
     e.preventDefault();
     navigate("/");
-    console.log("login name",userName);
   };
 
   const initializeMenu = async () => {
     const menuReceived = await getMenu(userName);
     setMenu(menuReceived);
-    console.log("menu on mounting", menuReceived);
   };
 
   const initializeBasket = () => {
     const basketReceived = getLocalStorage(userName);
-    console.log("basketReceived", basketReceived);
     if (basketReceived) setBasket(basketReceived);
   };
 
   const initialazeUserSession = async () => {
     await initializeMenu();
     initializeBasket();
-    console.log("basket both session", basket);
   };
 
   useEffect(() => {

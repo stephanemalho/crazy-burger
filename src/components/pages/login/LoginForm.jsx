@@ -8,6 +8,7 @@ import MainButton from "../../reusableUI/MainButton";
 import TextInput from "../../reusableUI/TextInput";
 import { authenticateUser } from "../../../api/users";
 import { LoginFormStyled } from "../../../styled";
+import { loginMessage } from "../../../utils/variables";
 
 const LoginForm = () => {
   const [username, setUsername] = useState("");
@@ -40,14 +41,14 @@ const LoginForm = () => {
           Icon={<BsPersonCircle className="Icon" />}
           onChange={handleChange}
           value={username}
-          placeholder={"Entrez votre prénom"}
+          placeholder={loginMessage.firstName}
           required
           version="login"
         />
       </label>
       <MainButton
         className={"btnIcon"}
-        label={"Accéder à mon espace"}
+        label={loginMessage.accesButton}
         ButtonIcon={<MdKeyboardArrowRight size={30} />}
       />
     </LoginFormStyled>

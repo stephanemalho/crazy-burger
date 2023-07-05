@@ -1,11 +1,12 @@
 import { HiCursorClick } from "react-icons/hi"
 
 import { HintMessageStyled } from "../../../../../../styled"
+import { editMessage } from "../../../../../../utils/variables"
 
 export default function HintMessage() {
   return (
     <HintMessageStyled>
-      <span className="hint">Cliquer sur un produit pour le modifier</span>
+      <span className="hint">{editMessage.toClick}</span>
       <HiCursorClick />
     </HintMessageStyled>
   )

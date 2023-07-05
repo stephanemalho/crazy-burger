@@ -1,5 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
+import { errorPage } from "../../../utils/variables";
 
 export default function Error() {
   const navigate = useNavigate();
@@ -11,10 +12,10 @@ export default function Error() {
 
   return (
     <>
-      <h1>Error Page </h1>
+      <h1>{errorPage.title}</h1>
       <br />
       <button onClick={redirectToLoginPage}>
-        Retourner à la page d'accueil
+        {errorPage.notFound}
       </button>
     </>
   );

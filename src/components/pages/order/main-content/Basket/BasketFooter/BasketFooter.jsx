@@ -1,9 +1,10 @@
 import { FooterStyled } from "../../../../../../styled";
+import { copyright } from "../../../../../../utils/variables";
 
 export default function BasketFooter() {
   return (
     <FooterStyled>
-      <span>Codé avec ❤️ et React.JS</span>
+      <span>{copyright.codedBy}</span>
     </FooterStyled>
   );
 }

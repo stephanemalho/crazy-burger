@@ -9,15 +9,15 @@ import UserProfile from "./Profile";
 import ToastAdmin from "./ToastAdmin";
 import OrderContext from "../../../context/OrderContext";
 import { NavBarStyled } from "../../../../styled";
+import { activedModeAdmin, activer, altLogo, desactiver, helloWorld, userInfoMessage } from "../../../../utils/variables";
 
 function NavBar({ userName, handleLogin }) {
   const { isModeAdmin, setIsModeAdmin } = useContext(OrderContext);
-  const activer = "ACTIVER LE MODE ADMIN";
-  const desactiver = "DESACTIVER LE MODE ADMIN";
+
 
   const displayNotification = () => {
     if (!isModeAdmin) {
-      toast.info("Mode admin activé", {
+      toast.info(activedModeAdmin, {
         theme: "dark",
         position: "bottom-right",
         autoClose: 5000,
@@ -34,7 +34,7 @@ function NavBar({ userName, handleLogin }) {
   return (
     <NavBarStyled>
       <Logo
-        props={<img src={logo} alt="dessin d'un burger" />}
+        props={<img src={logo} alt={altLogo} />}
         onClick={() => {
           window.location.reload();
         }}
@@ -48,8 +48,8 @@ function NavBar({ userName, handleLogin }) {
         onToggle={displayNotification}
       />
       <UserProfile
-        sayHi={"Hey,"}
-        label={"se deconnecter"}
+        sayHi={helloWorld}
+        label={userInfoMessage.disconnect}
         userName={userName}
         onClick={handleLogin}
         className={"userBox"}

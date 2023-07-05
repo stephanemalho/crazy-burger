@@ -1,1 +1,0 @@
-export const basketEmptyMessage = "Votre panier est vide";

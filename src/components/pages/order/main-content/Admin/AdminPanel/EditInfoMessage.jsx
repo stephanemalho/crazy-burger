@@ -1,11 +1,12 @@
 import React from "react";
 import { EditInfoMessageStyled } from "../../../../../../styled";
+import { editMessage } from "../../../../../../utils/variables";
 
 export default function EditInfoMessage() {
   return (
     <EditInfoMessageStyled>
-      Cliquer sur un produit pour le modifier{" "}
-      <span className="live-update"> en temps réel</span>
+      {editMessage.title}{" "}
+      <span className="live-update">{editMessage.adjective}</span>
     </EditInfoMessageStyled>
   );
 }

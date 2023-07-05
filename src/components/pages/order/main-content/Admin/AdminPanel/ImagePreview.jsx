@@ -1,5 +1,6 @@
 import React from "react";
 import { ImagePreviewStyled } from "../../../../../../styled";
+import { imageState } from "../../../../../../utils/variables";
 
 export default function ImagePreview({ title, imageSource}) {
 
@@ -10,7 +11,7 @@ export default function ImagePreview({ title, imageSource}) {
             <img src={imageSource} alt={title} />
           </div>
         ) : (
-          <div className="previews-box">Aucune image</div>
+          <div className="previews-box">{imageState.empty}</div>
         )}
       </ImagePreviewStyled>
   )

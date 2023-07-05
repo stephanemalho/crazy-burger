@@ -5,12 +5,13 @@ import Logo from "../../reusableUI/Logo";
 
 import { LoginPageStyled } from "../../../styled";
 import { logo } from "../../../assets/images";
+import { altLogo } from "../../../utils/variables";
 
 const LoginPage = () => {
   // render
   return (
     <LoginPageStyled>
-      <Logo props={<img src={logo} alt="dessin d'un burger" />} />
+      <Logo props={<img src={logo} alt={altLogo} />} />
       <LoginForm />
     </LoginPageStyled>
   );

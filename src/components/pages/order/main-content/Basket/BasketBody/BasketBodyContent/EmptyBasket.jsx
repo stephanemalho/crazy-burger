@@ -1,7 +1,7 @@
 import React from "react";
 
 import { EmptyBasketStyled } from "../../../../../../../styled";
-import { basketEmptyMessage } from "../../../../../../../utils/loaderData";
+import { basketEmptyMessage } from "../../../../../../../utils/variables";
 
 function EmptyBasket() {
   return (

@@ -12,6 +12,7 @@ import { isEmpty } from "../../../../../utils/arrays";
 import { defaultImage } from "../../../../../assets/images";
 import { MenuGridStyled } from "../../../../../styled";
 import { CSSTransition, TransitionGroup } from "react-transition-group";
+import { onLoadMenuMessage } from "../../../../../utils/variables";
 
 function Menu() {
   const {
@@ -33,18 +34,16 @@ function Menu() {
     handleDeleteBasketProduct(idProductToDelete, userName);
     idProductToDelete === productSelected.id &&
       setProductSelected(EMPTY_PRODUCT);
-    console.log("basket after delete", userName);
   };
 
   const handleAddProducts = async (event, idProductToAdd) => {
     event.stopPropagation();
     await handleAddToBasket(idProductToAdd, userName);
-    console.log("basket after add", userName);
   };
 
   console.log("menu on mounting", menu);
 
-  if (menu === undefined) return <OnLoad label={"Chargement du menu"} />;
+  if (menu === undefined) return <OnLoad label={onLoadMenuMessage} />;
   if (isEmpty(menu)) {
     if (isModeAdmin)
       return (
