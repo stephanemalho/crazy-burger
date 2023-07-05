@@ -1,6 +1,7 @@
 import React from "react";
 import { formatPrice } from "../../../../../../../utils/maths";
 import MainButton from "../../../../../../reusableUI/MainButton";
+import CasinoEffect from "../../../../../../reusableUI/CasinoEffect";
 import { MdDeleteForever } from "react-icons/md";
 import { BasketCardStyled } from "../../../../../../../styled";
 
@@ -32,7 +33,8 @@ export default function BasketCard({
         <h4 className="basket-item-title">{title}</h4>
         <span className="basket-item-price">{formatPrice(price)}</span>
       </div>
-      <span className="basket-item-quantity">x {quantity}</span>
+      {/* <span className="basket-item-quantity">x {quantity}</span> */}
+      <CasinoEffect className="basket-item-quantity" count={`x ${quantity}`} />
       <MainButton
         version="delete"
         className="delete"
