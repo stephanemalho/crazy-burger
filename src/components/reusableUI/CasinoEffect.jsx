@@ -1,6 +1,7 @@
 import React from "react";
 import { CSSTransition, TransitionGroup } from "react-transition-group";
 import styled from "styled-components";
+import { casinoEffectRTG } from "../../styled/rtg-animations/basketRTG/casinoEffectRTG";
 
 const CasinoEffect = ({ count }) => {
   return (
@@ -20,21 +21,5 @@ const CasinoEffectStyled = styled(TransitionGroup)`
   span {
     display: inline-block;
   }
-  .casino-effect-enter {
-    transform: translateY(100%);
-  }
-  .casino-effect-enter-active {
-    transform: translateY(0%);
-    transition: 300ms;
-  }
-  .casino-effect-exit {
-    transform: translateY(0%);
-    position: absolute;
-    bottom: 0;
-    right: 0;
-  }
-  .casino-effect-exit-active {
-    transform: translateY(-100%);
-    transition: 300ms;
-  }
+  ${casinoEffectRTG}
 `;

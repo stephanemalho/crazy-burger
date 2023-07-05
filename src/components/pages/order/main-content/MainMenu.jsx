@@ -5,6 +5,7 @@ import OrderContext from "../../../context/OrderContext";
 
 import Basket from "./Basket/Basket";
 import { MainMenuStyled } from "../../../../styled";
+import { CSSTransition, TransitionGroup } from "react-transition-group";
 
 export default function MainMenu() {
   const { isModeAdmin } = useContext(OrderContext);
@@ -14,7 +15,13 @@ export default function MainMenu() {
       <Basket />
       <div className="menu-and-admin">
         <Menu />
-        {isModeAdmin && <Admin />}
+        {isModeAdmin && (
+          <TransitionGroup classNames="transition-group">
+            <CSSTransition appear classNames="admin-rtg" timeout={600}>
+              <Admin />
+            </CSSTransition>
+          </TransitionGroup>
+        )}
       </div>
     </MainMenuStyled>
   );
