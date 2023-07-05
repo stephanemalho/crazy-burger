@@ -4,18 +4,18 @@ import { useContext } from "react";
 import OrderContext from "../../../context/OrderContext";
 
 import Basket from "./Basket/Basket";
-import { MainStyled } from "../../../../styled";
+import { MainMenuStyled } from "../../../../styled";
 
-export default function Main() {
+export default function MainMenu() {
   const { isModeAdmin } = useContext(OrderContext);
 
   return (
-    <MainStyled>
+    <MainMenuStyled>
       <Basket />
       <div className="menu-and-admin">
         <Menu />
         {isModeAdmin && <Admin />}
       </div>
-    </MainStyled>
+    </MainMenuStyled>
   );
 }

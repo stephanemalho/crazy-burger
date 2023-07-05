@@ -17,7 +17,7 @@ import HintMessageStyled from "./messageStyled/hintMessageStyled.js";
 import ImagePreviewStyled from "./uiElementStyled/imagePreviewStyled.js";
 import LoginFormStyled from "./loginStyled/loginFormStyled.js";
 import LoginPageStyled from "./loginStyled/loginPageStyled.js";
-import MainStyled from "./containerStyled/mainStyled.js";
+import MainMenuStyled from "./containerStyled/mainMenuStyled.js";
 import MenuGridStyled from "./menuStyled/menuGridStyled.js";
 import NavBarStyled from "./containerStyled/navBarStyled.js";
 import OnLoadStyled from "./loaderStyled/onloadStyled.js";
@@ -46,7 +46,7 @@ export {
   ImagePreviewStyled,
   LoginFormStyled,
   LoginPageStyled,
-  MainStyled,
+  MainMenuStyled,
   MenuGridStyled,
   NavBarStyled,
   OnLoadStyled,

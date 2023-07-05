@@ -3,7 +3,7 @@ import React, { useEffect, useRef, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 
 import NavBar from "./navbar/NavBar";
-import Main from "./main-content/Main";
+import MainMenu from "./main-content/MainMenu";
 import OrderContext from "../../context/OrderContext";
 import { EMPTY_PRODUCT } from "../../../enums/product";
 import { useMenu } from "../../../hooks/useMenu";
@@ -111,7 +111,7 @@ function OrderPage() {
       <OrderPageStyled>
         <div className="gbl-container">
           <NavBar userName={userName} handleLogin={handleLogin} />
-          <Main />
+          <MainMenu />
         </div>
       </OrderPageStyled>
     </OrderContext.Provider>
