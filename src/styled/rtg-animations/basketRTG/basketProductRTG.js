@@ -1,31 +1,32 @@
 import { css } from "styled-components";
+import { theme } from "../../../assets/theme";
 
 export const basketAnimationRTG= css`
 .basket-card-transition-appear {
-    transform: translateX(+120%);
-    opacity: 0%;
+    ${theme.animations.slideInRight.from};
+    ${theme.animations.fadeIn.from};
   }
   .basket-card-transition-appear-active {
-    transition: 0.5s;
-    transform: translateX(0%);
-    opacity: 100%;
+    ${theme.animations.transition.medium};
+    ${theme.animations.slideInRight.to};
+    ${theme.animations.fadeIn.to};
   }
   .basket-card-transition-enter {
-    transform: translateX(+120%);
-    opacity: 0%;
+    ${theme.animations.slideInRight.from};
+    ${theme.animations.fadeIn.from};
   }
   .basket-card-transition-enter-active {
-    transition: 0.5s;
-    transform: translateX(0%);
-    opacity: 100%;
+    ${theme.animations.transition.medium};
+    ${theme.animations.slideInRight.to};
+    ${theme.animations.fadeIn.to};
   }
   
   .basket-card-transition-exit {
-    opacity: 100%;
+    ${theme.animations.fadeOut.from};
   }
   .basket-card-transition-exit-active {
-    transition: 0.5s;
-    opacity: 0%;
-    transform: translateX(-100%);
+    ${theme.animations.transition.medium};
+    ${theme.animations.fadeOut.to};
+    ${theme.animations.slideOutLeft.to};
   }
   `;

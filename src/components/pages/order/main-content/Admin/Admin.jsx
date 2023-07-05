@@ -10,8 +10,8 @@ export default function Admin() {
 
   return (
     <AdminStyled className="admin">
-          <AdminTabs />
-          {!isCollapsed && <AdminPanel />}
+      <AdminTabs />
+      {!isCollapsed && <AdminPanel />}
     </AdminStyled>
   );
 }
