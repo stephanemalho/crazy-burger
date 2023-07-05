@@ -1,13 +1,14 @@
 import { css } from "styled-components";
+import { theme } from "../../assets/theme";
 
 export const menuRTG = css`
 .admin-rtg-appear {
-    opacity: 0;
-    transform: translateY(100%);
+    ${theme.animations.fadeIn.from};
+    ${theme.animations.slideInBottom.from};  
     &.admin-rtg-appear-active {
-      opacity: 1;
-      transform: translateY(0%);
-      transition: all 300ms ease-in;
+      ${theme.animations.fadeIn.to};
+      ${theme.animations.slideInBottom.to};
+      ${theme.animations.transition.all};
     }
   }
 `;

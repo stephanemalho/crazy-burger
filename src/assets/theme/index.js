@@ -60,6 +60,7 @@ const animations = {
     fast: {transition: "300ms"},
     medium: {transition: "500ms"},
     slow: {transition: "1s"},
+    all : {transition: "all 300ms ease-in"},
   }
 }
 
