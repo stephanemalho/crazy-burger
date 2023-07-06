@@ -36,8 +36,8 @@ export const loginMessage = {
   firstName: "Entrez votre prénom",
   accesButton : "Accédez à mon espace"
 };
-export const onLoadBasketMessage = "Chargement du panier...";
-export const onLoadMenuMessage = "Chargement du menu...";
+export const onLoadBasketMessage = "Chargement du panier ";
+export const onLoadMenuMessage = "Chargement du menu ";
 export const emptyMenuMessage = {
   title: "Le menu est vide ?",
   callToAction: "Cliquez ci-dessous pour le réinitialiser",
