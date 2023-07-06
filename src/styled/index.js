@@ -11,6 +11,8 @@ import EditSavingMessageStyled from "./messageStyled/editSavingMessageStyled.js"
 import EmptyBasketStyled from "./basketStyled/emptyBasketStyled.js";
 import EmptyMenuAdminStyled from "./menuStyled/emptyMenuAdminStyled.js";
 import EmptyMenuClientStyled from "./menuStyled/emptyMenuClientStyled.js";
+import ErrorPageStyled from "./errorPageStyled/errorPageStyled.jsx";
+import ErrorTitleStyled from "./errorPageStyled/errorPageHeaderStyled/errorPageHeaderStyled.jsx";
 import FooterStyled from "./containerStyled/footerStyled.js";
 import FormStyled from "./containerStyled/formStyled.js";
 import HintMessageStyled from "./messageStyled/hintMessageStyled.js";
@@ -40,6 +42,8 @@ export {
   EmptyBasketStyled,
   EmptyMenuAdminStyled,
   EmptyMenuClientStyled,
+  ErrorTitleStyled,
+  ErrorPageStyled,
   FooterStyled,
   FormStyled,
   HintMessageStyled,

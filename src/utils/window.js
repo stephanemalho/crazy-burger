@@ -8,3 +8,8 @@ export const getLocalStorage = (key) => {
   return JSON.parse(value)
 }
 
+export const redirectToLoginPage = (e, navigate) => {
+  e.preventDefault();
+  navigate("/");
+};
+

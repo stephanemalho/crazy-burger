@@ -24,7 +24,8 @@ export const editMessage = {
 }
 export const errorPage = {
   title : "Erreur 404",
-  notFound: "Page non trouvée",
+  description:'"Rien à voir avec la peugeot 404..."',
+  notFound: "Cliquer pour revenir à la page d'accueil",
 };
 export const formType = {
   add: "add",
