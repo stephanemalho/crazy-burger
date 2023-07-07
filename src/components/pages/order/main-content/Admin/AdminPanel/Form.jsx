@@ -23,6 +23,7 @@ const Form = React.forwardRef(
                 onFocus={onFocus}
                 version="admin"
                 ref={ref && input.name === "title" ? ref : null}
+                className={input.name}
               />
             );
           })}

@@ -3,9 +3,9 @@ import styled, { css } from "styled-components";
 
 import { theme } from "../../assets/theme/index";
 
-const TextInput = React.forwardRef(({ Icon, onChange, value, version="login", ...extraProps }, ref) => {
+const TextInput = React.forwardRef(({ className, Icon, onChange, value, version="login", ...extraProps }, ref) => {
   return (
-    <TextInputStyled version={version}>
+    <TextInputStyled version={version} className={className}>
       {Icon && Icon}
       <input ref={ref} type="text" onChange={onChange} value={value} {...extraProps}  />
     </TextInputStyled>
