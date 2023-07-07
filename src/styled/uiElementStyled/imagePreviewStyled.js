@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { theme } from "../../assets/theme";
+import { fadeIn } from "../animations/globalAnimations";
 
 // const previewAnimation = css`
 //   .preview-animation-enter {
@@ -51,6 +52,7 @@ const ImagePreviewStyled = styled("div")`
       width: 100px;
       height: 100px;
       object-fit: contain; 
+      animation: ${fadeIn} 0.5s ease-in-out;
     }
   }
 `;

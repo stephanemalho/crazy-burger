@@ -1,5 +1,13 @@
 import { keyframes } from "styled-components";
 
+export const fadeIn = keyframes`
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+`;
 export const fadeInFromRight = keyframes`
   from {
     position: absolute;
@@ -15,4 +23,5 @@ export const fadeInFromRight = keyframes`
     right: 13px;
   }
 `;
+
 
