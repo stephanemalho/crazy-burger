@@ -27,7 +27,15 @@ const Form = React.forwardRef(
               />
             );
           })}
-          {onSubmit ? submitButton : hintMessage}
+          <select name="isAvailable" className="is-available" id="3">
+            <option value={true}>En Stock</option>
+            <option value={false}>Épuisé</option>
+          </select>
+          <select name="isPublised" className="is-publised" id="3">
+            <option value={true}>Sans pub</option>
+            <option value={false}>Avec pub</option>
+          </select>
+          <div className="form-cta">{onSubmit ? submitButton : hintMessage}</div>
         </div>
       </FormStyled>
     );

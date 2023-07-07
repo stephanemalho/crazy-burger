@@ -5,7 +5,7 @@ const FormStyled = styled.form`
   display: grid;
   grid-template-columns: 1fr 3fr;
   grid-template-rows: repeat(4, 1fr);
-  height: 100%;
+  height: 36px;
   grid-column-gap: 20px;
   grid-row-gap: 8px;
 
@@ -18,6 +18,8 @@ const FormStyled = styled.form`
     grid-template-rows: repeat(4, 1fr);
     grid-template-columns: repeat(3, 1fr);
     grid-row-gap: 10px;
+    grid-column-gap: 10px;
+    width: 80%;
   }
   .title {
     grid-area: 1/1/2/4;
@@ -27,7 +29,19 @@ const FormStyled = styled.form`
   }
   .price {
     grid-area: 3/1/-1/2;
-    background-color: yellow;
+  }
+  .form-cta {
+    margin-top: 20px;
+    grid-area: 4/1/-1/4;
+  }
+  .is-available {
+    grid-area: 3/2/4/3;
+    height: 36px;
+    background-color:pink;
+  }
+  .is-publised {
+    grid-area: 3/3/4/4;
+    background-color: wheat;
   }
 `;
 

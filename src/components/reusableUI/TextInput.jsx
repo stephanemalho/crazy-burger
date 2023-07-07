@@ -56,7 +56,7 @@ const extraStyleNormal = css`
   color: ${theme.colors.greySemiDark};
   height: 0;
   margin: 0;
-  max-width: 80%;
+  /* max-width: 80%; */
 
   input {
     color: ${theme.colors.dark};
