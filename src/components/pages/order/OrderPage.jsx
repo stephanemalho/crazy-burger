@@ -12,6 +12,7 @@ import { findObjectById } from "../../../utils/arrays";
 import { OrderPageStyled } from "../../../styled";
 import { getMenu } from "../../../api/products";
 import { getLocalStorage } from "../../../utils/window";
+import { formType } from "../../../utils/variables";
 
 function OrderPage() {
   // state
@@ -21,7 +22,7 @@ function OrderPage() {
   const [isCollapsed, setIsCollapsed] = useState(false);
   const [isOnEditTab, setIsOnEditTab] = useState(false);
   const [isOnAddTab, setIsOnAddTab] = useState(true);
-  const [currentTabSelected, setCurrentTabSelected] = useState("add"); // à changer en "add"
+  const [currentTabSelected, setCurrentTabSelected] = useState(formType.add);
   const [newProduct, setNewProduct] = useState(EMPTY_PRODUCT);
 
   const { basket, setBasket, handleAddToBasket, handleDeleteBasketProduct } =
@@ -66,7 +67,7 @@ function OrderPage() {
   const handleProductSelected = async (productSelectedId) => {
     const productSelected = findObjectById(productSelectedId, menu);
     await setIsCollapsed(false);
-    await setCurrentTabSelected("edit");
+    await setCurrentTabSelected(formType.edit);
     await setProductSelected(productSelected);
     titleEditRef.current.focus();
   };

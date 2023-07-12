@@ -31,7 +31,7 @@ const Form = React.forwardRef(
             <option value={true}>En Stock</option>
             <option value={false}>Épuisé</option>
           </select>
-          <select name="isPublised" className="is-publised" id="3">
+          <select name="isPublised" className="is-publised" id="4">
             <option value={true}>Sans pub</option>
             <option value={false}>Avec pub</option>
           </select>

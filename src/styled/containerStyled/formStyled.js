@@ -1,18 +1,15 @@
 import styled from "styled-components/macro";
-import { theme } from "../../assets/theme";
 
 const FormStyled = styled.form`
   display: grid;
   grid-template-columns: 1fr 3fr;
   grid-template-rows: repeat(4, 1fr);
-  height: 36px;
+  height: 100%;
   grid-column-gap: 20px;
   grid-row-gap: 8px;
 
   .inputs-field {
-    /* background-color: blue; */
     grid-area: 1/2/-2/3;
-    /* border-radius: ${theme.borderRadius.round}; */
     display: grid;
     padding: 20px 0 10px 0;
     grid-template-rows: repeat(4, 1fr);
@@ -31,7 +28,6 @@ const FormStyled = styled.form`
     grid-area: 3/1/-1/2;
   }
   .form-cta {
-    margin-top: 20px;
     grid-area: 4/1/-1/4;
   }
   .is-available {
