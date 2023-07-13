@@ -4,4 +4,6 @@ export const EMPTY_PRODUCT = Object.freeze({
   title: "",
   imageSource: "",
   price: "",
+  isAvailable: true,
+  isPublished: false,
 });

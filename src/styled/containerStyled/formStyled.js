@@ -34,10 +34,13 @@ const FormStyled = styled.form`
     grid-area: 3/2/4/3;
     height: 36px;
     background-color:pink;
+    border: 1px solid red;
   }
-  .is-publised {
+  .is-publicised {
     grid-area: 3/3/4/4;
+    height: 36px;
     background-color: wheat;
+    border: 1px solid orange;
   }
 `;
 

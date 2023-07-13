@@ -2,13 +2,18 @@ import React from "react";
 
 import TextInput from "../../../../../reusableUI/TextInput";
 import ImagePreview from "./ImagePreview";
-import { getInputTextConfig } from "./getInputTextConfig";
+import {  getTextInputConfig, getSelectInputConfig } from "./getInputsConfig";
 import { FormStyled } from "../../../../../../styled";
+import SelectInput from "../../../../../reusableUI/SelectInput";
 
 const Form = React.forwardRef(
-  ({ onSubmit,onBlur,onFocus, onChange, product, submitButton, hintMessage }, ref) => {
-    const inputTexts = getInputTextConfig(product);
-    
+  (
+    { onSubmit, onBlur, onFocus, onChange, product, submitButton, hintMessage },
+    ref
+  ) => {
+    const inputTexts = getTextInputConfig(product);
+    const inputSelects = getSelectInputConfig(product);
+
     return (
       <FormStyled onSubmit={onSubmit}>
         <ImagePreview title={product.title} imageSource={product.imageSource} />
@@ -27,15 +32,14 @@ const Form = React.forwardRef(
               />
             );
           })}
-          <select name="isAvailable" className="is-available" id="3">
-            <option value={true}>En Stock</option>
-            <option value={false}>Épuisé</option>
-          </select>
-          <select name="isPublised" className="is-publised" id="4">
-            <option value={true}>Sans pub</option>
-            <option value={false}>Avec pub</option>
-          </select>
-          <div className="form-cta">{onSubmit ? submitButton : hintMessage}</div>
+          {inputSelects.map((inputSelect) => (
+            <SelectInput
+              {...inputSelect}
+            />
+          ))}
+          <div className="form-cta">
+            {onSubmit ? submitButton : hintMessage}
+          </div>
         </div>
       </FormStyled>
     );
@@ -43,4 +47,3 @@ const Form = React.forwardRef(
 );
 
 export default Form;
-
