@@ -37,6 +37,8 @@ const Form = React.forwardRef(
               {...inputSelect}
               key={inputSelect.key}
               onChange={onChange}
+              onFocus={onFocus}
+              onBlur={onBlur}
             />
           ))}
           <div className="form-cta">
