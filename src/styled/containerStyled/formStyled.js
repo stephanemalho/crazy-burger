@@ -30,16 +30,6 @@ const FormStyled = styled.form`
   .form-cta {
     grid-area: 4/1/-1/4;
   }
-  .is-available {
-    grid-area: 3/2/4/3;
-    height: 36px;
-    background-color:pink;
-  }
-  .is-publicised {
-    grid-area: 3/3/4/4;
-    height: 36px;
-    background-color: wheat;
-  }
 `;
 
 export default FormStyled;

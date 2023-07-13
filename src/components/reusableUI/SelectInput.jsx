@@ -1,39 +1,51 @@
 import React from "react";
 import styled from "styled-components";
+import { theme } from "../../assets/theme";
 
-const SelectInput = ({
-  value,
+export default function SelectInput({
   options,
+  value,
   name,
+  Icon,
   className,
-  id,
   onChange,
   ...restProps
-}) => {
+}) {
   return (
-    <SelectInputStyled
-      value={value}
-      name={name}
-      className={className}
-      id={id}
-      onChange={onChange}
-      {...restProps}
-    >
-      {options.map(({ value, label }) => {
-        return (
-          <option key={label} value={value}>
+    <SelectInputStyled className={className}>
+      {Icon && <div className="icon">{Icon}</div>}
+      <select name={name} value={value} onChange={onChange} {...restProps}>
+        {options.map(({ optionValue, label }) => (
+          <option key={label} value={optionValue}>
             {label}
           </option>
-        );
-      })}
+        ))}
+      </select>
     </SelectInputStyled>
   );
-};
+}
 
-export default SelectInput;
+const SelectInputStyled = styled.div`
+  border: 1px solid ${theme.colors.greyBlue};
+  background-color: ${theme.colors.background_white};
+  border-radius: ${theme.borderRadius.round};
+  display: flex;
+  align-items: center;
+  padding: 7px 16px;
 
-const SelectInputStyled = styled.select`
-  width: 100%;
-  height: 40px;
-  border: 1px solid red;
+  .icon {
+    font-size: ${theme.fonts.P1};
+    margin-right: 13px;
+    color: ${theme.colors.greyBlue};
+    display: flex; // centre verticalement l'icône dans le champ select
+  }
+
+  select {
+    background: ${theme.colors.background_white};
+    border: none;
+    font-size: ${theme.fonts.size.SM};
+    color: ${theme.colors.dark};
+    width: 100%;
+    outline: 0;
+  }
 `;
