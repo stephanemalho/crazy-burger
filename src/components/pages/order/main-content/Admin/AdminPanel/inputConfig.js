@@ -35,6 +35,7 @@ export const getTextInputConfig = (newProduct) => [
 
 export const getSelectInputConfig = (newProduct) => [
   {
+    key: "03",
     id: "3",
     name: "isAvailable",
     value: newProduct.isAvailable,
@@ -43,6 +44,7 @@ export const getSelectInputConfig = (newProduct) => [
     className: "is-available",
   },
   {
+    key: "04",
     id: "4",
     name: "isPublicised",
     value: newProduct.isPublicised,

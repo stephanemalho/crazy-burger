@@ -2,7 +2,7 @@ import React from "react";
 
 import TextInput from "../../../../../reusableUI/TextInput";
 import ImagePreview from "./ImagePreview";
-import {  getTextInputConfig, getSelectInputConfig } from "./getInputsConfig";
+import {  getTextInputConfig, getSelectInputConfig } from "./inputConfig";
 import { FormStyled } from "../../../../../../styled";
 import SelectInput from "../../../../../reusableUI/SelectInput";
 
@@ -35,6 +35,8 @@ const Form = React.forwardRef(
           {inputSelects.map((inputSelect) => (
             <SelectInput
               {...inputSelect}
+              key={inputSelect.key}
+              onChange={onChange}
             />
           ))}
           <div className="form-cta">

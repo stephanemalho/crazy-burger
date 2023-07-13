@@ -5,5 +5,5 @@ export const EMPTY_PRODUCT = Object.freeze({
   imageSource: "",
   price: "",
   isAvailable: true,
-  isPublished: false,
+  isPublicised: false,
 });
