@@ -1,9 +1,9 @@
 import React from "react";
 import styled from "styled-components";
 
-import { theme } from "../../assets/theme";
+import { theme } from "../../../../assets/theme";
 
-function UserProfile({ userName, onClick, className, Icon, label, sayHi }) {
+function Profile({ userName, onClick, className, Icon, label, sayHi }) {
   return (
     <UserProfileStyled className={className}>
       <div>
@@ -12,7 +12,7 @@ function UserProfile({ userName, onClick, className, Icon, label, sayHi }) {
         </h2>
         <button onClick={onClick}>{label}</button>
       </div>
-        {Icon}
+      {Icon}
     </UserProfileStyled>
   );
 }
@@ -29,7 +29,8 @@ const UserProfileStyled = styled.div`
     font-family: "Open Sans", sans-serif;
     font-size: 1rem;
     padding-left: 5px;
-    color: ${theme.colors.primary_burger};
+    margin: 0;
+    color: ${theme.colors.primary};
     span {
       color: ${theme.colors.greyDark};
     }
@@ -39,10 +40,10 @@ const UserProfileStyled = styled.div`
     background-color: transparent;
     color: ${theme.colors.greyDark};
     :hover {
-      color: ${theme.colors.primary_burger};
+      color: ${theme.colors.primary};
       cursor: pointer;
     }
   }
-`
+`;
 
-export default UserProfile;
+export default Profile;

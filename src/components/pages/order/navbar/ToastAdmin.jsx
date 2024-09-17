@@ -1,18 +1,18 @@
-import React from 'react'
-import "react-toastify/dist/ReactToastify.css"
-import { ToastContainer } from "react-toastify"
+import React from "react";
 import "react-toastify/dist/ReactToastify.css";
-import styled from 'styled-components'
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import styled from "styled-components";
 
-import { theme } from '../../../assets/theme'
+import { theme } from "../../../../assets/theme";
 
 export default function ToastAdmin() {
   return (
-    <ToastAdminStyled  className="toaster" bodyClassName="body-toast">
+    <ToastAdminStyled className="toaster" bodyClassName="body-toast">
       {" "}
-      <ToastContainer  />
+      <ToastContainer />
     </ToastAdminStyled>
-  )
+  );
 }
 
 const ToastAdminStyled = styled.div`
@@ -31,4 +31,4 @@ const ToastAdminStyled = styled.div`
       line-height: 1.3em;
     }
   }
-`
+`;

@@ -1,6 +1,6 @@
-import React from "react"
-import styled from "styled-components/macro"
-import { theme } from "../../assets/theme/index"
+import React from "react";
+import styled from "styled-components/macro";
+import { theme } from "../../assets/theme/index";
 
 export default function ToggleButton({
   isChecked,
@@ -25,7 +25,7 @@ export default function ToggleButton({
         data-unchecked={labelIfUnchecked}
       ></label>
     </ToggleButtonStyled>
-  )
+  );
 }
 
 const ToggleButtonStyled = styled.div`
@@ -100,20 +100,20 @@ const ToggleButtonStyled = styled.div`
       right: 8px;
       left: auto;
       opacity: 1;
-      color: ${theme.colors.primary_burger};
+      color: ${theme.colors.primary};
       font-weight: ${theme.fonts.weights.bold};
     }
 
     // small circle when not checked
     &.toggle:not(:checked) + label:before {
       left: 3px;
-      background-color: ${theme.colors.primary_burger};
+      background-color: ${theme.colors.primary};
     }
 
     // box container when checked
     &.toggle:checked + label {
       text-align: left;
-      border-color: ${theme.colors.primary_burger};
+      border-color: ${theme.colors.primary};
     }
 
     // label text when checked
@@ -129,7 +129,7 @@ const ToggleButtonStyled = styled.div`
     // small circle when checked
     &.toggle:checked + label:before {
       left: 162px;
-      background-color: ${theme.colors.primary_burger};
+      background-color: ${theme.colors.primary};
     }
   }
-`
+`;

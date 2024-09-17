@@ -1,8 +1,0 @@
-body {
-  margin: 0px;
-}
-
-::-webkit-scrollbar {
-  width: 0px;
-  background-color: transparent;
-}
